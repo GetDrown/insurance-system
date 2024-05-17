@@ -8,7 +8,7 @@
         </div>
         <ul>
             <li class="mb-[25px] ">
-                <a href="index.php" class="flex w-[230px] hover:bg-green-500 p-3 rounded-lg">
+                <a href="index.php" class="flex w-[230px] hover:bg-lime-500 p-3 rounded-lg">
                     <div class="img-container">
                         <img src="../../assets/image/dashboard.png" alt="">
                     </div>
@@ -16,7 +16,7 @@
                 </a>
             </li>
             <li class="mb-[25px]">
-                <a href="reports.php" class="flex w-[230px] hover:bg-green-500 p-3 rounded-lg">
+                <a href="reports.php" class="flex w-[230px] hover:bg-lime-500 p-3 rounded-lg">
                     <div class="img-container">
                         <img src="../../assets/image/reports.png" alt="">
                     </div>
@@ -24,7 +24,7 @@
                 </a>
             </li>
             <li class="mb-[25px]">
-                <a href="clients.php" class="flex w-[230px] hover:bg-green-500 p-3 rounded-lg">
+                <a href="clients.php" class="flex w-[230px] hover:bg-lime-500 p-3 rounded-lg">
                     <div class="img-container">
                         <img src="../../assets/image/Customer.png" alt="">
                     </div>
@@ -32,7 +32,7 @@
                 </a>
             </li>
             <li class="mb-[25px]">
-                <a href="policy.php" class="flex w-[230px] hover:bg-green-500 p-3 rounded-lg">
+                <a href="policy.php" class="flex w-[230px] hover:bg-lime-500 p-3 rounded-lg">
                     <div class="img-container">
                         <img src="../../assets/image/policy.png" alt="">
                     </div>
@@ -40,7 +40,7 @@
                 </a>
             </li>
             <li class="mb-[25px]">
-                <a href="sms.php" class="flex w-[230px] hover:bg-green-500 p-3 rounded-lg">
+                <a href="sms.php" class="flex w-[230px] hover:bg-lime-500 p-3 rounded-lg">
                     <div class="img-container">
                         <img src="../../assets/image/sms.png" alt="">
                     </div>
