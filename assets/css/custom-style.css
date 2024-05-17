@@ -1,0 +1,15 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100dvw;
+}
+
+img {
+    height: 100%;
+    width: 100%;
+}
+
+.img-container {
+    height: 23px;
+}
