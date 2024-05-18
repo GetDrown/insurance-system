@@ -66,17 +66,8 @@
                 <p class="text-gray-500">Admin</p>
             </div>
             <div>
-                <?php
-                    // Set the default timezone (change it to your preferred timezone)
-                    date_default_timezone_set('Asia/Manila');
-                    
-                    // Get the current date and time
-                    $currentDate = date('l, F j, Y');
-                    $currentTime = date('g:i a');
-                ?>
-
-                <h1><?php echo $currentDate; ?></h1>
-                <h1 class="text-[28px] font-semibold text-end"><?php echo $currentTime; ?></h1>
+                <h1 id="currentDate"></h1>
+                <h1 class="text-[28px] font-semibold text-end" id="currentTime"></h1>
             </div>
         </div>
         <!-- today data -->
@@ -84,7 +75,8 @@
             <p class="text-lime-700 font-medium text-[18px] basis-1/12 mb-2">Today's Data</p>
             <div class="w-full grid grid-cols-4 gap-3 basis-11/12">
                 <!-- total income -->
-                <div class="bg-lime-200 rounded-md flex flex-col justify-between p-2 shadow-md">
+                <div
+                    class="bg-lime-200 hover:bg-lime-600 hover:text-white rounded-md flex flex-col justify-between p-2 shadow-md">
                     <div class="flex justify-around items-center w-full mt-7">
                         <div>
                             <p class="font-normal text-[18px] tracking-wide">Income</p>
@@ -102,7 +94,8 @@
                     </div>
                 </div>
                 <!-- policy holder -->
-                <div class="bg-lime-200 rounded-md flex flex-col justify-between p-2 shadow-md">
+                <div
+                    class="bg-lime-200 hover:bg-lime-600 hover:text-white rounded-md flex flex-col justify-between p-2 shadow-md">
                     <div class="flex justify-around items-center w-full mt-7">
                         <div>
                             <p class="font-normal text-[18px] tracking-wide">Policy Holder</p>
@@ -121,7 +114,8 @@
                     </div>
                 </div>
                 <!-- remaining policies -->
-                <div class="bg-lime-200 rounded-md flex flex-col justify-between p-2 shadow-md">
+                <div
+                    class="bg-lime-200 hover:bg-lime-600 hover:text-white rounded-md flex flex-col justify-between p-2 shadow-md">
                     <div class="flex justify-around items-center w-full mt-7">
                         <div>
                             <p class="font-normal text-[18px] tracking-wide">Remaining Policies</p>
@@ -140,7 +134,8 @@
                     </div>
                 </div>
                 <!-- expiring -->
-                <div class="bg-lime-200 rounded-md flex flex-col justify-between p-2 shadow-md">
+                <div
+                    class="bg-lime-200 hover:bg-lime-600 hover:text-white rounded-md flex flex-col justify-between p-2 shadow-md">
                     <div class="flex justify-around items-center w-full mt-7">
                         <div>
                             <p class="font-normal text-[18px] tracking-wide">Expiring Policies</p>
@@ -150,11 +145,11 @@
                             <img src="../../assets/image/expiring policy.png" alt="">
                         </div>
                     </div>
-                    <div class="flex justify-around items-center w-full">
+                    <div class="flex justify-around items-center w-full ">
 
-                        <?php for ($i=0; $i < 20; $i++) { 
-                        echo('<p class="text-gray-500">*</p>');
-                    } ?>
+                        <?php for ($i=0; $i < 20; $i++) {?>
+                        <p class="text-gray-500 ">*</p>
+                        <?php }?>
 
                     </div>
                 </div>
@@ -162,21 +157,6 @@
         </div>
         <!-- add policies and staff and transaction history parent container -->
         <div class="h-[310px] w-full rounded-lg mt-4 grid grid-cols-3 gap-4">
-            <!-- add policies and staff -->
-            <div class="bg-white rounded-lg flex justify-around items-center">
-                <div class="flex flex-col justify-center items-center h-[200px] w-[150px] overflow-hidden">
-                    <div class="h-[100px] w-[100px] mb-3">
-                        <img src="../../assets/image/pol.png" alt="">
-                    </div>
-                    <button class="bg-neutral-800 text-white py-2 px-5 rounded-lg font-medium">Add Policy</button>
-                </div>
-                <div class="flex flex-col justify-center items-center h-[200px] w-[150px] overflow-hidden">
-                    <div class="h-[100px] w-[100px] mb-3">
-                        <img src="../../assets/image/staff2.png" alt="">
-                    </div>
-                    <button class="bg-lime-300 py-2 px-5 rounded-lg font-medium">Add Staff</button>
-                </div>
-            </div>
             <!-- transaction history -->
             <div class="bg-white rounded-lg col-span-2 overflow-hidden ">
                 <div class="w-full p-2 border-b h-[42px] bg-white">
@@ -189,7 +169,7 @@
                         <!-- type of transaction and date -->
                         <div>
                             <p class="text-sm font-medium">Application for Insurance Policy</p>
-                            <p class="text-xs">May 19, 2024</p>
+                            <p class="text-xs text-gray-400">May 19, 2024</p>
                         </div>
                         <!-- cliente name -->
                         <div>
@@ -205,7 +185,7 @@
                         <!-- type of transaction and date -->
                         <div>
                             <p class="text-sm font-medium">Application for Insurance Policy</p>
-                            <p class="text-xs">May 17, 2024</p>
+                            <p class="text-xs text-gray-400">May 17, 2024</p>
                         </div>
                         <!-- cliente name -->
                         <div>
@@ -221,11 +201,53 @@
                 </div>
                 <!-- view btn -->
                 <div class="w-full text-center p-2 border-t border-b h-[42px] bg-white">
-                    <p>View All Transactions</p>
+                    <button>View All Transactions</button>
+                </div>
+            </div>
+            <!-- add policies and staff -->
+            <div class="bg-white rounded-lg flex justify-around items-center">
+                <div class="flex flex-col justify-center items-center h-[200px] w-[150px] overflow-hidden">
+                    <div class="h-[100px] w-[100px] mb-3">
+                        <img src="../../assets/image/pol.png" alt="">
+                    </div>
+                    <button class="bg-neutral-800 text-white py-2 px-5 rounded-lg font-medium">Add Policy</button>
+                </div>
+                <div class="flex flex-col justify-center items-center h-[200px] w-[150px] overflow-hidden">
+                    <div class="h-[100px] w-[100px] mb-3">
+                        <img src="../../assets/image/staff2.png" alt="">
+                    </div>
+                    <button class="bg-lime-300 py-2 px-5 rounded-lg font-medium">Add Staff</button>
                 </div>
             </div>
         </div>
     </div>
+
+    <script>
+    function updateTime() {
+        var currentDate = new Date();
+        var options = {
+            weekday: 'long',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        };
+        document.getElementById("currentDate").innerHTML = currentDate.toLocaleDateString('en-US', options);
+        var hours = currentDate.getHours();
+        var minutes = currentDate.getMinutes();
+        var ampm = hours >= 12 ? 'PM' : 'AM';
+        hours = hours % 12;
+        hours = hours ? hours : 12; // the hour '0' should be '12'
+        minutes = minutes < 10 ? '0' + minutes : minutes;
+        var currentTime = hours + ':' + minutes + ' ' + ampm;
+        document.getElementById("currentTime").innerHTML = currentTime;
+    }
+
+    // Call updateTime every second to update the time
+    setInterval(updateTime, 1000);
+
+    // Call it initially to set the time when the page loads
+    updateTime();
+    </script>
 
 </body>
 
