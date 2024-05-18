@@ -58,8 +58,10 @@
         </ul>
     </div>
     <!-- main-content -->
-    <div class="basis-5/6  h-dvh">
-        <h1 class="">admin view </h1>
+    <div class="basis-5/6 h-dvh flex flex-col justify-start items-center p-3 bg-gray-200 drop-shadow-lg">
+        <div class="h-[100px] w-full bg-white rounded-lg">
+            <h1 class="">admin view </h1>
+        </div>
     </div>
 </body>
 

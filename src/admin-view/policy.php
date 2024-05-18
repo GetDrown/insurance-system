@@ -58,8 +58,14 @@
         </ul>
     </div>
     <!-- main-content -->
-    <div class="basis-5/6  h-dvh">
-        <h1 class="">policy </h1>
+    <div class="basis-5/6 h-dvh flex flex-col justify-center items-center">
+        <!-- diri sa nga part pag apply sa margin -->
+        <div class="bg-green-400 h-4/5 w-[900px]">
+            <h1 class="mb-10">policy </h1>
+            <h1 class="mb-10">policy </h1>
+            <h1 class="mb-10">policy </h1>
+            <h1 class="mb-10">policy </h1>
+        </div>
     </div>
 </body>
 
