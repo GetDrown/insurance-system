@@ -1,20 +1,27 @@
 <?php include '../../includes/header.php'; ?>
 
 <body>
+    <!-- add policy modal -->
+    <?php include '../../includes/add-policy-modal.php'; ?>
+    <!-- add staff modal -->
+    <?php include '../../includes/add-staff-modal.php'; ?>
     <!-- sidebar -->
     <div class="basis-2/12 bg-neutral-800 h-dvh flex flex-col justify-start items-center p-3">
         <div class="h-[150px] mb-[30px]">
             <img class="h-full" src="../../assets/image/logo.png" alt="">
         </div>
         <ul>
+            <!-- dashboard link -->
             <li class="mb-[25px] ">
-                <a href="index.php" class="flex w-[230px] hover:bg-lime-500 p-3 rounded-lg">
+                <a href="index.php"
+                    class="flex w-[230px] hover:bg-lime-500 p-3 rounded-lg <?php echo ($current_page == 'index.php') ? 'bg-lime-500' : ''; ?>">
                     <div class="img-container">
                         <img src="../../assets/image/dashboard.png" alt="">
                     </div>
                     <span class="ml-3 text-white">Dashboard</span>
                 </a>
             </li>
+            <!-- report link -->
             <li class="mb-[25px]">
                 <a href="reports.php" class="flex w-[230px] hover:bg-lime-500 p-3 rounded-lg">
                     <div class="img-container">
@@ -23,6 +30,7 @@
                     <span class="ml-3 text-white">Reports</span>
                 </a>
             </li>
+            <!-- clients link -->
             <li class="mb-[25px]">
                 <a href="clients.php" class="flex w-[230px] hover:bg-lime-500 p-3 rounded-lg">
                     <div class="img-container">
@@ -31,6 +39,7 @@
                     <span class="ml-3 text-white">Clients</span>
                 </a>
             </li>
+            <!-- policcy -->
             <li class="mb-[25px]">
                 <a href="policy.php" class="flex w-[230px] hover:bg-lime-500 p-3 rounded-lg">
                     <div class="img-container">
@@ -39,6 +48,7 @@
                     <span class="ml-3 text-white">Policy</span>
                 </a>
             </li>
+            <!-- sms -->
             <li class="mb-[25px]">
                 <a href="sms.php" class="flex w-[230px] hover:bg-lime-500 p-3 rounded-lg">
                     <div class="img-container">
@@ -57,6 +67,7 @@
             </li>
         </ul>
     </div>
+
     <!-- main-content -->
     <div class="basis-5/6 h-dvh flex flex-col justify-start items-center p-3 bg-gray-200 drop-shadow-lg">
         <!-- header -->
@@ -163,7 +174,7 @@
                     <p class="text-lime-700 font-medium">Transaction History</p>
                 </div>
                 <!-- history content -->
-                <div class="w-full h-[226px] overflow-y-auto py-[5px] px-2">
+                <div class="w-full h-[268px] overflow-y-auto py-[5px] px-2">
                     <?php for ($i=0; $i < 10; $i++) {  ?>
                     <div class="w-full h-[50px] shadow-md mb-3 flex justify-around items-center px-3 rounded-md">
                         <!-- type of transaction and date -->
@@ -200,9 +211,9 @@
                     <?php  $i += 1; }?>
                 </div>
                 <!-- view btn -->
-                <div class="w-full text-center p-2 border-t border-b h-[42px] bg-white">
+                <!-- <div class="w-full text-center p-2 border-t border-b h-[42px] bg-white">
                     <button>View All Transactions</button>
-                </div>
+                </div> -->
             </div>
             <!-- add policies and staff -->
             <div class="bg-white rounded-lg flex justify-around items-center">
@@ -210,19 +221,47 @@
                     <div class="h-[100px] w-[100px] mb-3">
                         <img src="../../assets/image/pol.png" alt="">
                     </div>
-                    <button class="bg-neutral-800 text-white py-2 px-5 rounded-lg font-medium">Add Policy</button>
+                    <button data-open-policy-modal
+                        class="bg-neutral-800 text-white py-2 px-5 rounded-lg font-medium shadow-md">Add
+                        Policy</button>
                 </div>
                 <div class="flex flex-col justify-center items-center h-[200px] w-[150px] overflow-hidden">
                     <div class="h-[100px] w-[100px] mb-3">
                         <img src="../../assets/image/staff2.png" alt="">
                     </div>
-                    <button class="bg-lime-300 py-2 px-5 rounded-lg font-medium">Add Staff</button>
+                    <button data-open-staff-modal class="bg-lime-300 py-2 px-5 rounded-lg font-medium shadow-md">Add
+                        Staff</button>
                 </div>
             </div>
         </div>
     </div>
 
     <script>
+    const openStaffBtn = document.querySelector("[data-open-staff-modal]");
+    const closeStaffBtn = document.querySelector("[data-close-staff-modal]");
+    const modalStaff = document.querySelector("[data-staff-modal]");
+
+    const openPolicyBtn = document.querySelector("[data-open-policy-modal]");
+    const closeSPolicyBtn = document.querySelector("[data-close-policy-modal]");
+    const modalPolicy = document.querySelector("[data-policy-modal]");
+
+    openStaffBtn.addEventListener("click", () => {
+        modalStaff.showModal();
+    });
+
+    closeStaffBtn.addEventListener("click", () => {
+        modalStaff.close();
+    });
+
+    openPolicyBtn.addEventListener("click", () => {
+        modalPolicy.showModal();
+    });
+
+    closePolicyBtn.addEventListener("click", () => {
+        modalPolicy.close();
+    });
+
+
     function updateTime() {
         var currentDate = new Date();
         var options = {
@@ -241,11 +280,7 @@
         var currentTime = hours + ':' + minutes + ' ' + ampm;
         document.getElementById("currentTime").innerHTML = currentTime;
     }
-
-    // Call updateTime every second to update the time
     setInterval(updateTime, 1000);
-
-    // Call it initially to set the time when the page loads
     updateTime();
     </script>
 
