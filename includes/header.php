@@ -1,3 +1,12 @@
+<?php
+function getCurrentPage() {
+    return basename($_SERVER['PHP_SELF']);
+}
+$current_page = getCurrentPage();
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 

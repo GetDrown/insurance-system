@@ -16,7 +16,8 @@
                 </a>
             </li>
             <li class="mb-[25px]">
-                <a href="reports.php" class="flex w-[230px] hover:bg-lime-500 p-3 rounded-lg">
+                <a href="reports.php"
+                    class="flex w-[230px] hover:bg-lime-500 p-3 rounded-lg <?php echo ($current_page == 'reports.php') ? 'bg-lime-500' : ''; ?>">
                     <div class="img-container">
                         <img src="../../assets/image/reports.png" alt="">
                     </div>
@@ -57,9 +58,32 @@
             </li>
         </ul>
     </div>
+
     <!-- main-content -->
     <div class="basis-5/6  h-dvh">
         <h1 class="">reports</h1>
+        <form action="" class="flex flex-col w-[300px]">
+            <div class="h-[35px] flex mb-5">
+                <div
+                    class="basis-1/5  bg-gray-700 flex justify-center items-center h-full text-white rounded-tl-md rounded-bl-md text-sm px-2">
+                    Username</div>
+                <input type="text"
+                    class="basis-4/5  h-full border-2 px-3 py-2 rounded-tr-md rounded-br-md active:outline-none focus:outline-none">
+            </div>
+
+            <div class="h-[35px] flex mb-5">
+                <div
+                    class="basis-1/5  bg-gray-700 flex justify-center items-center h-full text-white rounded-tl-md rounded-bl-md text-sm px-2">
+                    Password</div>
+                <input type="text"
+                    class="basis-4/5  h-full border-2 px-3 py-2 rounded-tr-md rounded-br-md active:outline-none focus:outline-none">
+            </div>
+
+            <div class="flex justify-around items-center ">
+                <button class="bg-lime-300 py-2 px-2 rounded-lg font-medium w-[100px] shadow-md">Add Staff</button>
+                <button class="bg-red-300 py-2 px-2 rounded-lg font-medium w-[100px] shadow-md">Cancel</button>
+            </div>
+        </form>
     </div>
 </body>
 
