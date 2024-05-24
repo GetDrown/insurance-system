@@ -86,7 +86,7 @@
                 </div>
                 <div class="flex flex-row justify-end space-x-4 mr-7 mt-4">
                     <button class="rounded-md px-[6px] py-[9px] bg-lime-500 hover:bg-lime-600  transition ease-in-out duration-300">Create Account</button>
-                    <button class="rounded-md px-[14px] py-[9px] bg-slate-300">Cancel</button>
+                    <button class="rounded-md px-[14px] py-[9px] bg-red-300 ">Cancel</button>
                 </div>
 
             </form>
@@ -242,7 +242,7 @@
                 </div>
                 <div class="flex flex-row justify-end space-x-4 mr-7 mt-4">
                     <button class="rounded-md px-[6px] py-[9px] bg-lime-500 hover:bg-lime-600  transition ease-in-out duration-300">Submit Application</button>
-                    <button class="rounded-md px-[14px] py-[9px] bg-slate-300">Cancel</button>
+                    <button class="rounded-md px-[14px] py-[9px] bg-red-300 ">Cancel</button>
                 </div>
 
             </form>
