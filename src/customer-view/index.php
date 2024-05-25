@@ -17,7 +17,7 @@
             </li>
 
             <li class="w-full">
-                <a href="../../index.php" class="flex w-full hover:bg-red-500 p-3 rounded-lg">
+                <a href="../../login.php" class="flex w-full hover:bg-red-500 p-3 rounded-lg">
                     <div class="h-6 w-6">
                         <img src="../../assets/image/logout.png" alt="" class="h-full w-full">
                     </div>

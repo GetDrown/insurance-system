@@ -8,6 +8,10 @@ module.exports = {
                 'inter': ['Inter', 'sans-serif']
             }
         },
+        screens: {
+            'iphone': '430px'
+            // => @media (min-width: 430px) for iphone
+        }
     },
     plugins: [],
 };

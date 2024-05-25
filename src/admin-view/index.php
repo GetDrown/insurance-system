@@ -58,7 +58,7 @@
                 </a>
             </li>
             <li class="logout">
-                <a href="../../index.php" class="flex w-[230px] hover:bg-red-500 p-3 rounded-lg">
+                <a href="../../login.php" class="flex w-[230px] hover:bg-red-500 p-3 rounded-lg">
                     <div class="img-container">
                         <img src="../../assets/image/logout.png" alt="">
                     </div>
@@ -99,9 +99,9 @@
                     </div>
                     <div class="flex justify-around items-center w-full">
 
-                        <?php for ($i=0; $i < 20; $i++) { 
-                        echo('<p class="text-gray-500">*</p>');
-                    } ?>
+                        <?php for ($i = 0; $i < 20; $i++) {
+                            echo ('<p class="text-gray-500">*</p>');
+                        } ?>
                     </div>
                 </div>
                 <!-- policy holder -->
@@ -118,9 +118,9 @@
                     </div>
                     <div class="flex justify-around items-center w-full">
 
-                        <?php for ($i=0; $i < 20; $i++) { 
-                        echo('<p class="text-gray-500">*</p>');
-                    } ?>
+                        <?php for ($i = 0; $i < 20; $i++) {
+                            echo ('<p class="text-gray-500">*</p>');
+                        } ?>
 
                     </div>
                 </div>
@@ -138,9 +138,9 @@
                     </div>
                     <div class="flex justify-around items-center w-full">
 
-                        <?php for ($i=0; $i < 20; $i++) { 
-                        echo('<p class="text-gray-500">*</p>');
-                    } ?>
+                        <?php for ($i = 0; $i < 20; $i++) {
+                            echo ('<p class="text-gray-500">*</p>');
+                        } ?>
 
                     </div>
                 </div>
@@ -158,9 +158,9 @@
                     </div>
                     <div class="flex justify-around items-center w-full ">
 
-                        <?php for ($i=0; $i < 20; $i++) {?>
+                        <?php for ($i = 0; $i < 20; $i++) { ?>
                         <p class="text-gray-500 ">*</p>
-                        <?php }?>
+                        <?php } ?>
 
                     </div>
                 </div>
@@ -175,7 +175,7 @@
                 </div>
                 <!-- history content -->
                 <div class="w-full h-[268px] overflow-y-auto py-[5px] px-2">
-                    <?php for ($i=0; $i < 10; $i++) {  ?>
+                    <?php for ($i = 0; $i < 10; $i++) {  ?>
                     <div class="w-full h-[50px] shadow-md mb-3 flex justify-around items-center px-3 rounded-md">
                         <!-- type of transaction and date -->
                         <div>
@@ -208,7 +208,8 @@
                             <p class="text-xs text-lime-500">Approved</p>
                         </div>
                     </div>
-                    <?php  $i += 1; }?>
+                    <?php $i += 1;
+                    } ?>
                 </div>
                 <!-- view btn -->
                 <div class="w-full text-center p-2 border-t border-b h-[42px] bg-white">
@@ -263,7 +264,6 @@
 
 
     function updateTime() {
-        console.log('test');
         var currentDate = new Date();
         var options = {
             weekday: 'long',
