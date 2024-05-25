@@ -211,9 +211,9 @@
                     <?php  $i += 1; }?>
                 </div>
                 <!-- view btn -->
-                <!-- <div class="w-full text-center p-2 border-t border-b h-[42px] bg-white">
+                <div class="w-full text-center p-2 border-t border-b h-[42px] bg-white">
                     <button>View All Transactions</button>
-                </div> -->
+                </div>
             </div>
             <!-- add policies and staff -->
             <div class="bg-white rounded-lg flex justify-around items-center">
@@ -263,6 +263,7 @@
 
 
     function updateTime() {
+        console.log('test');
         var currentDate = new Date();
         var options = {
             weekday: 'long',
