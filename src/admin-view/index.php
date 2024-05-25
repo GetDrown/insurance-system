@@ -69,7 +69,7 @@
     </div>
 
     <!-- main-content -->
-    <div class="basis-5/6 h-dvh flex flex-col justify-start items-center p-3 bg-gray-200 drop-shadow-lg">
+    <div class="basis-5/6 h-dvh flex flex-col justify-start items-center p-3 bg-gray-200">
         <!-- header -->
         <div class="h-[100px] w-full bg-white rounded-lg p-4 flex items-center justify-between">
             <div>
@@ -87,14 +87,14 @@
             <div class="w-full grid grid-cols-4 gap-3 basis-11/12">
                 <!-- total income -->
                 <div
-                    class="bg-lime-200 hover:bg-lime-600 hover:text-white rounded-md flex flex-col justify-between p-2 shadow-md">
-                    <div class="flex justify-around items-center w-full mt-7">
+                    class="bg-lime-200 hover:bg-amber-500  hover:text-white rounded-md flex flex-col justify-between p-2 shadow-md">
+                    <div class="flex justify-around items-center w-full mt-7 px-2">
                         <div>
                             <p class="font-normal text-[18px] tracking-wide">Income</p>
                             <p class="font-medium text-[28px] tracking-wider">₱ 0.00</p>
                         </div>
                         <div class="h-[30px] w-[30px]">
-                            <img src="../../assets/image/Us Dollar Circled.png" alt="">
+                            <span><i class="fa-solid fa-peso-sign text-[50px]"></i></span>
                         </div>
                     </div>
                     <div class="flex justify-around items-center w-full">
@@ -106,14 +106,14 @@
                 </div>
                 <!-- policy holder -->
                 <div
-                    class="bg-lime-200 hover:bg-lime-600 hover:text-white rounded-md flex flex-col justify-between p-2 shadow-md">
-                    <div class="flex justify-around items-center w-full mt-7">
+                    class="bg-lime-200 hover:bg-amber-500  hover:text-white rounded-md flex flex-col justify-between p-2 shadow-md">
+                    <div class="flex justify-around items-center w-full mt-7 px-2">
                         <div>
                             <p class="font-normal text-[18px] tracking-wide">Policy Holder</p>
                             <p class="font-medium text-[28px] tracking-wider">0</p>
                         </div>
                         <div class="h-[30px] w-[30px]">
-                            <img src="../../assets/image/policy holder.png" alt="">
+                            <span> <i class="fa-solid fa-user-tie text-[50px]"></i></span>
                         </div>
                     </div>
                     <div class="flex justify-around items-center w-full">
@@ -126,14 +126,15 @@
                 </div>
                 <!-- remaining policies -->
                 <div
-                    class="bg-lime-200 hover:bg-lime-600 hover:text-white rounded-md flex flex-col justify-between p-2 shadow-md">
-                    <div class="flex justify-around items-center w-full mt-7">
+                    class="bg-lime-200 hover:bg-amber-500  hover:text-white rounded-md flex flex-col justify-between p-2 shadow-md">
+                    <div class="flex justify-around items-center w-full mt-7 px-2">
                         <div>
                             <p class="font-normal text-[18px] tracking-wide">Remaining Policies</p>
                             <p class="font-medium text-[28px] tracking-wider">0</p>
                         </div>
                         <div class="h-[30px] w-[30px]">
-                            <img src="../../assets/image/remaining policy.png" alt="">
+                            <span><i class="fa-solid fa-file-invoice  fa-peso-sign text-[50px]"></i></span>
+
                         </div>
                     </div>
                     <div class="flex justify-around items-center w-full">
@@ -146,14 +147,14 @@
                 </div>
                 <!-- expiring -->
                 <div
-                    class="bg-lime-200 hover:bg-lime-600 hover:text-white rounded-md flex flex-col justify-between p-2 shadow-md">
-                    <div class="flex justify-around items-center w-full mt-7">
+                    class="bg-lime-200 hover:bg-amber-500  hover:text-white rounded-md flex flex-col justify-between p-2 shadow-md">
+                    <div class="flex justify-around items-center w-full mt-7 px-2">
                         <div>
                             <p class="font-normal text-[18px] tracking-wide">Expiring Policies</p>
                             <p class="font-medium text-[28px] tracking-wider">0</p>
                         </div>
                         <div class="h-[30px] w-[30px]">
-                            <img src="../../assets/image/expiring policy.png" alt="">
+                            <span><i class="fa-solid  fa-business-time text-[50px]"></i></span>
                         </div>
                     </div>
                     <div class="flex justify-around items-center w-full ">

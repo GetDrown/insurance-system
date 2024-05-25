@@ -60,30 +60,53 @@
     </div>
 
     <!-- main-content -->
-    <div class="basis-5/6  h-dvh">
-        <h1 class="">reports</h1>
-        <form action="" class="flex flex-col w-[300px]">
-            <div class="h-[35px] flex mb-5">
-                <div
-                    class="basis-1/5  bg-gray-700 flex justify-center items-center h-full text-white rounded-tl-md rounded-bl-md text-sm px-2">
-                    Username</div>
-                <input type="text"
-                    class="basis-4/5  h-full border-2 px-3 py-2 rounded-tr-md rounded-br-md active:outline-none focus:outline-none">
+    <div class="basis-5/6  h-dvh p-3 rounded-lg overflow-hidden bg-gray-200 flex flex-col">
+        <!-- header -->
+        <div class="h-[100px] w-full bg-white rounded-lg p-4 flex items-center justify-between mb-4 drop-shadow-md">
+            <div>
+                <h1 class="font-medium text-[28px] text-lime-700">Reports </h1>
             </div>
+            <div
+                class="custom-select flex justify-between items-center w-[270px] bg-lime-300 rounded-sm  overflow-hidden">
+                <div class="pl-2 drop-shadow-sm">
+                    <label for="">Select Year</label>
+                </div>
+                <select>
+                    <option value="">2020</option>
+                    <option value="">2021</option>
+                    <option value="">2022</option>
+                    <option value="">2023</option>
+                    <option value="">2024</option>
+                </select>
+            </div>
+        </div>
+        <!-- top row -->
+        <div class="h-1/3 grid grid-cols-4 gap-4 mb-4">
+            <div class="rounded-md bg-white drop-shadow-lg col-span-2">
+                <h1>Remaining Policy</h1>
+            </div>
+            <div class=" rounded-md drop-shadow-lg flex items-center justify-between px-7 bg-lime-600  ">
+                <div class="text-white ">
+                    <p class="font-bold text-[36px]">173</p>
+                    <h1>Policy Holder </h1>
+                </div>
+                <span><i class="fa-solid fa-hand-holding-hand text-[70px] text-white"></i></span>
 
-            <div class="h-[35px] flex mb-5">
-                <div
-                    class="basis-1/5  bg-gray-700 flex justify-center items-center h-full text-white rounded-tl-md rounded-bl-md text-sm px-2">
-                    Password</div>
-                <input type="text"
-                    class="basis-4/5  h-full border-2 px-3 py-2 rounded-tr-md rounded-br-md active:outline-none focus:outline-none">
             </div>
+            <div class=" rounded-md drop-shadow-lg flex items-center justify-between px-7 bg-amber-500 ">
+                <div class="text-white ">
+                    <p class="font-bold text-[36px]">10,102</p>
+                    <h1>Total Income </h1>
+                </div>
+                <span><i class="fa-solid fa-peso-sign text-[70px] text-white"></i></span>
 
-            <div class="flex justify-around items-center ">
-                <button class="bg-lime-300 py-2 px-2 rounded-lg font-medium w-[100px] shadow-md">Add Staff</button>
-                <button class="bg-red-300 py-2 px-2 rounded-lg font-medium w-[100px] shadow-md">Cancel</button>
             </div>
-        </form>
+        </div>
+        <!-- bottom row -->
+        <div class=" h-2/3 flex justify-between items-center gap-3">
+            <div class="bg-white drop-shadow-lg p-3 rounded-lg basis-1/4 h-full">pie chart for policy distribution</div>
+            <div class="bg-white drop-shadow-lg p-3 rounded-lg basis-3/4 h-full">line graph for income</div>
+        </div>
     </div>
 </body>
 
