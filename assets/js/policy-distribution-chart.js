@@ -3,33 +3,22 @@ var ctx4 = document.getElementById("donut-chart").getContext("2d");
 var config4 = {
     type: "doughnut",
     data: {
-        labels: [
-            "Policy 1",
-            "Policy 2",
-            "Policy 3",
-            "Policy 4",
-            "Policy 5",
-            "Policy 6",
-        ],
+        labels: ["Policy 1", "Policy 2", "Policy 3", "Policy 4"],
         datasets: [
             {
                 // label: "Policies Avail Distribution",
-                data: [30, 25, 20, 10, 10, 5], // Example data, replace with your actual data
+                data: [30, 25, 20, 10], // Example data, replace with your actual data
                 backgroundColor: [
                     "rgba(255, 99, 132, 0.6)",
                     "rgba(54, 162, 235, 0.6)",
                     "rgba(255, 206, 86, 0.6)",
                     "rgba(75, 192, 192, 0.6)",
-                    "rgba(153, 102, 255, 0.6)",
-                    "rgba(255, 159, 64, 0.6)",
                 ],
                 borderColor: [
                     "rgba(255, 99, 132, 1)",
                     "rgba(54, 162, 235, 1)",
                     "rgba(255, 206, 86, 1)",
                     "rgba(75, 192, 192, 1)",
-                    "rgba(153, 102, 255, 1)",
-                    "rgba(255, 159, 64, 1)",
                 ],
                 borderWidth: 1,
             },

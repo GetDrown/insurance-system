@@ -2,62 +2,7 @@
 
 <body class="bg-gray-300">
     <!-- sidebar -->
-    <div class="basis-2/12 bg-neutral-800 h-dvh flex flex-col justify-start items-center p-3 ">
-        <div class="h-[150px] mb-[30px]">
-            <img class="h-full" src="../../assets/image/logo.png" alt="">
-        </div>
-        <ul>
-            <li class="mb-[25px] ">
-                <a href="index.php" class="flex w-[230px] hover:bg-lime-500 p-3 rounded-lg">
-                    <div class="img-container">
-                        <img src="../../assets/image/dashboard.png" alt="">
-                    </div>
-                    <label class="ml-3 text-white">Dashboard</label>
-                </a>
-            </li>
-            <li class="mb-[25px]">
-                <a href="reports.php" class="flex w-[230px] hover:bg-lime-500 p-3 rounded-lg">
-                    <div class="img-container">
-                        <img src="../../assets/image/reports.png" alt="">
-                    </div>
-                    <label class="ml-3 text-white">Reports</label>
-                </a>
-            </li>
-            <li class="mb-[25px]">
-                <a href="clients.php" class="flex w-[230px] hover:bg-lime-500 p-3 rounded-lg">
-                    <div class="img-container">
-                        <img src="../../assets/image/Customer.png" alt="">
-                    </div>
-                    <label class="ml-3 text-white">Clients</label>
-                </a>
-            </li>
-            <li class="mb-[25px]">
-                <a href="policy.php"
-                    class="flex w-[230px] hover:bg-lime-500 p-3 rounded-lg  <?php echo ($current_page == 'policy.php') ? 'bg-lime-500' : ''; ?>">
-                    <div class="img-container">
-                        <img src="../../assets/image/policy.png" alt="">
-                    </div>
-                    <label class="ml-3 text-white">Policy</label>
-                </a>
-            </li>
-            <li class="mb-[25px]">
-                <a href="sms.php" class="flex w-[230px] hover:bg-lime-500 p-3 rounded-lg">
-                    <div class="img-container">
-                        <img src="../../assets/image/sms.png" alt="">
-                    </div>
-                    <label class="ml-3 text-white">SMS</label>
-                </a>
-            </li>
-            <li class="logout">
-                <a href="../../index.php" class="flex w-[230px] hover:bg-red-500 p-3 rounded-lg">
-                    <div class="img-container">
-                        <img src="../../assets/image/logout.png" alt="">
-                    </div>
-                    <label class="ml-3 text-white">Logout</label>
-                </a>
-            </li>
-        </ul>
-    </div>
+    <?php include '../../includes/sidebar.php'; ?>
     <!-- main-content -->
     <div class=" basis-5/6 h-dvh flex flex-col justify-start items-center py-3 px-5 overflow-auto">
         <div class="h-[320px] w-full flex flex-col  bg-white rounded-lg border p-3 drop-shadow-md mb-[20px] ">

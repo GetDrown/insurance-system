@@ -48,20 +48,6 @@ var config = {
                 borderColor: "rgba(75, 192, 192, 1)",
                 borderWidth: 1,
             },
-            {
-                label: "Policy 5",
-                data: [8, 11, 7, 10, 6, 9, 8, 6, 7, 5, 4, 3],
-                backgroundColor: "rgba(153, 102, 255, 0.2)",
-                borderColor: "rgba(153, 102, 255, 1)",
-                borderWidth: 1,
-            },
-            {
-                label: "Policy 6",
-                data: [5, 8, 4, 7, 3, 6, 5, 4, 6, 3, 2, 1],
-                backgroundColor: "rgba(255, 159, 64, 0.2)",
-                borderColor: "rgba(255, 159, 64, 1)",
-                borderWidth: 1,
-            },
         ],
     },
     options: {
