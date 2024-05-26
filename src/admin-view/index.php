@@ -2,9 +2,68 @@
 
 <body>
     <!-- add policy modal -->
-    <?php include '../../includes/add-policy-modal.php'; ?>
+    <dialog data-policy-modal>
+        <div>
+            <h1 class="mb-5 font-medium text-lime-600">Add Policy</h1>
+            <form action="" class="flex flex-col px-3">
+                <!-- username -->
+                <div class="h-[45px] flex mb-5 w-full">
+                    <select name="" id="" class="rounded-md px-[6px] py-[7px] bg-white border-[3px] w-full">
+                        <option hidden disabled selected value>-- Select Policy --</option>
+                        <option value="motorcycle_policy">Motorcycle Policy</option>
+                        <option value="private_car_policy">Private Car Policy</option>
+                        <option value="commercial_vehicle_policy">Commercial Vehicle Policy</option>
+                        <option value="lto_policy">Land Transportation Operators Policy</option>
+                    </select>
+                </div>
+                <!-- password -->
+                <div class="h-[35px] flex mb-5">
+                    <div
+                        class="basis-1/5  bg-gray-700 flex justify-center items-center h-full text-white rounded-tl-md rounded-bl-md text-sm px-2">
+                        Quantity</div>
+                    <input type="text"
+                        class="basis-4/5  h-full border-2 px-3 py-2 rounded-tr-md rounded-br-md active:outline-none focus:outline-none">
+                </div>
+                <!-- buttns -->
+                <div class="flex justify-around items-center ">
+                    <button class="bg-lime-300 py-2 px-2 rounded-lg font-medium w-[100px] shadow-md">Save</button>
+                    <button data-close-policy-modal
+                        class="bg-red-300 py-2 px-2 rounded-lg font-medium w-[100px] shadow-md">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </dialog>
     <!-- add staff modal -->
-    <?php include '../../includes/add-staff-modal.php'; ?>
+    <dialog data-staff-modal>
+        <div>
+            <h1 class="mb-5 font-medium text-lime-600">Add new Staff</h1>
+            <form action="" class="flex flex-col">
+                <!-- username -->
+                <div class="h-[35px] flex mb-5">
+                    <div
+                        class="basis-1/5  bg-gray-700 flex justify-center items-center h-full text-white rounded-tl-md rounded-bl-md text-sm px-2">
+                        Username</div>
+                    <input type="text"
+                        class="basis-4/5  h-full border-2 px-3 py-2 rounded-tr-md rounded-br-md active:outline-none focus:outline-none">
+                </div>
+                <!-- password -->
+                <div class="h-[35px] flex mb-5">
+                    <div
+                        class="basis-1/5  bg-gray-700 flex justify-center items-center h-full text-white rounded-tl-md rounded-bl-md text-sm px-2">
+                        Password</div>
+                    <input type="text"
+                        class="basis-4/5  h-full border-2 px-3 py-2 rounded-tr-md rounded-br-md active:outline-none focus:outline-none">
+                </div>
+                <!-- buttns -->
+                <div class="flex justify-around items-center ">
+                    <button class="bg-lime-300 py-2 px-2 rounded-lg font-medium w-[100px] shadow-md">Add Staff</button>
+                    <button data-close-staff-modal
+                        class="bg-red-300 py-2 px-2 rounded-lg font-medium w-[100px] shadow-md">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </dialog>
+
     <!-- sidebar -->
     <div class="basis-2/12 bg-neutral-800 h-dvh flex flex-col justify-start items-center p-3">
         <div class="h-[150px] mb-[30px]">
@@ -244,7 +303,7 @@
     const modalStaff = document.querySelector("[data-staff-modal]");
 
     const openPolicyBtn = document.querySelector("[data-open-policy-modal]");
-    const closeSPolicyBtn = document.querySelector("[data-close-policy-modal]");
+    const closePolicyBtn = document.querySelector("[data-close-policy-modal]");
     const modalPolicy = document.querySelector("[data-policy-modal]");
 
     openStaffBtn.addEventListener("click", () => {
