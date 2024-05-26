@@ -21,9 +21,22 @@
         </div>
         <!-- body -->
         <div class="h-full rounded-md overflow-y-auto bg-white drop-shadow-md p-5 grid grid-cols-3 gap-5">
-            <?php for ($i=0; $i < 102; $i++) {  ?>
-            <div class="bg-amber-400 h-[220px] rounded-md drop-shadow-md">
-                <h1>test</h1>
+            <?php for ($i=0; $i < 24; $i++) {  ?>
+            <div class="bg-lime-300 h-[220px] rounded-md drop-shadow-md p-5 ">
+                <div class="flex items-center justify-start border-b-2 border-gray-500 ">
+                    <span class="border-2 border-gray-500 rounded-md p-3 mr-5 mb-3 ">
+                        <i class=" fa-solid fa-user text-[44px] text-white"></i>
+                    </span>
+                    <div>
+                        <p>Username</p>
+                        <p>Password</p>
+                    </div>
+                </div>
+                <div class="mt-3">
+                    <p>Name</p>
+                    <p>Contact No.</p>
+                    <p>Address</p>
+                </div>
             </div>
             <?php } ?>
         </div>

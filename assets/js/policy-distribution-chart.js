@@ -3,7 +3,12 @@ var ctx4 = document.getElementById("donut-chart").getContext("2d");
 var config4 = {
     type: "doughnut",
     data: {
-        labels: ["Policy 1", "Policy 2", "Policy 3", "Policy 4"],
+        labels: [
+            "Motorcycle Policy",
+            "Private Car Policy",
+            "Commercial Vehicle Policy",
+            "Land Transportation Operators Policy",
+        ],
         datasets: [
             {
                 // label: "Policies Avail Distribution",

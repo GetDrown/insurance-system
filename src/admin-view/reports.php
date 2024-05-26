@@ -75,7 +75,7 @@ $current_page = getCurrentPage();
         <!-- bottom row -->
         <div class="h-[310px] flex justify-between items-center gap-3">
             <div class="bg-white drop-shadow-lg p-3 rounded-lg basis-1/4 h-full">
-                <p class="text-lime-700 font-medium text-[18px]">Policy avail distribution</p>
+                <p class="text-lime-700 font-medium text-[18px]">Policy Holder Distribution</p>
                 <canvas id="donut-chart" class="rounded-md"></canvas>
             </div>
             <div class="bg-white drop-shadow-lg rounded-lg basis-3/4 h-full p-5">
