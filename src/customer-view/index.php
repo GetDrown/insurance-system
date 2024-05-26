@@ -28,8 +28,13 @@
     </div>
     <!-- main-content -->
     <div class="basis-10/12 h-dvh flex flex-col justify-start items-center p-3  drop-shadow-lg md:basis-3/4 lg:basis-5/6">
-        <div class="h-[100px] w-full bg-white rounded-lg">
-            <h1 class="">admin view </h1>
+        <div class="h-[310px] w-full bg-white rounded-lg">
+            <div class="flex flex-col space-y-4">
+                <div class="w-full p-2 h-[42px] bg-white">
+                    <p class="text-lime-700 font-medium font-poppins">Policy Status</p>
+                </div>
+
+            </div>
         </div>
     </div>
 </body>
