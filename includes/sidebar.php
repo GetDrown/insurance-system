@@ -34,7 +34,7 @@
         </li>
         <!-- policcy -->
         <li class="mb-[25px]">
-            <a href="reports.php"
+            <a href="policy.php"
                 class="flex w-[230px] hover:bg-lime-500 p-3 rounded-lg <?php echo ($current_page == 'policy.php') ? 'bg-lime-500' : ''; ?>">
                 <div class="img-container">
                     <img src="../../assets/image/policy.png" alt="">
@@ -44,7 +44,7 @@
         </li>
         <!-- sms -->
         <li class="mb-[25px]">
-            <a href="reports.php"
+            <a href="sms.php"
                 class="flex w-[230px] hover:bg-lime-500 p-3 rounded-lg <?php echo ($current_page == 'sms.php') ? 'bg-lime-500' : ''; ?>">
                 <div class="img-container">
                     <img src="../../assets/image/sms.png" alt="">
