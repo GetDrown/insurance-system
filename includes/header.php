@@ -17,5 +17,7 @@ $current_page = getCurrentPage();
     <link rel="stylesheet" href="../../assets/css/custom-style.css">
     <link rel="stylesheet" href="../../assets/css/fontawesome-free-6.5.2-web/css/all.min.css">
     <link rel="stylesheet" href="../../assets/css/fontawesome-free-6.5.2-web/css/fontawesome.min.css">
+    <!-- 
+    <script src="https://cdn.jsdeliver.net/npm/chart.js"></script> -->
     <title>Insurance System</title>
 </head>

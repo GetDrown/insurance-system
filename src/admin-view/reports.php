@@ -1,4 +1,26 @@
-<?php include '../../includes/header.php'; ?>
+<?php
+function getCurrentPage() {
+    return basename($_SERVER['PHP_SELF']);
+}
+$current_page = getCurrentPage();
+?>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../assets/css/output.css">
+    <link rel="stylesheet" href="../../assets/css/custom-style.css">
+    <link rel="stylesheet" href="../../assets/css/fontawesome-free-6.5.2-web/css/all.min.css">
+    <link rel="stylesheet" href="../../assets/css/fontawesome-free-6.5.2-web/css/fontawesome.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Insurance System</title>
+</head>
 
 <body>
     <!-- sidebar -->
@@ -81,33 +103,44 @@
             </div>
         </div>
         <!-- top row -->
-        <div class="h-1/3 grid grid-cols-4 gap-4 mb-4">
-            <div class="rounded-md bg-white drop-shadow-lg col-span-2">
-                <h1>Remaining Policy</h1>
-            </div>
-            <div class=" rounded-md drop-shadow-lg flex items-center justify-between px-7 bg-lime-600  ">
-                <div class="text-white ">
-                    <p class="font-bold text-[36px]">173</p>
-                    <h1>Policy Holder </h1>
-                </div>
-                <span><i class="fa-solid fa-hand-holding-hand text-[70px] text-white"></i></span>
+        <div class="h-[250px] grid grid-cols-4 gap-4 mb-4">
+            <div class="rounded-md bg-white drop-shadow-lg col-span-3 [300px] p-3">
+                <canvas id="line-chart" class="rounded-md"></canvas>
 
             </div>
-            <div class=" rounded-md drop-shadow-lg flex items-center justify-between px-7 bg-amber-500 ">
-                <div class="text-white ">
-                    <p class="font-bold text-[36px]">10,102</p>
-                    <h1>Total Income </h1>
-                </div>
-                <span><i class="fa-solid fa-peso-sign text-[70px] text-white"></i></span>
 
+            <div class="flex flex-col gap-3 justify-between">
+                <div class=" rounded-md drop-shadow-lg flex items-center justify-between px-7 bg-lime-600 basis-2/4 ">
+                    <div class="text-white ">
+                        <p class="font-bold text-[36px]">173</p>
+                        <h1>Policy Holder </h1>
+                    </div>
+                    <span><i class="fa-solid fa-hand-holding-hand text-[70px] text-white"></i></span>
+
+                </div>
+                <div class=" rounded-md drop-shadow-lg flex items-center justify-between px-7 bg-amber-500 basis-2/4">
+                    <div class="text-white ">
+                        <p class="font-bold text-[36px]">10,102</p>
+                        <h1>Total Income </h1>
+                    </div>
+                    <span><i class="fa-solid fa-peso-sign text-[70px] text-white"></i></span>
+                </div>
             </div>
         </div>
         <!-- bottom row -->
-        <div class=" h-2/3 flex justify-between items-center gap-3">
-            <div class="bg-white drop-shadow-lg p-3 rounded-lg basis-1/4 h-full">pie chart for policy distribution</div>
-            <div class="bg-white drop-shadow-lg p-3 rounded-lg basis-3/4 h-full">line graph for income</div>
+        <div class="h-[310px] flex justify-between items-center gap-3">
+            <div class="bg-white drop-shadow-lg p-3 rounded-lg basis-1/4 h-full">
+                <p class="text-lime-700 font-medium text-[18px]">Policy avail distribution</p>
+                <canvas id="donut-chart" class="rounded-md"></canvas>
+            </div>
+            <div class="bg-white drop-shadow-lg rounded-lg basis-3/4 h-full p-5">
+                <canvas id="line-graph" class="rounded-md"></canvas>
+            </div>
         </div>
     </div>
+    <script src="../../assets/js/remaining-polices-charts.js"></script>
+    <script src="../../assets/js/policy-distribution-chart.js"></script>
+    <script src="../../assets/js/income-graph.js"></script>
 </body>
 
 </html>
