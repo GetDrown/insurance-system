@@ -52,7 +52,7 @@ $current_page = getCurrentPage();
             <!-- side -->
             <div class="h-full bg-white row-span-2 col-span-1 p-2 rounded-md drop-shadow-md overflow-hidden">
                 <!-- title and month selecyt -->
-                <div class="w-full p-2 border-b bg-white flex justify-between items-center">
+                <div class="w-full p-2 border-b bg-white flex justify-between items-center mb-2">
                     <p class="text-lime-700 font-medium">Approved Applicants</p>
                     <div class="">
                         <select class="focus:outline-none">
