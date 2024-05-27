@@ -6,7 +6,7 @@
         <div class="h-[150px] mb-[30px]">
             <img class="h-full" src="../../assets/image/logo.png" alt="">
         </div>
-        <u class="w-full">
+        <ul class="w-full">
             <li class="mb-[25px] ">
                 <a href="index.php" class="flex w-full hover:bg-lime-500 p-3 rounded-lg">
                     <div class="h-6 w-6">
@@ -24,7 +24,7 @@
                     <span class="ml-3 text-white">Logout</span>
                 </a>
             </li>
-            </ul>
+        </ul>
     </div>
     <!-- main-content -->
     <div class="basis-10/12 h-dvh flex flex-col justify-start items-center p-3  drop-shadow-lg md:basis-3/4 lg:basis-5/6 overflow-y-auto">
