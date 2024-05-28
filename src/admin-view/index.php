@@ -16,6 +16,7 @@ include '../../dbconf/db_config.php';
                         <option value="private_car_policy">Private Car Policy</option>
                         <option value="commercial_vehicle_policy">Commercial Vehicle Policy</option>
                         <option value="lto_policy">Land Transportation Operators Policy</option>
+
                     </select>
                 </div>
                 <!-- password -->
@@ -110,7 +111,7 @@ include '../../dbconf/db_config.php';
                 </a>
             </li>
             <li class="logout">
-                <a href="../../login.php" class="flex w-[230px] hover:bg-red-500 p-3 rounded-lg">
+                <a href="../../index.php" class="flex w-[230px] hover:bg-red-500 p-3 rounded-lg">
                     <div class="img-container">
                         <img src="../../assets/image/logout.png" alt="">
                     </div>
