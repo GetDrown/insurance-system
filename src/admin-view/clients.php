@@ -67,6 +67,75 @@
             </form>
         </div>
     </dialog>
+
+    <!-- policy status dialog -->
+    <dialog data-status-modal class=" w-11/12 h-5/6">
+        <div>
+            <form action="" class="flex flex-col px-3">
+                <!-- account info -->
+                <div>
+                    <h1 class="mb-5 font-medium text-lime-600 pla">Account Info</h1>
+                    <!-- username -->
+                    <input type="text"
+                        class="h-[35px] w-full border-2 px-3 py-2 mb-5 rounded-md  active:outline-none focus:outline-none"
+                        placeholder="Username...">
+
+                    <!-- password -->
+                    <input type="text"
+                        class="h-[35px] w-full border-2 px-3 py-2 mb-5 rounded-md  active:outline-none focus:outline-none"
+                        placeholder="Password...">
+                    <!-- confirm password -->
+                    <input type="text"
+                        class="h-[35px] w-full border-2 px-3 py-2 mb-5 rounded-md  active:outline-none focus:outline-none"
+                        placeholder="Confirm Password...">
+                </div>
+                <!-- clients info -->
+                <div>
+                    <h1 class="mb-5 font-medium text-lime-600">Client Info</h1>
+                    <!-- username -->
+                    <div>
+                        <!-- name -->
+                        <div class="grid grid-cols-6 gap-2">
+                            <input type="text"
+                                class="h-[35px] col-span-2 border-2 px-3 py-2 mb-5 rounded-md  active:outline-none focus:outline-none"
+                                placeholder="Las tName...">
+                            <input type="text"
+                                class="h-[35px] col-span-2  border-2 px-3 py-2 mb-5 rounded-md  active:outline-none focus:outline-none"
+                                placeholder="First Name...">
+                            <input type="text"
+                                class="h-[35px] col-span-1 border-2 px-3 py-2 mb-5 rounded-md  active:outline-none focus:outline-none"
+                                placeholder="Middle Initial...">
+                            <input type="text"
+                                class="h-[35px] col-span-1 border-2 px-3 py-2 mb-5 rounded-md  active:outline-none focus:outline-none"
+                                placeholder="Ext...">
+                        </div>
+
+                        <!-- contacts -->
+                        <div class="grid grid-cols-2 gap-3">
+                            <input type="text"
+                                class="h-[35px] w-full border-2 px-3 py-2 mb-5 rounded-md  active:outline-none focus:outline-none"
+                                placeholder="Phone no...">
+                            <input type="text"
+                                class="h-[35px] w-full border-2 px-3 py-2 mb-5 rounded-md  active:outline-none focus:outline-none"
+                                placeholder="Email...">
+                        </div>
+                        <!-- address-->
+                        <input type="text"
+                            class="h-[35px] w-full border-2 px-3 py-2 mb-5 rounded-md  active:outline-none focus:outline-none"
+                            placeholder="Address...">
+                    </div>
+                </div>
+                <!-- buttns -->
+                <div class="flex justify-around items-center ">
+                    <button class="bg-lime-300 py-2 px-2 rounded-lg font-medium w-[100px] shadow-md">Save</button>
+                    <button data-close-status-modal
+                        class="bg-red-300 py-2 px-2 rounded-lg font-medium w-[100px] shadow-md">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </dialog>
+
+
     <!-- sidebar -->
     <?php include '../../includes/sidebar.php'; ?>
 
@@ -91,9 +160,7 @@
                     class="bg-lime-600 px-3 py-2 rounded-md drop-shadow-md font-semibold text-white"><i
                         class="fa-regular fa-square-plus"></i> Add
                     Client</button>
-
             </div>
-
         </div>
         <!-- body -->
         <div class="h-full rounded-md overflow-y-auto bg-white drop-shadow-md p-5 grid grid-cols-3 gap-5 relative"
@@ -109,7 +176,9 @@
                     </span>
                     <div>
                         <p class="username">JohnDoe <?php echo $i; ?></p>
-                        <button class="text-lime-800 font-medium text-[14px] p-1 rounded-md drop-shadow-sm">View Policy
+                        <button data-open-status-modal
+                            class="text-lime-800 font-medium text-[14px] p-1 rounded-md drop-shadow-sm data-open-status-modal">View
+                            Policy
                             Status</button>
                     </div>
                 </div>
@@ -128,13 +197,48 @@
     const modalClients = document.querySelector("[data-clients-modal]");
 
     openClientsBtn.addEventListener("click", () => {
-        console.log('tets');
         modalClients.showModal();
     });
 
     closeClientsBtn.addEventListener("click", () => {
         modalClients.close();
     });
+
+    const openStatusBtn = document.querySelectorAll("[data-open-status-modal]");
+    const closeStatusBtn = document.querySelectorAll("[data-close-status-modal]");
+    const modalStatus = document.querySelector("[data-status-modal]");
+
+    // Add event listener to each open modal button
+    openStatusBtn.forEach(btn => {
+        btn.addEventListener("click", () => {
+            modalStatus.showModal();
+        });
+    });
+
+    // Add event listener to each close modal button
+    closeStatusBtn.forEach(btn => {
+        btn.addEventListener("click", () => {
+            modalStatus.close();
+        });
+    });
+
+    // const buttons = document.querySelectorAll('[data-open-status-modal]');
+
+    // buttons.forEach(button => {
+    //     button.addEventListener('click', function() {
+    //         const modalId = button.getAttribute('data-open-status-modal');
+    //         const modal = document.getElementById(`modal-${modalId}`);
+    //         modal.classList.remove('hidden');
+    //     });
+    // });
+
+    // const closeButtons = document.querySelectorAll('.close');
+    // closeButtons.forEach(button => {
+    //     button.addEventListener('click', function() {
+    //         const modal = button.closest('.modal');
+    //         modal.classList.add('hidden');
+    //     });
+    // });
 
 
     document.getElementById('searchBar').addEventListener('input', function() {
