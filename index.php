@@ -19,7 +19,7 @@
             <div class=" ml-[100px] mt-[150px] mr-[90px]">
                 <img class="w-[334px] h-[343px]" src="./assets/image/logo.png" alt="">
             </div>
-            <form action="login_process.php" method="POST" class="w-[465px] h-[536px] border bg-white mt-[55px] shadow-[7px_9px_4.3px_rgba(0,0,0,0.3)] rounded-[28px]">
+            <form action="./phpscript/login_process.php" method="POST" class="w-[465px] h-[536px] border bg-white mt-[55px] shadow-[7px_9px_4.3px_rgba(0,0,0,0.3)] rounded-[28px]">
                 <div class="ml-[52px] mt-[64px] flex flex-col">
                     <div class="flex flex-row mb-[45px]">
                         <div class="mr-[11px] mt-[2px]">
