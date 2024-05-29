@@ -5,53 +5,7 @@
     <?php include '../../includes/sidebar.php'; ?>
     <!-- main-content -->
     <div class=" basis-5/6 h-dvh flex flex-col justify-start items-center py-3 px-5 overflow-auto">
-        <div class="h-[320px] w-full flex flex-col  bg-white rounded-lg border p-3 drop-shadow-md mb-[20px] ">
 
-            <label for="" class="mb-2 text-[14px]">Step 1</label>
-            <div class=" flex mb-[25px]">
-                <label class="text-3xl ml-2 font-poppins">Create Customer Account</label>
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                    stroke="currentColor" class="w-[24px] h-[24px] mt-[7px] ml-2">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                        d="M18 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0ZM3 19.235v-.11a6.375 6.375 0 0 1 12.75 0v.109A12.318 12.318 0 0 1 9.374 21c-2.331 0-4.512-.645-6.374-1.766Z" />
-                </svg>
-            </div>
-
-            <form action="" class="ml-[10px] mb-[25px] flex flex-col space-y-7">
-                <div class="flex flex-row  space-x-[20px] mb-[25px]">
-                    <span class=" mt-[3px]">Username:</span>
-                    <input type="text"
-                        class=" rounded-md w-[250px] py-[2px] px-[4px] placeholder:pl-[2px] placeholder:text-sm bg-white border-2 border-slate-300 focus:ring-1 focus:outline-none focus:border-lime-500 focus:ring-lime-500"
-                        placeholder="Username" name="customer_Username">
-                    <span class=" mt-[3px]">Password:</span>
-                    <input type="text"
-                        class="rounded-md w-[250px] py-[2px] px-[4px] placeholder:pl-[2px] placeholder:text-sm bg-white border-2 border-slate-300 focus:ring-1 focus:outline-none focus:border-lime-500 focus:ring-lime-500"
-                        placeholder="Password" name="customer_Password">
-                    <span class=" mt-[3px] ml-3">Name:</span>
-                    <input type="text"
-                        class="rounded-md w-[250px] py-[2px] px-[4px] placeholder:pl-[2px] placeholder:text-sm bg-white border-2 border-slate-300 focus:ring-1 focus:outline-none focus:border-lime-500 focus:ring-lime-500"
-                        placeholder="Name" name="customer_Name">
-                </div>
-                <div class="flex flex-row space-x-4 mb-[40px]">
-                    <span class=" mt-[3px]">Address:</span>
-                    <input type="text"
-                        class="ml-4 rounded-md w-[250px] py-[2px] px-[4px] placeholder:pl-[2px] placeholder:text-sm bg-white border-2 border-slate-300 focus:ring-1 focus:outline-none focus:border-lime-500 focus:ring-lime-500"
-                        placeholder="Address" name="customer_Address">
-                    <span class=" mt-[3px]">Contact No.:</span>
-                    <input type="text"
-                        class="ml-4 rounded-md w-[250px] py-[2px] px-[4px] placeholder:pl-[2px] placeholder:text-sm bg-white border-2 border-slate-300 focus:ring-1 focus:outline-none focus:border-lime-500 focus:ring-lime-500"
-                        placeholder="Contact Number" name="customer_Contactnum">
-                </div>
-                <div class="flex flex-row justify-end space-x-4 mr-7 mt-4">
-                    <button
-                        class="rounded-md px-[6px] py-[9px] bg-lime-500 hover:bg-lime-600  transition ease-in-out duration-300">Create
-                        Account</button>
-                    <button class="rounded-md px-[14px] py-[9px] bg-red-300 ">Cancel</button>
-                </div>
-
-            </form>
-
-        </div>
         <div class="h-[1150px] w-full md:w-full bg-white rounded-lg border p-3 drop-shadow-md flex flex-col ">
             <label for="" class="mb-2 text-[14px]">Step 2</label>
             <div class=" flex mb-[25px] space-x-4">
