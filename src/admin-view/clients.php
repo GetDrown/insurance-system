@@ -4,64 +4,64 @@
     <!-- add clients modal -->
     <dialog data-clients-modal class="w-[550px] h-[500px]">
         <div>
-            <form action="" class="flex flex-col px-3">
+            <form method="POST" action="../../phpscript/addclient.php"  class="flex flex-col px-3">
                 <!-- account info -->
                 <div>
                     <h1 class="mb-5 font-medium text-lime-600 pla">Account Info</h1>
                     <!-- username -->
-                    <input type="text"
+                    <input type="text" name="username"
                         class="h-[35px] w-full border-2 px-3 py-2 mb-5 rounded-md  active:outline-none focus:outline-none"
                         placeholder="Username...">
 
                     <!-- password -->
-                    <input type="text"
+                    <input type="password" name="password"
                         class="h-[35px] w-full border-2 px-3 py-2 mb-5 rounded-md  active:outline-none focus:outline-none"
                         placeholder="Password...">
                     <!-- confirm password -->
-                    <input type="text"
+                    <input type="text" name="confirm_password"
                         class="h-[35px] w-full border-2 px-3 py-2 mb-5 rounded-md  active:outline-none focus:outline-none"
                         placeholder="Confirm Password...">
                 </div>
                 <!-- clients info -->
                 <div>
-                    <h1 class="mb-5 font-medium text-lime-600">Client Info</h1>
+                    <h1 class="mb-5 font-medium text-lime-600">Customer Info</h1>
                     <!-- username -->
                     <div>
                         <!-- name -->
                         <div class="grid grid-cols-6 gap-2">
-                            <input type="text"
+                            <input type="text" name="lastname"
                                 class="h-[35px] col-span-2 border-2 px-3 py-2 mb-5 rounded-md  active:outline-none focus:outline-none"
-                                placeholder="Las tName...">
-                            <input type="text"
+                                placeholder="Lastname...">
+                            <input type="text" name="firstname"
                                 class="h-[35px] col-span-2  border-2 px-3 py-2 mb-5 rounded-md  active:outline-none focus:outline-none"
-                                placeholder="First Name...">
-                            <input type="text"
+                                placeholder="Firstname...">
+                            <input type="text" name="middle"
                                 class="h-[35px] col-span-1 border-2 px-3 py-2 mb-5 rounded-md  active:outline-none focus:outline-none"
-                                placeholder="Middle Initial...">
-                            <input type="text"
+                                placeholder="M.I">
+                            <input type="text" name="name_ext"
                                 class="h-[35px] col-span-1 border-2 px-3 py-2 mb-5 rounded-md  active:outline-none focus:outline-none"
                                 placeholder="Ext...">
                         </div>
 
                         <!-- contacts -->
                         <div class="grid grid-cols-2 gap-3">
-                            <input type="text"
+                            <input type="text" name="phone_num"
                                 class="h-[35px] w-full border-2 px-3 py-2 mb-5 rounded-md  active:outline-none focus:outline-none"
                                 placeholder="Phone no...">
-                            <input type="text"
+                            <input type="email" name="email_add"
                                 class="h-[35px] w-full border-2 px-3 py-2 mb-5 rounded-md  active:outline-none focus:outline-none"
                                 placeholder="Email...">
                         </div>
                         <!-- address-->
-                        <input type="text"
+                        <input type="text" name="customeraddress"
                             class="h-[35px] w-full border-2 px-3 py-2 mb-5 rounded-md  active:outline-none focus:outline-none"
                             placeholder="Address...">
                     </div>
                 </div>
                 <!-- buttns -->
                 <div class="flex justify-around items-center ">
-                    <button class="bg-lime-300 py-2 px-2 rounded-lg font-medium w-[100px] shadow-md">Save</button>
-                    <button data-close-clients-modal
+                    <button type="submit" class="bg-lime-300 py-2 px-2 rounded-lg font-medium w-[100px] shadow-md">Save</button>
+                    <button data-close-clients-modal type="button"
                         class="bg-red-300 py-2 px-2 rounded-lg font-medium w-[100px] shadow-md">Cancel</button>
                 </div>
             </form>
@@ -258,6 +258,7 @@
 
         document.getElementById('noClientsMessage').classList.toggle('hidden', hasVisibleClients);
     });
+    
     </script>
 </body>
 
