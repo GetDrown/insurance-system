@@ -268,7 +268,7 @@ include '../../dbconf/db_config.php';
             </div>
             <!-- add policies and staff -->
             <div class="bg-white rounded-lg flex justify-around items-center">
-                <div class="flex flex-col justify-center items-center h-[200px] w-[150px] overflow-hidden">
+                <div class="flex flex-col justify-center items-center h-[200px] w-[190px] overflow-hidden">
                     <div class="h-[100px] w-[100px] mb-3">
                         <img src="../../assets/image/pol.png" alt="">
                     </div>
@@ -281,6 +281,13 @@ include '../../dbconf/db_config.php';
                     </div>
                     <button data-open-staff-modal class="bg-lime-300 py-2 px-5 rounded-lg font-medium shadow-md">Add
                         Staff</button>
+                </div>
+                <div class="flex flex-col justify-center items-center h-[200px] w-[150px] overflow-hidden space-x-2">
+                    <div class="h-[100px] w-[100px] mb-3">
+                        <img src="../../assets/image/staff2.png" alt="">
+                    </div>
+                    <button data-open-staff-modal class="bg-lime-300 py-2 px-4 rounded-lg font-medium shadow-md text-[12px]">Add
+                        Customer</button>
                 </div>
             </div>
         </div>
