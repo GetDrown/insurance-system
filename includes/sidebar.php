@@ -53,7 +53,7 @@
             </a>
         </li>
         <li class="logout">
-            <a href="../../login.php" class="flex w-[230px] hover:bg-red-500 p-3 rounded-lg">
+            <a href="../../index.php" class="flex w-[230px] hover:bg-red-500 p-3 rounded-lg">
                 <div class="img-container">
                     <img src="../../assets/image/logout.png" alt="">
                 </div>
