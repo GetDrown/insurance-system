@@ -1,5 +1,9 @@
-<?php include '../../includes/header.php';
+<?php
+include '../../includes/header.php';
 include '../../dbconf/db_config.php';
+
+session_start();
+// 
 
 ?>
 
