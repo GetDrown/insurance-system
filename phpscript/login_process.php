@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             switch ($role_id) {
                 case 1:
                     header('Location: ../src/admin-view/index.php');
-                    header('Location: ../src/admin-view/index.php');
+                    
                     break;
                 case 2:
                     header('Location: ../src/staff-view/index.php');
