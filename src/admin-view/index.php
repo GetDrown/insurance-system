@@ -103,14 +103,14 @@ include '../../dbconf/db_config.php';
                 </a>
             </li>
             <!-- policcy -->
-            <li class="mb-[25px]">
+            <!-- <li class="mb-[25px]">
                 <a href="policy.php" class="flex w-[230px] hover:bg-lime-500 p-3 rounded-lg">
                     <div class="img-container">
                         <img src="../../assets/image/policy.png" alt="">
                     </div>
                     <span class="ml-3 text-white">Policy</span>
                 </a>
-            </li>
+            </li> -->
             <!-- sms -->
             <li class="mb-[25px]">
                 <a href="sms.php" class="flex w-[230px] hover:bg-lime-500 p-3 rounded-lg">
