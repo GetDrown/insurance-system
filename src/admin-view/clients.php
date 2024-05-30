@@ -18,7 +18,7 @@
                         class="h-[35px] w-full border-2 px-3 py-2 mb-5 rounded-md  active:outline-none focus:outline-none"
                         placeholder="Password...">
                     <!-- confirm password -->
-                    <input type="text" name="confirm_password"
+                    <input type="password" name="confirm_password"
                         class="h-[35px] w-full border-2 px-3 py-2 mb-5 rounded-md  active:outline-none focus:outline-none"
                         placeholder="Confirm Password...">
                 </div>
