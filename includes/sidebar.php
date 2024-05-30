@@ -32,6 +32,22 @@
                 <span class="ml-3 text-white">Clients</span>
             </a>
         </li>
+        <!-- staff -->
+        <li class="mb-[25px]">
+            <a href="staff.php"
+                class="flex w-[230px] hover:bg-lime-500 p-3 rounded-lg <?php echo ($current_page == 'staff.php') ? 'bg-lime-500' : ''; ?>">
+                <i class="fa-solid fa-clipboard-user text-white"></i>
+                <span class="ml-3 text-white">Staff</span>
+            </a>
+        </li>
+        <!-- insurance -->
+        <li class="mb-[25px]">
+            <a href="insurance.php"
+                class="flex w-[230px] hover:bg-lime-500 p-3 rounded-lg text-white <?php echo ($current_page == 'insurance.php') ? 'bg-lime-500' : ''; ?>">
+                <i class="fa-solid fa-file-contract"></i>s
+                <span class="ml-3 ">Insurance</span>
+            </a>
+        </li>
         <!-- sms -->
         <li class="mb-[25px]">
             <a href="sms.php"

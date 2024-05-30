@@ -46,6 +46,10 @@ var combinedConfig = {
                 backgroundColor: "rgba(255, 99, 132, 0.2)",
                 borderColor: "rgba(255, 99, 132, 1)",
                 borderWidth: 1,
+<<<<<<< HEAD
+=======
+                stack: "combined",
+>>>>>>> a9326679219cbf442d3d3ea601a478833294b701
             },
             {
                 type: "bar",
@@ -54,6 +58,10 @@ var combinedConfig = {
                 backgroundColor: "rgba(54, 162, 235, 0.2)",
                 borderColor: "rgba(54, 162, 235, 1)",
                 borderWidth: 1,
+<<<<<<< HEAD
+=======
+                stack: "combined",
+>>>>>>> a9326679219cbf442d3d3ea601a478833294b701
             },
             {
                 type: "bar",
@@ -62,6 +70,10 @@ var combinedConfig = {
                 backgroundColor: "rgba(255, 206, 86, 0.2)",
                 borderColor: "rgba(255, 206, 86, 1)",
                 borderWidth: 1,
+<<<<<<< HEAD
+=======
+                stack: "combined",
+>>>>>>> a9326679219cbf442d3d3ea601a478833294b701
             },
             {
                 type: "bar",
@@ -70,6 +82,10 @@ var combinedConfig = {
                 backgroundColor: "rgba(75, 192, 192, 0.2)",
                 borderColor: "rgba(75, 192, 192, 1)",
                 borderWidth: 1,
+<<<<<<< HEAD
+=======
+                stack: "combined",
+>>>>>>> a9326679219cbf442d3d3ea601a478833294b701
             },
             {
                 type: "line",
@@ -81,6 +97,7 @@ var combinedConfig = {
                 borderWidth: 2,
                 pointBackgroundColor: "rgba(75, 192, 192, 1)",
                 pointRadius: 4,
+                yAxisID: "y1",
             },
         ],
     },
@@ -93,6 +110,21 @@ var combinedConfig = {
                 title: {
                     display: true,
                     text: "Sales / Income (Peros)",
+<<<<<<< HEAD
+=======
+                },
+                stacked: true,
+            },
+            y1: {
+                beginAtZero: true,
+                position: "right",
+                title: {
+                    display: true,
+                    text: "Income (Peros)",
+>>>>>>> a9326679219cbf442d3d3ea601a478833294b701
+                },
+                grid: {
+                    drawOnChartArea: false,
                 },
             },
             x: {
@@ -100,6 +132,7 @@ var combinedConfig = {
                     display: true,
                     text: "Months",
                 },
+                stacked: true,
             },
         },
     },
