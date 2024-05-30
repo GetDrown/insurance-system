@@ -32,16 +32,6 @@
                 <span class="ml-3 text-white">Clients</span>
             </a>
         </li>
-        <!-- policcy -->
-        <li class="mb-[25px]">
-            <a href="policy.php"
-                class="flex w-[230px] hover:bg-lime-500 p-3 rounded-lg <?php echo ($current_page == 'policy.php') ? 'bg-lime-500' : ''; ?>">
-                <div class="img-container">
-                    <img src="../../assets/image/policy.png" alt="">
-                </div>
-                <span class="ml-3 text-white">Policy</span>
-            </a>
-        </li>
         <!-- sms -->
         <li class="mb-[25px]">
             <a href="sms.php"

@@ -1,26 +1,28 @@
-var ctx = document.getElementById("line-graph").getContext("2d");
+var salesAndIncomeChart = document
+    .getElementById("combined-chart")
+    .getContext("2d");
 
-// Function to generate random fluctuations
-function generateRandomFluctuations(baseValue, fluctuationPercentage) {
-    var fluctuations = [];
-    for (var i = 0; i < 12; i++) {
-        var fluctuation =
-            baseValue * (fluctuationPercentage / 100) * (Math.random() - 0.5);
-        fluctuations.push(fluctuation);
-    }
-    return fluctuations;
-}
-
-// Example data for income per month throughout the year
-var baseIncomeData = [
-    1000, 800, 1200, 1000, 2000, 1800, 2500, 2200, 1500, 3000, 2800, 3500,
+// Example sales data for policies per month throughout the year
+var motorcyclePolicyData = [50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105];
+var privateCarPolicyData = [60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115];
+var commercialVehiclePolicyData = [
+    70, 75, 80, 85, 90, 95, 100, 105, 110, 115, 120, 125,
 ];
-var incomeData = baseIncomeData.map(
-    (value, index) => value + generateRandomFluctuations(value, 10)[index]
+var landTransportationOperatorsPolicyData = [
+    80, 85, 90, 95, 100, 105, 110, 115, 120, 125, 130, 135,
+];
+
+// Calculate the income per month as the sum of all policy sales
+var incomeData = motorcyclePolicyData.map(
+    (value, index) =>
+        value +
+        privateCarPolicyData[index] +
+        commercialVehiclePolicyData[index] +
+        landTransportationOperatorsPolicyData[index]
 );
 
-var config = {
-    type: "line",
+var combinedConfig = {
+    type: "bar",
     data: {
         labels: [
             "January",
@@ -38,6 +40,39 @@ var config = {
         ],
         datasets: [
             {
+                type: "bar",
+                label: "Motorcycle Policy",
+                data: motorcyclePolicyData,
+                backgroundColor: "rgba(255, 99, 132, 0.2)",
+                borderColor: "rgba(255, 99, 132, 1)",
+                borderWidth: 1,
+            },
+            {
+                type: "bar",
+                label: "Private Car Policy",
+                data: privateCarPolicyData,
+                backgroundColor: "rgba(54, 162, 235, 0.2)",
+                borderColor: "rgba(54, 162, 235, 1)",
+                borderWidth: 1,
+            },
+            {
+                type: "bar",
+                label: "Commercial Vehicle Policy",
+                data: commercialVehiclePolicyData,
+                backgroundColor: "rgba(255, 206, 86, 0.2)",
+                borderColor: "rgba(255, 206, 86, 1)",
+                borderWidth: 1,
+            },
+            {
+                type: "bar",
+                label: "Land Transportation Operators Policy",
+                data: landTransportationOperatorsPolicyData,
+                backgroundColor: "rgba(75, 192, 192, 0.2)",
+                borderColor: "rgba(75, 192, 192, 1)",
+                borderWidth: 1,
+            },
+            {
+                type: "line",
                 label: "Income per Month",
                 data: incomeData,
                 borderColor: "rgba(75, 192, 192, 1)",
@@ -57,17 +92,17 @@ var config = {
                 beginAtZero: true,
                 title: {
                     display: true,
-                    text: "Income (Peros)",
+                    text: "Sales / Income (Peros)",
                 },
             },
             x: {
                 title: {
-                    display: false,
-                    text: "Month",
+                    display: true,
+                    text: "Months",
                 },
             },
         },
     },
 };
 
-var lineGraph = new Chart(ctx, config);
+var combinedChart = new Chart(salesAndIncomeChart, combinedConfig);
