@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         customer_nameExt, customer_phoneNum,
         customer_emailadd, customer_address) VALUES (?,?,?,?,?,?,?,?)';
         $stmt_customer = $conn->prepare($sql_customer);
-        $stmt_customer->bind_param('isssssss', $user_id, $lastname, $firstname, $middlename, $name_ext, $email, $address, $phone_num);
+        $stmt_customer->bind_param('isssssss', $user_id, $lastname, $firstname, $middlename, $name_ext, $phone_num, $email, $address);
     
         if ($stmt_customer->execute()) {
             header("Location: ../src/admin-view/clients.php");
