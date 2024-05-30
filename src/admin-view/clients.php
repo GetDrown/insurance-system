@@ -1,6 +1,6 @@
 <?php include '../../includes/header.php'; ?>
 <?php
-    $userNum = 10;
+    $userNum = 5;
     $users = array();
     $currentIndex = 0;
 ?>
@@ -36,11 +36,11 @@
         <!-- body -->
         <div class="h-full rounded-md overflow-y-auto bg-white drop-shadow-md p-5 grid grid-cols-3 gap-5 relative"
             id="clientContainer">
-            <p id="noClientsMessage" class="absolute inset-0 flex items-center justify-center text-gray-500">"No
+            <p id="noClientsMessage" class="absolute inset-0 text-gray-500 hidden">"No
                 clients found"</p>
 
             <?php for ($i = 0; $i < $userNum; $i++) { ?>
-            <div class="client bg-gray-100 h-[220px] rounded-md drop-shadow-md p-5 ">
+            <div class="client bg-gray-600 h-[220px] rounded-md drop-shadow-md p-5 text-white">
                 <div class="flex items-center justify-start border-b-2 border-gray-500 ">
                     <span class="border-2 border-gray-500 rounded-md p-3 mr-5 mb-3 ">
                         <i class="fa-solid fa-user text-[46px]"></i>
@@ -51,7 +51,7 @@
                             $users[] = "JohnDoe". " " . $i;
                         ?>
                         <button data-open-status-modal data-index="<?php echo $i;?>"
-                            class="view-status-btn text-lime-800 font-medium text-[14px] data-open-status-modal">View
+                            class="view-status-btn text-amber-600 font-medium text-[14px] data-open-status-modal">View
                             Policy
                             Status</button>
                     </div>
@@ -133,6 +133,7 @@
     </dialog>
     <!-- policy status dialog -->
     <dialog data-status-modal class=" w-11/12 h-5/6 p-5">
+
         <div class="flex justify-between items-start">
             <h1 id="modalUsername" class="mb-5 font-medium text-[24px] text-lime-600"></h1>
             <button data-close-status-modal class=" text-red-500 text-[24px] rounded-lg"><i
@@ -161,14 +162,15 @@
                         <td class="py-3 border border-lime-500 text-center"> Non-Life Insurance</td>
                         <td class="py-3 border border-lime-500 text-center flex items-center justify-center">
                             <div
-                                class="bg-red-400 flex justify-center items-center w-[130px] rounded-md overflow-hidden border border-gray-300">
-                                <div id="status" class="bg-lime-700 text-white p-2">Active</div>
-                                <button class=" w-[100px] text-blue-600 bg-white p-2 font-semibold">View</button>
+                                class="bg-red-400 flex justify-center items-center w-[100px] rounded-md overflow-hidden border border-gray-300">
+                                <div id="status" class="bg-lime-700 text-white p-2 w-full">Active</div>
+                                <!-- <a href="client-policy.php"
+                                    class=" w-[100px] text-blue-600 bg-white p-2 font-semibold">View</a
+                                    href="client-policy.php"> -->
                             </div>
                         </td>
                         <td class="py-3 border border-lime-500 text-center">
-                            <button class=" w-[100px] text-amber-600 bg-white p-2 font-semibold">Print</button>
-
+                            <button class=" w-[100px] text-green-600 bg-white p-2 font-semibold">Renew</button>
                         </td>
                     </tr>
                     <?php }?>
@@ -176,15 +178,27 @@
             </table>
         </div>
         <!-- add polciy to client -->
-        <div class="mt-3">
-
-            <a href="policy.php" class="bg-gray-600 p-2 text-white rounded-md"><i class="fa-regular fa-square-plus"></i>
-                Create
-                new
-                Policy</a>
+        <div class="relative inline-block text-left mt-5">
+            <button id="mainButton" class="px-4 py-2 bg-gray-500 text-white rounded-md">
+                <i class="fa-solid fa-square-plus mr-2"></i> Create new Policy
+            </button>
+            <div id="dropdownButtons"
+                class="absolute mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 hidden">
+                <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="mainButton">
+                    <button class="w-full px-4 py-2 text-left text-gray-700 hover:bg-gray-100">Non-Life
+                        Policy</button>
+                    <button class="w-full px-4 py-2 text-left text-gray-700 hover:bg-gray-100">Life Policy</button>
+                </div>
+            </div>
         </div>
     </dialog>
     <script>
+    document.getElementById('mainButton').addEventListener('click', function() {
+        var dropdownButtons = document.getElementById('dropdownButtons');
+        dropdownButtons.classList.toggle('hidden');
+    });
+
+
     const openClientsBtn = document.querySelector("[data-open-clients-modal]");
     const closeClientsBtn = document.querySelector("[data-close-clients-modal]");
     const modalClients = document.querySelector("[data-clients-modal]");
@@ -234,7 +248,17 @@
             }
         });
 
-        document.getElementById('noClientsMessage').classList.toggle('hidden', hasVisibleClients);
+        // document.getElementById('noClientsMessage').classList.toggle('hidden', hasVisibleClients);
+        var element = document.getElementById('noClientsMessage');
+
+        if (!hasVisibleClients) {
+            element.classList.remove('hidden');
+            element.classList.add('flex', 'items-center', 'justify-center');
+        } else {
+            element.classList.remove('flex', 'items-center', 'justify-center');
+            element.classList.add('hidden');
+        }
+
     });
     </script>
 </body>
