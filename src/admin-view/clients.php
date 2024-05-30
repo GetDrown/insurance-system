@@ -133,7 +133,7 @@
     </dialog>
     <!-- policy status dialog -->
     <dialog data-status-modal class=" w-11/12 h-5/6 p-5">
-        <!-- test -->
+
         <div class="flex justify-between items-start">
             <h1 id="modalUsername" class="mb-5 font-medium text-[24px] text-lime-600"></h1>
             <button data-close-status-modal class=" text-red-500 text-[24px] rounded-lg"><i
