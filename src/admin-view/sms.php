@@ -29,12 +29,14 @@
                         <span><i class="fa-solid fa-magnifying-glass text-lime-600"></i></span>
                     </div>
                 </div>
-                <div class="h-[214px] overflow-y-auto clients">
+                <div class="h-[214px] overflow-y-auto clients relative">
+                    <p id="noClientsMessage" class="absolute inset-0 text-gray-500 hidden">"No
+                        clients found"</p>
                     <?php for ($i=0; $i < 7; $i++) { ?>
                     <div class="bg-white shadow-md mb-3 py-3 px-2 flex justify-between items-center client">
                         <p class="name text-xs font-medium text-gray-500">JohnDoe <?php echo $i+1; ?></p>
-                        <p class="num text-xs font-medium text-gray-500" id="username">0986 797 2981</p>
-                        <p class="text-xs font-medium  text-gray-500" id="username">Motorcycle Policy</p>
+                        <p class="num text-xs font-medium text-gray-500">0986 797 2981</p>
+                        <p class="text-xs font-medium  text-gray-500">Motorcycle Policy</p>
                         <button
                             class="selectClientBtn py-1 px-2 text-xs text-green-700 font-semibold border rounded-sm hover:bg-green-600 hover:text-white">Select</button>
                     </div>
@@ -51,9 +53,9 @@
                         <div class="flex justify-between items-center">
                             <label for="client" class="text-xs font-medium text-green-700">Send to:</label>
                             <input disabled id="clientNameMsg" type="text"
-                                class="focus:outline-none border-b rounded-md">
+                                class="focus:outline-none border-b rounded-md text-gray-800 text-xs py-2 px-2">
                             <input disabled id="clientNumMsg" type="text"
-                                class="focus:outline-none border-b rounded-md">
+                                class="focus:outline-none border-b rounded-md text-gray-800 text-xs py-1 px-2">
                         </div>
                         <textarea name="msg" id="msg"
                             class="border w-full mt-3 resize-none focus:outline-none p-1 text-xs text-gray-400"
@@ -73,10 +75,38 @@
             <div class="w-full p-1 border-b h-[42px] bg-white">
                 <p class="text-lime-700 font-medium">History</p>
             </div>
-            <div class="h-[257px] bg-red-400"></div>
+            <div class="flex items-center justify-between mb-1 px-[100px]">
+                <p class="text-gray-500 text-sm font-bold">No.</p>
+                <p class="text-gray-500 text-sm font-bold">Client</p>
+                <p class="text-gray-500 text-sm font-bold">Content</p>
+                <p class="text-gray-500 text-sm font-bold">Date</p>
+                <p class="text-gray-500 text-sm font-bold">Action</p>
+            </div>
+            <div class="h-[225px] overflow-y-auto p-1">
+                <?php for ($i=0; $i < 10; $i++) { ?>
+                <div class="flex items-center justify-around mb-4 shadow-md py-3 border h-[125px]">
+                    <p class="text-gray-500 text-sm">0986 797 2981</p>
+                    <p class="text-gray-500 text-sm">JohnDoe <?php echo $i ?></p>
+                    <div class="w-[200px] h-[125px] flex justify-center items-center text-ellipsis overflow-hidden">
+                        <p class="text-gray-500 text-sm text-justify">
+                            Hi, we are from Zilka Life Insurance Services, and
+                            w're happy to inform that your aplication for
+                            Motorcycle policy have been apporoved.
+
+                        </p>
+                    </div>
+                    <p class="text-gray-500 text-sm">May 31, 1:17am</p>
+                    <div>
+                        <button class="text-sm text-lime-500 mr-3">view</button>
+                        <button class="text-sm text-red-500">delete</button>
+                    </div>
+                </div>
+                <?php } ?>
+            </div>
         </div>
     </div>
-    <script src="../../assets/js/time.js"></script>
+    <script src=" ../../assets/js/time.js">
+    </script>
     <script>
     document.getElementById('searchBar').addEventListener('input', function() {
         var searchTerm = this.value.toLowerCase();
@@ -84,7 +114,7 @@
         var hasVisibleClients = false;
 
         clients.forEach(function(client) {
-            var username = client.querySelector('.username').textContent.toLowerCase();
+            var username = client.querySelector('.name').textContent.toLowerCase();
             if (username.includes(searchTerm)) {
                 client.classList.remove('hidden');
                 hasVisibleClients = true;
@@ -112,11 +142,15 @@
 
     selectClientBtn.forEach(btn => {
         btn.addEventListener("click", function() {
-            const clientsDiv = btn.closest(".clients");
-            const name = clientsDiv.querySelector('.name').textContent;
-            const num = clientsDiv.querySelector('.num').textContent;
-            console.log(name + num);
+            const clientDiv = btn.closest('.client');
+            const name = clientDiv.querySelector('.name').textContent;
+            const num = clientDiv.querySelector('.num').textContent;
+
+            clientNameMsg.value = name;
+            clientNumMsg.value = num;
         });
+
+
     });
     </script>
 </body>
