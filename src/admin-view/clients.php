@@ -156,14 +156,21 @@ $currentIndex = 0;
             </button>
             <div id="dropdownButtons" class="absolute mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 hidden">
                 <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="mainButton">
-                    <button class="w-full px-4 py-2 text-left text-gray-700 hover:bg-gray-100">Non-Life
+                    <button id="nonLifeBtn" class="w-full px-4 py-2 text-left text-gray-700 hover:bg-gray-100">Non-Life
                         Policy</button>
-                    <button class="w-full px-4 py-2 text-left text-gray-700 hover:bg-gray-100">Life Policy</button>
+                    <button id="lifePolicyBtn" class="w-full px-4 py-2 text-left text-gray-700 hover:bg-gray-100">Life Policy</button>
                 </div>
             </div>
         </div>
     </dialog>
     <script>
+        document.getElementById('nonLifeBtn').addEventListener('click', () => {
+            window.location.href = './nonlifepolicy.php';
+        });
+        document.getElementById('lifePolicyBtn').addEventListener('click', () => {
+            window.location.href = './lifepolicy.php';
+        });
+
         document.getElementById('mainButton').addEventListener('click', function() {
             var dropdownButtons = document.getElementById('dropdownButtons');
             dropdownButtons.classList.toggle('hidden');
