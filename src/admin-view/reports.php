@@ -29,7 +29,7 @@ $current_page = getCurrentPage();
     <!-- main-content -->
     <div class="basis-5/6 h-dvh p-3 rounded-lg  bg-gray-200 flex flex-col overflow-hidden">
         <!-- header -->
-        <div class="h-[100px] w-full bg-white rounded-lg p-4 flex items-center justify-between mb-2">
+        <div class="h-[100px] w-full bg-white rounded-lg p-4 flex items-center justify-between mb-2  shadow-md">
             <div>
                 <h1 class="font-medium text-[28px] text-lime-700">Report</h1>
                 <p class="text-gray-500">Admin</p>

@@ -161,16 +161,12 @@
                         <td class="py-3 border border-lime-500 text-center">Motorcycle Policy</td>
                         <td class="py-3 border border-lime-500 text-center"> Non-Life Insurance</td>
                         <td class="py-3 border border-lime-500 text-center flex items-center justify-center">
-                            <div
-                                class="bg-red-400 flex justify-center items-center w-[100px] rounded-md overflow-hidden border border-gray-300">
-                                <div id="status" class="bg-lime-700 text-white p-2 w-full">Active</div>
-                                <!-- <a href="client-policy.php"
-                                    class=" w-[100px] text-blue-600 bg-white p-2 font-semibold">View</a
-                                    href="client-policy.php"> -->
+                            <div id="status" class="w-[100px] text-green-600 bg-white p-2 font-semibold">Active
                             </div>
                         </td>
                         <td class="py-3 border border-lime-500 text-center">
-                            <button class=" w-[100px] text-green-600 bg-white p-2 font-semibold">Renew</button>
+                            <button
+                                class="  w-[100px] text-white bg-amber-600 p-1 font-semibold rounded-md">Renew</button>
                         </td>
                     </tr>
                     <?php }?>

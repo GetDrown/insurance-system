@@ -75,7 +75,7 @@ include '../../dbconf/db_config.php';
     <!-- main-content -->
     <div class="basis-5/6 h-dvh flex flex-col justify-start items-center p-3 bg-gray-200">
         <!-- header -->
-        <div class="h-[100px] w-full bg-white rounded-lg p-4 flex items-center justify-between">
+        <div class="h-[100px] w-full bg-white rounded-lg p-4 flex items-center justify-between  shadow-md">
             <div>
                 <h1 class="font-medium text-[28px] text-lime-700">Dashboard </h1>
                 <p class="text-gray-500">Admin</p>
@@ -289,7 +289,7 @@ include '../../dbconf/db_config.php';
     setInterval(updateTime, 1000);
     updateTime();
     </script>
-
+    <script src="../../assets/js/time.js"></script>
 </body>
 
 </html>

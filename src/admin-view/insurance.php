@@ -81,8 +81,8 @@
                     <p class="text-[22px] font-medium text-gray-600 normal-case">Non Life</p>
                 </div>
                 <div>
-                    <p class="text-sm font-medium text-gray-400 normal-case">Permit</p>
-                    <p class="text-[22px] font-medium text-gray-600 normal-case">------</p>
+                    <p class="text-sm font-medium text-gray-400 normal-case">Quantity</p>
+                    <p class="text-[22px] font-medium text-gray-600 normal-case"><?php echo $i + 1 *2?></p>
                 </div>
 
             </div>
