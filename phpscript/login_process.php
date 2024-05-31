@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     header('Location: ../src/admin-view/index.php');
                     break;
                 case 2:
-                    header('');
+                    header('Location: ../src/staff-view/index.php');
                     break;
                 case 3:
                     header('Location: ./src/customer-view/index.php');
