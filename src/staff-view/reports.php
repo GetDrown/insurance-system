@@ -24,7 +24,7 @@ $current_page = getCurrentPage();
 
 <body>
     <!-- sidebar -->
-    <?php include '../../includes/sidebar.php'; ?>
+    <?php include '../../includes/sidebar-staff.php'; ?>
 
     <!-- main-content -->
     <div class="basis-5/6 h-dvh p-3 rounded-lg  bg-gray-200 flex flex-col overflow-hidden">
@@ -109,7 +109,7 @@ $current_page = getCurrentPage();
                         <canvas id="combined-chart" class="rounded-md"></canvas>
                     </div>
                     <div class="bg-white flex justify-end items-center mt-1">
-                        <p class="text-slate-500 mr-5">Prepared by: Admin</p>
+                        <p class="text-slate-500 mr-5">Prepared by: JanDoe1</p>
                         <button class="bg-lime-500 px-4 py-1 rounded-sm drop-shadow-md text-white">Print</button>
                     </div>
                 </div>

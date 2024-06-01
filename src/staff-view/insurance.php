@@ -2,7 +2,7 @@
 
 <body>
     <!-- sidebar -->
-    <?php include '../../includes/sidebar.php'; ?>
+    <?php include '../../includes/sidebar-staff.php'; ?>
     <!-- add policy modal -->
     <dialog data-policy-modal>
         <div>
