@@ -39,12 +39,6 @@ include '../../dbconf/db_config.php';
                 </a>
             </li>
             <!-- staff -->
-            <li class="mb-[25px]">
-                <a href="staff.php" class="flex w-[230px] hover:bg-lime-500 p-3 rounded-lg">
-                    <i class="fa-solid fa-clipboard-user text-white"></i>
-                    <span class="ml-3 text-white">Staff</span>
-                </a>
-            </li>
             <!-- insurance -->
             <li class="mb-[25px]">
                 <a href="insurance.php" class="flex w-[230px] hover:bg-lime-500 p-3 rounded-lg text-white">
@@ -78,7 +72,7 @@ include '../../dbconf/db_config.php';
         <div class="h-[100px] w-full bg-white rounded-lg p-4 flex items-center justify-between  shadow-md">
             <div>
                 <h1 class="font-medium text-[28px] text-lime-700">Dashboard </h1>
-                <p class="text-gray-500">Admin</p>
+                <p class="text-gray-500">Staff: JaneDoe1</p>
             </div>
             <div>
                 <h1 id="currentDate"></h1>
@@ -231,13 +225,7 @@ include '../../dbconf/db_config.php';
                         class="bg-neutral-800 text-white py-2 px-5 rounded-lg font-medium shadow-md">Add
                         Policy</a>
                 </div>
-                <div class="flex flex-col justify-center items-center h-[200px] w-[150px] overflow-hidden">
-                    <div class="h-[100px] w-[100px] mb-3">
-                        <img src="../../assets/image/staff2.png" alt="">
-                    </div>
-                    <a href="staff.php" class="bg-lime-300 py-2 px-5 rounded-lg font-medium shadow-md">Add
-                        Staff</a>
-                </div>
+
             </div>
         </div>
     </div>

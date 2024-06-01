@@ -2,14 +2,14 @@
 
 <body>
     <!-- sidebar -->
-    <?php include '../../includes/sidebar.php'; ?>
+    <?php include '../../includes/sidebar-staff.php'; ?>
     <!-- main-content -->
     <div class="basis-5/6  h-dvh bg-gray-200 flex flex-col overflow-hidden p-3 ">
         <!-- header -->
         <div class="h-[100px] w-full bg-white rounded-lg p-4 flex items-center justify-between mb-1 shadow-md   ">
             <div>
                 <h1 class="font-medium text-[28px] text-lime-700">Messaging</h1>
-                <p class="text-gray-500">Admin</p>
+                <p class="text-gray-500">Staff: JaneDoe1</p>
             </div>
             <div>
                 <h1 id="currentDate"></h1>
