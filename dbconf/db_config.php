@@ -1,6 +1,6 @@
 <?php
 
-$servername = "localhost:3307";
+$servername = "localhost:3307"; //optional to add port number of the mysql server
 $username = "root";
 $password = "";
 $dbname = "insurancesystem";
