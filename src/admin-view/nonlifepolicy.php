@@ -1,40 +1,55 @@
 <?php include '../../includes/header.php';
-include '../../dbconf/db_config.php'; ?>
+include '../../dbconf/db_config.php';
+
+session_start();
+// retrieve customer id from url
+$customer_id = isset($_GET['customer_id']) ? $_GET['customer_id'] : null;
+
+// check customer if valid
+if ($customer_id) {
+    $sql = 'select * from customers where customer_id = ?';
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param('i', $customer_id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        $customer = $result->fetch_assoc();
+    }
+}
+?>
 
 <body class="bg-gray-300">
     <!-- sidebar -->
     <?php include '../../includes/sidebar.php'; ?>
     <!-- main-content -->
-    <div class=" basis-5/6 h-dvh flex flex-col justify-start items-center py-3 px-5 overflow-auto">
+    <div class=" basis-5/6 h-dvh flex flex-col justify-start items-center py-3 px-5 overflow-y-auto">
 
         <div class="h-[1150px] w-full md:w-full bg-white rounded-lg border p-3 drop-shadow-md flex flex-col ">
             <!-- <label for="" class="mb-2 text-[14px]">Step 2</label> -->
-            <div class="mt-4 flex mb-[25px] space-x-4">
-                <label class="text-3xl ml-2 font-poppins text-lime-700">Non-Life Insurance Policy Application</label>
-                <select name="non_life_selection" id="" class="rounded-md px-[6px] py-[7px] bg-white border-[3px]">
-                    <option hidden disabled selected value>-- Select Policy --</option>
-                    <!-- <option value="motorcycle_policy">Motorcycle Policy</option>
-                    <option value="private_car_policy">Private Car Policy</option>
-                    <option value="commercial_vehicle_policy">Commercial Vehicle Policy</option>
-                    <option value="lto_policy">Land Transportation Operators Policy</option>
-                    <option value="lto_policy">Own Damage</option> -->
-                    <?php
-                    $sql = "SELECT * FROM non_life_policy";
-                    $result = $conn->query($sql);
-                    if ($result->num_rows > 0) {
-                        while ($row = $result->fetch_assoc()) {
-                            echo "<option value='" . $row["non_life_id"] . "'>" . $row["non_life_name"] . "</option>";
-                        }
-                    }
-                    ?>
-                </select>
-            </div>
 
-            <form action="" method="" class="flex flex-col ">
+
+            <form action="" method="POST " class="flex flex-col ">
+                <div class="mt-4 flex mb-[25px] space-x-4">
+                    <label class="text-3xl ml-2 font-poppins text-lime-700">Non-Life Insurance Policy Application</label>
+                    <select name="non_life_selection" id="" class="rounded-md px-[6px] py-[7px] bg-white border-[3px]">
+                        <option hidden disabled selected value>-- Select Policy --</option>
+
+                        <?php
+                        $sql = "SELECT * FROM non_life_policy";
+                        $result = $conn->query($sql);
+                        if ($result->num_rows > 0) {
+                            while ($row = $result->fetch_assoc()) {
+                                echo "<option value='" . $row["non_life_id"] . "'>" . $row["non_life_name"] . "</option>";
+                            }
+                        }
+                        ?>
+                    </select>
+                </div>
                 <div class="flex flex-row space-x-6 ml-[10px] md:ml-[7px] mb-[25px]">
                     <div class="flex flex-col space-y-2">
                         <label for="" class="font-poppins">Name and Address of Insured:</label>
-                        <textarea name="" id="" placeholder="Name and Address of Insured" class="text-md pt-[2px] placeholder:pt-[2px] placeholder:text-sm placeholder:pl-[2px] resize-y rounded-md w-[300px] h-[100px] border-2 border-slate-300 focus:ring-1 focus:outline-none focus:border-lime-500 focus:ring-lime-500 px-[4px]"></textarea>
+                        <textarea name="name_and_address" id="" placeholder="Name and Address of Insured" class="text-md pt-[2px] placeholder:pt-[2px] placeholder:text-sm placeholder:pl-[2px] resize-y rounded-md w-[300px] h-[100px] border-2 border-slate-300 focus:ring-1 focus:outline-none focus:border-lime-500 focus:ring-lime-500 px-[4px]" required></textarea>
                     </div>
                     <div class="flex flex-col space-y-2">
                         <label for="" class="font-poppins">Business Profession</label>
@@ -50,9 +65,9 @@ include '../../dbconf/db_config.php'; ?>
                     </div>
                     <div class="flex flex-col">
                         <label for="" class="font-poppins">Period of Issuance</label>
-                        <input type="text" placeholder="From 12:00NN" class="mt-2 mb-[8px] rounded-md w-[150px] py-[2px] px-[4px] placeholder:pl-[2px] placeholder:text-sm bg-white border-2 border-slate-300 focus:ring-1 focus:outline-none focus:border-lime-500 focus:ring-lime-500">
+                        <input type="date" class="mt-2 mb-[8px] rounded-md w-[150px] py-[2px] px-[4px] placeholder:pl-[2px] placeholder:text-sm bg-white border-2 border-slate-300 focus:ring-1 focus:outline-none focus:border-lime-500 focus:ring-lime-500">
                         <label for="" class="font-poppins">To</label>
-                        <input type="text" placeholder="To 12:00NN" class="mt-2 rounded-md w-[150px] py-[2px] px-[4px] placeholder:pl-[2px] placeholder:text-sm bg-white border-2 border-slate-300 focus:ring-1 focus:outline-none focus:border-lime-500 focus:ring-lime-500">
+                        <input type="date" class="mt-2 rounded-md w-[150px] py-[2px] px-[4px] placeholder:pl-[2px] placeholder:text-sm bg-white border-2 border-slate-300 focus:ring-1 focus:outline-none focus:border-lime-500 focus:ring-lime-500">
                     </div>
                 </div>
 
