@@ -2,6 +2,7 @@
 include '../dbconf/db_config.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // fetches the selected item in the dropdownn menu named non_life_selection
     if (isset($_POST['non_life_selection'])) {
         // customer
         $customer_id = $_POST['customer_id'];
@@ -30,8 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
         // prepare SQL statement
-
-        $sql = "INSERT INTO transactions (
+        $sql = "INSERT INTO nonlife_transactions (
             customer_id,
             non_life_id,
             name_and_address,
@@ -48,7 +48,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             vehicle_bltnum,
             vehicle_paid,
             form_endorsement) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-
         if ($stmt = $conn->prepare($sql)) {
             $stmt->bind_param(
                 "iissssssssssssss",
@@ -70,6 +69,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $form_endorsement
             );
             if ($stmt->execute()) {
+                // updates qty when the policy is selected
+                $update_sql = "UPDATE non_life_policy SET non_life_qty = non_life_qty - 1 WHERE non_life_id = ? AND non_life_qty > 0 ";
+                if ($update_sql = $conn->prepare($update_sql)) {
+                    $update_sql->bind_param("i", $non_life_selection);
+                    $update_sql->execute();
+                    $update_sql->close();
+                }
                 echo "New Record";
                 header("Location: ../src/admin-view/clients.php");
             } else {
@@ -81,3 +87,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     }
 }
+
+$conn->close();
