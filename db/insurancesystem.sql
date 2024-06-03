@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 03, 2024 at 12:34 AM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Generation Time: Jun 03, 2024 at 09:21 AM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -93,6 +93,41 @@ INSERT INTO `non_life_policy` (`non_life_id`, `non_life_name`, `non_life_qty`) V
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `transactions`
+--
+
+CREATE TABLE `transactions` (
+  `transaction_id` int(11) NOT NULL,
+  `customer_id` int(11) NOT NULL,
+  `non_life_id` int(11) NOT NULL,
+  `name_and_address` varchar(255) NOT NULL,
+  `date_of_issuance` date NOT NULL,
+  `from_issuance` date NOT NULL,
+  `to_issuance` date NOT NULL,
+  `vehicle_model` varchar(10) NOT NULL,
+  `vehicle_plate` varchar(25) NOT NULL,
+  `vehicle_make` varchar(50) NOT NULL,
+  `vehicle_serialchassis` varchar(255) NOT NULL,
+  `vehicle_typeofbody` varchar(50) NOT NULL,
+  `vehicle_motornum` varchar(90) NOT NULL,
+  `vehicle_color` varchar(90) NOT NULL,
+  `vehicle_bltnum` varchar(90) NOT NULL,
+  `vehicle_paid` mediumint(9) NOT NULL,
+  `form_endorsement` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `transactions`
+--
+
+INSERT INTO `transactions` (`transaction_id`, `customer_id`, `non_life_id`, `name_and_address`, `date_of_issuance`, `from_issuance`, `to_issuance`, `vehicle_model`, `vehicle_plate`, `vehicle_make`, `vehicle_serialchassis`, `vehicle_typeofbody`, `vehicle_motornum`, `vehicle_color`, `vehicle_bltnum`, `vehicle_paid`, `form_endorsement`) VALUES
+(1, 1, 1, 'test', '2024-06-03', '2024-06-05', '2025-06-05', '123', '123', '123', '123', '123', '123', '12123', '123', 0, 'tpl'),
+(2, 1, 2, 'tester', '2024-06-04', '2024-06-06', '2025-06-06', '123', '123', '123', '123', '123', '123', '12123', '123', 0, 'tpl'),
+(3, 2, 2, 'testest', '2024-06-04', '2024-06-05', '2025-06-05', '123', '123', '123', '123', '123', '123', '12123', '123', 0, 'tpl');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -158,6 +193,14 @@ ALTER TABLE `non_life_policy`
   ADD PRIMARY KEY (`non_life_id`);
 
 --
+-- Indexes for table `transactions`
+--
+ALTER TABLE `transactions`
+  ADD PRIMARY KEY (`transaction_id`),
+  ADD KEY `customer_constTransact` (`customer_id`),
+  ADD KEY `transacPolicy` (`non_life_id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -193,6 +236,12 @@ ALTER TABLE `non_life_policy`
   MODIFY `non_life_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
+-- AUTO_INCREMENT for table `transactions`
+--
+ALTER TABLE `transactions`
+  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
@@ -213,6 +262,13 @@ ALTER TABLE `user_role`
 --
 ALTER TABLE `customers`
   ADD CONSTRAINT `customer_log` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `transactions`
+--
+ALTER TABLE `transactions`
+  ADD CONSTRAINT `customer_constTransact` FOREIGN KEY (`customer_id`) REFERENCES `customers` (`customer_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `transacPolicy` FOREIGN KEY (`non_life_id`) REFERENCES `non_life_policy` (`non_life_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `users`
