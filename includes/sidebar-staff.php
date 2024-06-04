@@ -5,8 +5,7 @@
     <ul>
         <!-- dashboard link -->
         <li class="mb-[25px] ">
-            <a href="index.php"
-                class="flex w-[230px] hover:bg-lime-500 p-3 rounded-lg <?php echo ($current_page == 'index.php') ? 'bg-lime-500' : ''; ?>">
+            <a href="index.php" class="flex w-[230px] hover:bg-lime-500 p-3 rounded-lg <?php echo ($current_page == 'index.php') ? 'bg-lime-500' : ''; ?>">
                 <div class="img-container">
                     <img src="../../assets/image/dashboard.png" alt="">
                 </div>
@@ -15,8 +14,7 @@
         </li>
         <!-- report link -->
         <li class="mb-[25px]">
-            <a href="reports.php"
-                class="flex w-[230px] hover:bg-lime-500 p-3 rounded-lg <?php echo ($current_page == 'reports.php') ? 'bg-lime-500' : ''; ?>">
+            <a href="reports.php" class="flex w-[230px] hover:bg-lime-500 p-3 rounded-lg <?php echo ($current_page == 'reports.php') ? 'bg-lime-500' : ''; ?>">
                 <div class="img-container">
                     <img src="../../assets/image/reports.png" alt="">
                 </div>
@@ -29,21 +27,19 @@
                 <div class="img-container">
                     <img src="../../assets/image/Customer.png" alt="">
                 </div>
-                <span class="ml-3 text-white">Clients</span>
+                <span class="ml-3 text-white">Customer</span>
             </a>
         </li>
         <!-- insurance -->
         <li class="mb-[25px]">
-            <a href="insurance.php"
-                class="flex w-[230px] hover:bg-lime-500 p-3 rounded-lg text-white <?php echo ($current_page == 'insurance.php') ? 'bg-lime-500' : ''; ?>">
+            <a href="insurance.php" class="flex w-[230px] hover:bg-lime-500 p-3 rounded-lg text-white <?php echo ($current_page == 'insurance.php') ? 'bg-lime-500' : ''; ?>">
                 <i class="fa-solid fa-file-contract"></i>s
                 <span class="ml-3 ">Insurance</span>
             </a>
         </li>
         <!-- sms -->
         <li class="mb-[25px]">
-            <a href="sms.php"
-                class="flex w-[230px] hover:bg-lime-500 p-3 rounded-lg <?php echo ($current_page == 'sms.php') ? 'bg-lime-500' : ''; ?>">
+            <a href="sms.php" class="flex w-[230px] hover:bg-lime-500 p-3 rounded-lg <?php echo ($current_page == 'sms.php') ? 'bg-lime-500' : ''; ?>">
                 <div class="img-container">
                     <img src="../../assets/image/sms.png" alt="">
                 </div>

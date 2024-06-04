@@ -17,7 +17,7 @@ $currentIndex = 0;
         <!-- header -->
         <div class="h-[100px] w-full bg-white rounded-lg p-4 flex items-center justify-between mb-4 drop-shadow-md">
             <div>
-                <h1 class="font-medium text-[28px] text-lime-700">Clients</h1>
+                <h1 class="font-medium text-[28px] text-lime-700">Customers</h1>
                 <p class="text-gray-500">Total Clients: <?php echo $userNum ?></p>
 
             </div>
