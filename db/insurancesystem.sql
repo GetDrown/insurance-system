@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 04, 2024 at 10:46 AM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Generation Time: Jun 05, 2024 at 01:14 AM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -79,19 +79,23 @@ CREATE TABLE `non_life_policy` (
   `non_life_id` int(11) NOT NULL,
   `non_life_name` varchar(255) NOT NULL,
   `policy_type` varchar(25) NOT NULL,
-  `non_life_qty` mediumint(9) NOT NULL
+  `non_life_qty` mediumint(9) NOT NULL,
+  `non_life_premium` float NOT NULL,
+  `non_life_docstamp` float NOT NULL,
+  `non_life_govtax` float NOT NULL,
+  `non_life_others` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `non_life_policy`
 --
 
-INSERT INTO `non_life_policy` (`non_life_id`, `non_life_name`, `policy_type`, `non_life_qty`) VALUES
-(1, 'Motorcycle Policy', 'Non-Life', 10),
-(2, 'Private Car Policy', 'Non-Life', 10),
-(3, 'Commercial Vehicle Policy', 'Non-Life', 10),
-(4, 'Land Transportation Operators Policy', 'Non-Life', 10),
-(5, 'Own Damage', 'Non-Life', 10);
+INSERT INTO `non_life_policy` (`non_life_id`, `non_life_name`, `policy_type`, `non_life_qty`, `non_life_premium`, `non_life_docstamp`, `non_life_govtax`, `non_life_others`) VALUES
+(1, 'Motorcycle Policy', 'Non-Life', 10, 250, 156, 130, 64),
+(2, 'Private Car Policy', 'Non-Life', 10, 560, 325, 290, 75),
+(3, 'Commercial Vehicle Policy', 'Non-Life', 10, 1200, 471, 320, 159),
+(4, 'Land Transportation Operators Policy', 'Non-Life', 10, 250, 182, 150, 118),
+(5, 'Own Damage', 'Non-Life', 10, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
