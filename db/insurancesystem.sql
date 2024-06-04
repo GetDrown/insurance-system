@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 03, 2024 at 09:21 AM
+-- Generation Time: Jun 04, 2024 at 10:46 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -57,15 +57,17 @@ INSERT INTO `customers` (`customer_id`, `user_id`, `last_name`, `first_name`, `m
 
 CREATE TABLE `life_policy` (
   `life_id` int(11) NOT NULL,
-  `life_desc` varchar(50) NOT NULL
+  `life_desc` varchar(50) NOT NULL,
+  `life_policy_type` varchar(25) NOT NULL,
+  `life_qty` mediumint(9) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `life_policy`
 --
 
-INSERT INTO `life_policy` (`life_id`, `life_desc`) VALUES
-(1, 'Personal Accident');
+INSERT INTO `life_policy` (`life_id`, `life_desc`, `life_policy_type`, `life_qty`) VALUES
+(1, 'Personal Accident', 'Life Policy', 10);
 
 -- --------------------------------------------------------
 
@@ -76,6 +78,7 @@ INSERT INTO `life_policy` (`life_id`, `life_desc`) VALUES
 CREATE TABLE `non_life_policy` (
   `non_life_id` int(11) NOT NULL,
   `non_life_name` varchar(255) NOT NULL,
+  `policy_type` varchar(25) NOT NULL,
   `non_life_qty` mediumint(9) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -83,12 +86,12 @@ CREATE TABLE `non_life_policy` (
 -- Dumping data for table `non_life_policy`
 --
 
-INSERT INTO `non_life_policy` (`non_life_id`, `non_life_name`, `non_life_qty`) VALUES
-(1, 'Motorcycle Policy', 0),
-(2, 'Private Car Policy', 0),
-(3, 'Commercial Vehicle Policy', 0),
-(4, 'Land Transportation Operators Policy', 0),
-(5, 'Own Damage', 0);
+INSERT INTO `non_life_policy` (`non_life_id`, `non_life_name`, `policy_type`, `non_life_qty`) VALUES
+(1, 'Motorcycle Policy', 'Non-Life', 10),
+(2, 'Private Car Policy', 'Non-Life', 10),
+(3, 'Commercial Vehicle Policy', 'Non-Life', 10),
+(4, 'Land Transportation Operators Policy', 'Non-Life', 10),
+(5, 'Own Damage', 'Non-Life', 10);
 
 -- --------------------------------------------------------
 
@@ -147,7 +150,8 @@ INSERT INTO `users` (`user_id`, `username`, `password`, `role_id`) VALUES
 (2, 'customer1', '123', 3),
 (3, 'customer2', '123', 3),
 (4, 'customer3', '123', 3),
-(5, 'customer4', '123', 3);
+(5, 'customer4', '123', 3),
+(6, '', '', 2);
 
 -- --------------------------------------------------------
 
@@ -245,7 +249,7 @@ ALTER TABLE `transactions`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `user_role`
