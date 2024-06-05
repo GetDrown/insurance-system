@@ -1,6 +1,14 @@
 <?php include '../../includes/header.php';
 include '../../dbconf/db_config.php';
+
+
+// if (!isset($_SESSION['user_id'])) {
+//     header('Location: ../index.php');
+//     exit();
+// }
 ?>
+
+
 
 <body>
 
@@ -62,7 +70,7 @@ include '../../dbconf/db_config.php';
                 </a>
             </li>
             <li class="logout">
-                <a href="../../login.php" class="flex w-[230px] hover:bg-red-500 p-3 rounded-lg">
+                <a href="../../phpscript/logout.php" class="flex w-[230px] hover:bg-red-500 p-3 rounded-lg">
                     <div class="img-container">
                         <img src="../../assets/image/logout.png" alt="">
                     </div>
