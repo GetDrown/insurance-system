@@ -46,13 +46,13 @@
                         <div class="mb-[12px]">
                             <label for="username" class="font-poppins text-[16px]">Username</label>
                         </div>
-                        <input name="username" type="text" placeholder="Username" class="ml-[2px] pl-[8px] py-[10px] rounded-[8px] border-2 border-slate-300 focus:ring-1 focus:outline-none focus:border-lime-500 focus:ring-lime-500 w-[360px] h-[38px] font-poppins">
+                        <input name="username" type="text" placeholder="Username" class="ml-[2px] pl-[8px] py-[10px] rounded-[8px] border-2 border-slate-300 focus:ring-1 focus:outline-none focus:border-lime-500 focus:ring-lime-500 w-[360px] h-[38px] font-poppins" required>
                     </div>
                     <div class="flex flex-col mb-[19px]">
                         <div class="mb-[12px]">
                             <label for="password" class="font-poppins text-[16px]">Password</label>
                         </div>
-                        <input name="password" type="password" placeholder="Password" class="ml-[2px] pl-[8px] py-[10px] rounded-[8px] border-2 border-slate-300 focus:ring-1 focus:outline-none focus:border-lime-500 focus:ring-lime-500 w-[360px] h-[38px] font-poppins">
+                        <input name="password" type="password" placeholder="Password" class="ml-[2px] pl-[8px] py-[10px] rounded-[8px] border-2 border-slate-300 focus:ring-1 focus:outline-none focus:border-lime-500 focus:ring-lime-500 w-[360px] h-[38px] font-poppins" required>
                     </div>
 
                     <div class="flex flex-row space-x-[4px] mb-[32px]">
