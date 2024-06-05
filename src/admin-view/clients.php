@@ -49,7 +49,7 @@ $currentIndex = 0;
             $users = [1];
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
-                    $users[] = $row['last_name'] . ", " . $row['first_name']; ?>
+                    // $users[] = $row['last_name'] . ", " . $row['first_name']; ?>
             <div class="client bg-gray-600 h-[220px] rounded-md drop-shadow-md p-5 text-white">
                 <div class="flex items-center justify-start border-b-2 border-gray-500 ">
                     <span class="border-2 border-gray-500 rounded-md p-3 mr-5 mb-3 ">
@@ -264,40 +264,33 @@ $currentIndex = 0;
     });
 
     document.getElementById('searchBar').addEventListener('input', function() {
-    var searchTerm = this.value.toLowerCase();
-    var clients = document.querySelectorAll('.client');
-    var hasVisibleClients = false;
+        var searchTerm = this.value.toLowerCase();
+        var clients = document.querySelectorAll('.client');
+        var hasVisibleClients = false;
 
-    clients.forEach(function(client) {
-        var username = client.querySelector('.username').textContent.toLowerCase();
-        if (username.includes(searchTerm)) {
-            client.classList.remove('hidden');
-            hasVisibleClients = true;
+        clients.forEach(function(client) {
+            var username = client.querySelector('.username').textContent.toLowerCase();
+            if (username.includes(searchTerm)) {
+                client.classList.remove('hidden');
+                hasVisibleClients = true;
+            } else {
+                client.classList.add('hidden');
+            }
+        });
+
+        // document.getElementById('noClientsMessage').classList.toggle('hidden', hasVisibleClients);
+        var element = document.getElementById('noClientsMessage');
+
+        if (!hasVisibleClients) {
+            element.classList.remove('hidden');
+            element.classList.add('flex', 'items-center', 'justify-center');
         } else {
-            client.classList.add('hidden');
+            element.classList.remove('flex', 'items-center', 'justify-center');
+            element.classList.add('hidden');
         }
+
+        document.getElementById('noClientsMessage').classList.toggle('hidden', hasVisibleClients);
     });
-
-    // document.getElementById('noClientsMessage').classList.toggle('hidden', hasVisibleClients);
-    var element = document.getElementById('noClientsMessage');
-
-    if (!hasVisibleClients) {
-        element.classList.remove('hidden');
-        element.classList.add('flex', 'items-center', 'justify-center');
-    } else {
-        element.classList.remove('flex', 'items-center', 'justify-center');
-        element.classList.add('hidden');
-    }
-
-    <<
-    << << < HEAD
-    document.getElementById('noClientsMessage').classList.toggle('hidden', hasVisibleClients);
-    });
-
-    ===
-    === =
-    }); >>>
-    >>> > main
     </script>
 </body>
 

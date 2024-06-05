@@ -43,7 +43,7 @@ include '../../dbconf/db_config.php';
                     <div class="img-container">
                         <img src="../../assets/image/Customer.png" alt="">
                     </div>
-                    <span class="ml-3 text-white">Clients</span>
+                    <span class="ml-3 text-white">Customer</span>
                 </a>
             </li>
             <!-- staff -->
