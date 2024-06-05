@@ -2,11 +2,18 @@
 include '../../dbconf/db_config.php'
 ?>
 <?php
-$userNum = 5;
+
 $users = array();
 $currentIndex = 0;
 
+$userNum = 0;
+$sql = "SELECT COUNT(customer_id) AS total_customers FROM customers";
+$result = $conn->query($sql);
 
+if ($result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+    $userNum = $row['total_customers'];
+}
 ?>
 
 <body>
@@ -18,20 +25,21 @@ $currentIndex = 0;
         <div class="h-[100px] w-full bg-white rounded-lg p-4 flex items-center justify-between mb-4 drop-shadow-md">
             <div>
                 <h1 class="font-medium text-[28px] text-lime-700">Customers</h1>
-                <p class="text-gray-500">Total Clients: <?php echo $userNum ?></p>
+                <p class="text-gray-500">Total Customers: <?php echo $userNum;
+ ?></p>
 
             </div>
             <div class="flex gap-4">
                 <div class="border-2 border-lime-600 rounded-md flex justify-between items-center pr-2">
                     <div class="bg-lime-600 h-full p-2 text-white">
-                        Search Client
+                        Search Customers
                     </div>
                     <input id="searchBar" type="text" placeholder="type here.." class="px-2 py-2 rounded-md focus:outline-none">
                     <span><i class="fa-solid fa-magnifying-glass text-lime-600"></i></span>
                 </div>
 
                 <button data-open-clients-modal class="bg-lime-600 px-3 py-2 rounded-md drop-shadow-md font-semibold text-white"><i class="fa-regular fa-square-plus"></i> Add
-                    Client</button>
+                    Customers</button>
             </div>
         </div>
         <!-- body -->
