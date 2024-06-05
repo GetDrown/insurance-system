@@ -51,7 +51,7 @@
                 <div class="flex justify-around items-center ">
                     <button type="submit" class="bg-lime-300 py-2 px-2 rounded-lg font-medium w-[100px] shadow-md">Add
                         Staff</button>
-                    <button data-close-staff-modal
+                    <button type="button" data-close-staff-modal
                         class="bg-red-300 py-2 px-2 rounded-lg font-medium w-[100px] shadow-md">Cancel</button>
                 </div>
             </form>

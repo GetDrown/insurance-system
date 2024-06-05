@@ -5,8 +5,6 @@ include '../../dbconf/db_config.php'
 $userNum = 5;
 $users = array();
 $currentIndex = 0;
-
-
 ?>
 
 <body>
@@ -149,7 +147,7 @@ $currentIndex = 0;
     <dialog data-status-modal class=" w-11/12 h-5/6 p-5">
 
         <div class="flex justify-between items-start">
-            <h1 id="modalUsername" class="mb-5 font-medium text-[24px] text-lime-600"></h1>
+            <h1 id="modalUsername" class="mb-5 font-medium text-[24px] text-lime-600">test</h1>
             <button data-close-status-modal class=" text-red-500 text-[24px] rounded-lg"><i
                     class="fa-solid fa-circle-xmark"></i></button>
             <!-- username -->

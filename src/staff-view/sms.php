@@ -2,7 +2,7 @@
 
 <body>
     <!-- sidebar -->
-    <?php include '../../includes/sidebar.php'; ?>
+    <?php include '../../includes/sidebar-staff.php'; ?>
     <!-- main-content -->
     <div class="basis-5/6  h-dvh bg-gray-200 flex flex-col overflow-hidden p-3 ">
         <!-- header -->

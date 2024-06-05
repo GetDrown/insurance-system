@@ -1,5 +1,5 @@
 <div class="basis-2/12 bg-neutral-800 h-dvh flex flex-col justify-start items-center p-3">
-    <div class="h-[150px] mb-[30px]">
+    <div class="h-[100px] mb-[30px]">
         <img class="h-full" src="../../assets/image/logo.png" alt="">
     </div>
     <ul>
@@ -56,6 +56,14 @@
                     <img src="../../assets/image/sms.png" alt="">
                 </div>
                 <span class="ml-3 text-white">SMS</span>
+            </a>
+        </li>
+        <!-- claims -->
+        <li class="mb-[25px]">
+            <a href="claims.php"
+                class="flex w-[230px] hover:bg-lime-500 p-3 rounded-lg <?php echo ($current_page == 'claims.php') ? 'bg-lime-500' : ''; ?>">
+                <i class="fa-solid fa-person-circle-exclamation text-white"></i>
+                <span class="ml-3 text-white">Claims</span>
             </a>
         </li>
         <li class="logout">
