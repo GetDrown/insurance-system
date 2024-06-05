@@ -1,8 +1,12 @@
-<?php include '../../includes/header.php'; ?>
+<?php include '../../includes/header.php';
+include '../../dbconf/db_config.php'
+?>
 <?php
 $userNum = 5;
 $users = array();
 $currentIndex = 0;
+
+
 ?>
 
 <body>
@@ -13,7 +17,7 @@ $currentIndex = 0;
         <!-- header -->
         <div class="h-[100px] w-full bg-white rounded-lg p-4 flex items-center justify-between mb-4 drop-shadow-md">
             <div>
-                <h1 class="font-medium text-[28px] text-lime-700">Clients</h1>
+                <h1 class="font-medium text-[28px] text-lime-700">Customers</h1>
                 <p class="text-gray-500">Total Clients: <?php echo $userNum ?></p>
 
             </div>
@@ -35,29 +39,37 @@ $currentIndex = 0;
             <p id="noClientsMessage" class="absolute inset-0 text-gray-500 hidden">"No
                 clients found"</p>
 
-            <?php for ($i = 0; $i < $userNum; $i++) { ?>
-                <div class="client bg-gray-600 h-[220px] rounded-md drop-shadow-md p-5 text-white">
-                    <div class="flex items-center justify-start border-b-2 border-gray-500 ">
-                        <span class="border-2 border-gray-500 rounded-md p-3 mr-5 mb-3 ">
-                            <i class="fa-solid fa-user text-[46px]"></i>
-                        </span>
-                        <div>
-                            <p class="username font-semibold">JohnDoe <?php echo $i; ?></p>
-                            <?php
-                            $users[] = "JohnDoe" . " " . $i;
-                            ?>
-                            <button data-open-status-modal data-index="<?php echo $i; ?>" class="view-status-btn text-amber-600 font-medium text-[14px] data-open-status-modal">View
-                                Policy
-                                Status</button>
+            <?php
+            $sql = "SELECT * FROM customers";
+            $result = $conn->query($sql);
+            $users = [1];
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    $users[] = $row['last_name'] . ", " . $row['first_name']; ?>
+                    <div class="client bg-gray-600 h-[220px] rounded-md drop-shadow-md p-5 text-white">
+                        <div class="flex items-center justify-start border-b-2 border-gray-500 ">
+                            <span class="border-2 border-gray-500 rounded-md p-3 mr-5 mb-3 ">
+                                <i class="fa-solid fa-user text-[46px]"></i>
+                            </span>
+                            <div>
+                                <p class="username font-semibold"><?php echo $row['last_name'] . ", " . $row['first_name']; ?></p>
+                                <button data-open-status-modal data-index="<?php echo $row['customer_id']; ?>" class="view-status-btn text-amber-600 font-medium text-[14px] data-open-status-modal">View
+                                    Policy
+                                    Status</button>
+                            </div>
+                        </div>
+                        <div class="mt-3">
+                            <p class="font-semibold"><?php echo $row['last_name'] . ", " . $row['first_name']; ?></p>
+                            <p><?php echo $row['phone_num']; ?></p>
+                            <p><?php echo $row['customer_address']; ?></p>
+                            <!-- <p class="font-semibold">John Doe</p>
+                            <p>0986 797 2980</p>
+                            <p>Brgy. New Visayas, Panabo City, Davao del Norte</p> -->
                         </div>
                     </div>
-                    <div class="mt-3">
-                        <p class="font-semibold">John Doe</p>
-                        <p>0986 797 2980</p>
-                        <p>Brgy. New Visayas, Panabo City, Davao del Norte</p>
-                    </div>
-                </div>
+                <?php } ?>
             <?php } ?>
+            <?php $conn->close(); ?>
         </div>
     </div>
     <!-- add clients modal -->
@@ -127,22 +139,21 @@ $currentIndex = 0;
                     </tr>
                 </thead>
                 <tbody>
-                    <?php for ($i=0; $i < 3; $i++) { ?>
-                    <tr>
-                        <td class="py-3 border border-lime-500 text-center">001</td>
-                        <td class="py-3 border border-lime-500 text-center">2024</td>
-                        <td class="py-3 border border-lime-500 text-center">Motorcycle Policy</td>
-                        <td class="py-3 border border-lime-500 text-center"> Non-Life Insurance</td>
-                        <td class="py-3 border border-lime-500 text-center flex items-center justify-center">
-                            <div id="status" class="w-[100px] text-green-600 bg-white p-2 font-semibold">Active
-                            </div>
-                        </td>
-                        <td class="py-3 border border-lime-500 text-center">
-                            <button
-                                class="  w-[100px] text-white bg-amber-600 p-1 font-semibold rounded-md">Renew</button>
-                        </td>
-                    </tr>
-                    <?php }?>
+                    <?php for ($i = 0; $i < 3; $i++) { ?>
+                        <tr>
+                            <td class="py-3 border border-lime-500 text-center">001</td>
+                            <td class="py-3 border border-lime-500 text-center">2024</td>
+                            <td class="py-3 border border-lime-500 text-center">Motorcycle Policy</td>
+                            <td class="py-3 border border-lime-500 text-center"> Non-Life Insurance</td>
+                            <td class="py-3 border border-lime-500 text-center flex items-center justify-center">
+                                <div id="status" class="w-[100px] text-green-600 bg-white p-2 font-semibold">Active
+                                </div>
+                            </td>
+                            <td class="py-3 border border-lime-500 text-center">
+                                <button class="  w-[100px] text-white bg-amber-600 p-1 font-semibold rounded-md">Renew</button>
+                            </td>
+                        </tr>
+                    <?php } ?>
                 </tbody>
             </table>
         </div>
@@ -161,13 +172,6 @@ $currentIndex = 0;
         </div>
     </dialog>
     <script>
-        document.getElementById('nonLifeBtn').addEventListener('click', () => {
-            window.location.href = './nonlifepolicy.php';
-        });
-        document.getElementById('lifePolicyBtn').addEventListener('click', () => {
-            window.location.href = './lifepolicy.php';
-        });
-
         document.getElementById('mainButton').addEventListener('click', function() {
             var dropdownButtons = document.getElementById('dropdownButtons');
             dropdownButtons.classList.toggle('hidden');
@@ -192,18 +196,37 @@ $currentIndex = 0;
 
         var users = <?php echo json_encode($users); ?>;
 
+
         // Add event listener to each open modal button
         openStatusBtn.forEach(btn => {
             btn.addEventListener("click", function() {
                 var index = this.getAttribute('data-index');
                 document.getElementById('modalUsername').innerText = users[index];
                 modalStatus.showModal();
+
+
+                document.getElementById('nonLifeBtn').setAttribute('data-customer-id', index);
+                document.getElementById('lifePolicyBtn').setAttribute('data-customer-id', index);
             });
+        });
+        // redirect to nonlifepolicy
+        document.getElementById('nonLifeBtn').addEventListener('click', (event) => {
+            var index = event.target.getAttribute('data-customer-id');
+            window.location.href = './nonlifepolicy.php?customer_id=' + index;
+
+            // window.location.href = './nonlifepolicy.php';
+        });
+        // redirect to life
+        document.getElementById('lifePolicyBtn').addEventListener('click', (event) => {
+            var index = event.target.getAttribute('data-customer-id');
+            window.location.href = './lifepolicy.php?customer_id=' + index;
+
+            // window.location.href = './lifepolicy.php';
         });
 
         // Add event listener to each close modal button
         closeStatusBtn.forEach(btn => {
-            btn.addEventListener("click", () => {
+            btn.addEventListener("click", function() {
                 modalStatus.close();
             });
         });
