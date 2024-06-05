@@ -16,6 +16,29 @@ if ($result->num_rows > 0) {
 }
 ?>
 
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+<script>
+    $(document).ready(function() {
+        $('.view-status-btn').on("click", function(e) {
+            e.preventDefault();
+            var customerId = $(this).data('index');
+            var customerName = $(this).siblings('.username').text();
+            $('#modalUsername').text(customerName);
+
+            $.get('../../phpscript/fetch_data/fetch_transactions.php', {
+                customer_id: customerId
+            }, function(data) {
+                $('#transactionTableBody').html(data);
+                $('[data-status-modal]')[0].showModal();
+            });
+        });
+
+        $(['data-close-status-modal']).on('click', function() {
+            $(['data-status-modal'])[0].close();
+        })
+    });
+</script>
+
 <body>
     <!-- sidebar -->
     <?php include '../../includes/sidebar.php'; ?>
@@ -26,7 +49,7 @@ if ($result->num_rows > 0) {
             <div>
                 <h1 class="font-medium text-[28px] text-lime-700">Customers</h1>
                 <p class="text-gray-500">Total Customers: <?php echo $userNum;
- ?></p>
+                                                            ?></p>
 
             </div>
             <div class="flex gap-4">
@@ -97,7 +120,7 @@ if ($result->num_rows > 0) {
                 </div>
                 <!-- clients info -->
                 <div>
-                    <h1 class="mb-5 font-medium text-lime-600">Client Info</h1>
+                    <h1 class="mb-5 font-medium text-lime-600">Customer Info</h1>
                     <!-- username -->
                     <div>
                         <!-- name -->
@@ -146,8 +169,8 @@ if ($result->num_rows > 0) {
                         <th class="border border-lime-500 bg-lime-600 text-white">Action</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <?php for ($i = 0; $i < 3; $i++) { ?>
+                <tbody id="transactionTableBody">
+                    <!-- <?php for ($i = 0; $i < 3; $i++) { ?>
                         <tr>
                             <td class="py-3 border border-lime-500 text-center">001</td>
                             <td class="py-3 border border-lime-500 text-center">2024</td>
@@ -161,7 +184,7 @@ if ($result->num_rows > 0) {
                                 <button class="  w-[100px] text-white bg-amber-600 p-1 font-semibold rounded-md">Renew</button>
                             </td>
                         </tr>
-                    <?php } ?>
+                    <?php } ?> -->
                 </tbody>
             </table>
         </div>
@@ -184,7 +207,6 @@ if ($result->num_rows > 0) {
             var dropdownButtons = document.getElementById('dropdownButtons');
             dropdownButtons.classList.toggle('hidden');
         });
-
 
         const openClientsBtn = document.querySelector("[data-open-clients-modal]");
         const closeClientsBtn = document.querySelector("[data-close-clients-modal]");
@@ -266,6 +288,8 @@ if ($result->num_rows > 0) {
             }
 
         });
+
+        // ajax
     </script>
 </body>
 
