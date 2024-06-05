@@ -46,7 +46,7 @@ if ($customer_id) {
 
             $.ajax({
                 type: "POST",
-                url: "../../phpscript/fetch_nonlifepolicy.php",
+                url: "../../phpscript/fetch_data/fetch_nonlifepolicy.php",
                 data: {
                     non_life_id: nonLifeId
                 },
