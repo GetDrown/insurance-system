@@ -24,31 +24,22 @@ $current_page = getCurrentPage();
 
 <body>
     <!-- sidebar -->
-    <?php include '../../includes/sidebar.php'; ?>
+    <?php include '../../includes/sidebar-staff.php'; ?>
 
     <!-- main-content -->
     <div class="basis-5/6 h-dvh p-3 rounded-lg  bg-gray-200 flex flex-col overflow-hidden">
         <!-- header -->
-        <div class="h-[100px] w-full bg-white rounded-lg p-4 flex items-center justify-between mb-3 drop-shadow-md">
+        <div class="h-[100px] w-full bg-white rounded-lg p-4 flex items-center justify-between mb-2  shadow-md">
             <div>
-                <h1 class="font-medium text-[28px] text-lime-700">Reports </h1>
+                <h1 class="font-medium text-[28px] text-lime-700">Report</h1>
+                <p class="text-gray-500">Admin</p>
             </div>
-
-            <div
-                class="custom-select flex justify-between items-center w-[270px] bg-lime-300 rounded-sm  overflow-hidden">
-                <div class="pl-2 drop-shadow-sm">
-                    <label for="">Select Year</label>
-                </div>
-                <select class="yearSelect">
-                    <option value="">2020</option>
-                    <option value="">2021</option>
-                    <option value="">2022</option>
-                    <option value="">2023</option>
-                    <option value="">2024</option>
-                </select>
+            <div>
+                <h1 id="currentDate"></h1>
+                <h1 class="text-[28px] font-semibold text-end" id="currentTime"></h1>
             </div>
         </div>
-        <div class="grid grid-cols-3 grid-rows-2 gap-3 h-[600px]">
+        <div class="grid grid-cols-3 grid-rows-2 gap-2 h-[590px]">
             <!-- side -->
             <div class="h-full bg-white row-span-2 col-span-1 p-2 rounded-md drop-shadow-md overflow-hidden">
                 <!-- title and month selecyt -->
@@ -89,31 +80,44 @@ $current_page = getCurrentPage();
                     } ?>
                 </div>
                 <!-- footer -->
-                <div class="w-full text-center p-2 border-t border-b h-[42px] bg-white">
+                <div class="w-full text-center p-1 border-t border-b h-[42px] bg-white">
 
                 </div>
             </div>
             <!-- top row -->
-            <div class="h-[290px] gap-4 col-span-2 row-span-1 ">
-                <div class="rounded-md bg-white drop-shadow-lg  p-3 h-full">
-                    <canvas id="line-chart" class="rounded-md"></canvas>
-                </div>
-            </div>
-            <!-- bottom row -->
-            <div class=" h-[290px] col-span-2 row-span-1">
-                <!-- <div class="bg-white drop-shadow-lg p-3 rounded-lg basis-1/4 h-full">
-                    <p class="text-lime-700 font-medium text-[18px]">Policy Holder Distribution</p>
-                    <canvas id="donut-chart" class="rounded-md"></canvas>
-                </div> -->
+            <div class="col-span-2 row-span-2 h-[590px]">
                 <div class="bg-white drop-shadow-lg rounded-lg  w-full h-full p-5">
-                    <canvas id="line-graph" class="rounded-md"></canvas>
+                    <div class="flex items-center justify-end mb-3">
+                        <label for="" class="mr-5">From</label>
+                        <select class="mr-5 border border-slate-200 px-2">
+                            <option value="">2020</option>
+                            <option value="">2021</option>
+                            <option value="">2022</option>
+                            <option value="">2023</option>
+                            <option value="">2024</option>
+                        </select>
+                        <label for="" class="mr-5">to</label>
+                        <select class="border border-slate-200 px-2">
+                            <option value="">2020</option>
+                            <option value="">2021</option>
+                            <option value="">2022</option>
+                            <option value="">2023</option>
+                            <option value="">2024</option>
+                        </select>
+                    </div>
+                    <div class="h-[450px]">
+                        <canvas id="combined-chart" class="rounded-md"></canvas>
+                    </div>
+                    <div class="bg-white flex justify-end items-center mt-1">
+                        <p class="text-slate-500 mr-5">Prepared by: JanDoe1</p>
+                        <button class="bg-lime-500 px-4 py-1 rounded-sm drop-shadow-md text-white">Print</button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <script src="../../assets/js/remaining-polices-charts.js"></script>
-    <script src="../../assets/js/policy-distribution-chart.js"></script>
     <script src="../../assets/js/income-graph.js"></script>
+    <script src="../../assets/js/time.js"></script>
 </body>
 
 </html>

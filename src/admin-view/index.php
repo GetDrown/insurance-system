@@ -11,70 +11,6 @@ include '../../dbconf/db_config.php';
 
 
 <body>
-    <!-- add policy modal -->
-    <dialog data-policy-modal>
-        <div>
-            <h1 class="mb-5 font-medium text-lime-600">Add Policy</h1>
-            <form action="" class="flex flex-col px-3">
-                <!-- username -->
-                <div class="h-[45px] flex mb-5 w-full">
-                    <select name="" id="" class="rounded-md px-[6px] py-[7px] bg-white border-[3px] w-full">
-                        <option hidden disabled selected value>-- Select Policy --</option>
-                        <option value="motorcycle_policy">Motorcycle Policy</option>
-                        <option value="private_car_policy">Private Car Policy</option>
-                        <option value="commercial_vehicle_policy">Commercial Vehicle Policy</option>
-                        <option value="lto_policy">Land Transportation Operators Policy</option>
-
-                    </select>
-                </div>
-                <!-- password -->
-                <div class="h-[35px] flex mb-5">
-                    <div
-                        class="basis-1/5  bg-gray-700 flex justify-center items-center h-full text-white rounded-tl-md rounded-bl-md text-sm px-2">
-                        Quantity</div>
-                    <input type="text"
-                        class="basis-4/5  h-full border-2 px-3 py-2 rounded-tr-md rounded-br-md active:outline-none focus:outline-none">
-                </div>
-                <!-- buttns -->
-                <div class="flex justify-around items-center ">
-                    <button class="bg-lime-300 py-2 px-2 rounded-lg font-medium w-[100px] shadow-md">Save</button>
-                    <button data-close-policy-modal
-                        class="bg-red-300 py-2 px-2 rounded-lg font-medium w-[100px] shadow-md">Cancel</button>
-                </div>
-            </form>
-        </div>
-    </dialog>
-    <!-- add staff modal -->
-    <dialog data-staff-modal>
-        <div>
-            <h1 class="mb-5 font-medium text-lime-600">Add new Staff</h1>
-            <form action="../../phpscript/addstaff.php" method="POST" class="flex flex-col">
-                <!-- username -->
-                <div class="h-[35px] flex mb-5">
-                    <div
-                        class="basis-1/5  bg-gray-700 flex justify-center items-center h-full text-white rounded-tl-md rounded-bl-md text-sm px-2">
-                        Username</div>
-                    <input type="text" name="username"
-                        class="basis-4/5  h-full border-2 px-3 py-2 rounded-tr-md rounded-br-md active:outline-none focus:outline-none">
-                </div>
-                <!-- password -->
-                <div class="h-[35px] flex mb-5">
-                    <div
-                        class="basis-1/5  bg-gray-700 flex justify-center items-center h-full text-white rounded-tl-md rounded-bl-md text-sm px-2">
-                        Password</div>
-                    <input name="password" type="password"
-                        class="basis-4/5  h-full border-2 px-3 py-2 rounded-tr-md rounded-br-md active:outline-none focus:outline-none">
-                </div>
-                <!-- buttns -->
-                <div class="flex justify-around items-center ">
-                    <button type="submit" class="bg-lime-300 py-2 px-2 rounded-lg font-medium w-[100px] shadow-md">Add
-                        Staff</button>
-                    <button data-close-staff-modal
-                        class="bg-red-300 py-2 px-2 rounded-lg font-medium w-[100px] shadow-md">Cancel</button>
-                </div>
-            </form>
-        </div>
-    </dialog>
 
     <!-- sidebar -->
     <div class="basis-2/12 bg-neutral-800 h-dvh flex flex-col justify-start items-center p-3">
@@ -110,15 +46,20 @@ include '../../dbconf/db_config.php';
                     <span class="ml-3 text-white">Clients</span>
                 </a>
             </li>
-            <!-- policcy -->
-            <!-- <li class="mb-[25px]">
-                <a href="policy.php" class="flex w-[230px] hover:bg-lime-500 p-3 rounded-lg">
-                    <div class="img-container">
-                        <img src="../../assets/image/policy.png" alt="">
-                    </div>
-                    <span class="ml-3 text-white">Policy</span>
+            <!-- staff -->
+            <li class="mb-[25px]">
+                <a href="staff.php" class="flex w-[230px] hover:bg-lime-500 p-3 rounded-lg">
+                    <i class="fa-solid fa-clipboard-user text-white"></i>
+                    <span class="ml-3 text-white">Staff</span>
                 </a>
-            </li> -->
+            </li>
+            <!-- insurance -->
+            <li class="mb-[25px]">
+                <a href="insurance.php" class="flex w-[230px] hover:bg-lime-500 p-3 rounded-lg text-white">
+                    <i class="fa-solid fa-file-contract"></i>s
+                    <span class="ml-3 ">Insurance</span>
+                </a>
+            </li>
             <!-- sms -->
             <li class="mb-[25px]">
                 <a href="sms.php" class="flex w-[230px] hover:bg-lime-500 p-3 rounded-lg">
@@ -142,7 +83,7 @@ include '../../dbconf/db_config.php';
     <!-- main-content -->
     <div class="basis-5/6 h-dvh flex flex-col justify-start items-center p-3 bg-gray-200">
         <!-- header -->
-        <div class="h-[100px] w-full bg-white rounded-lg p-4 flex items-center justify-between">
+        <div class="h-[100px] w-full bg-white rounded-lg p-4 flex items-center justify-between  shadow-md">
             <div>
                 <h1 class="font-medium text-[28px] text-lime-700">Dashboard </h1>
                 <p class="text-gray-500">Admin</p>
@@ -294,16 +235,16 @@ include '../../dbconf/db_config.php';
                     <div class="h-[100px] w-[100px] mb-3">
                         <img src="../../assets/image/pol.png" alt="">
                     </div>
-                    <button data-open-policy-modal
+                    <a href="insurance.php"
                         class="bg-neutral-800 text-white py-2 px-5 rounded-lg font-medium shadow-md">Add
-                        Policy</button>
+                        Policy</a>
                 </div>
                 <div class="flex flex-col justify-center items-center h-[200px] w-[150px] overflow-hidden">
                     <div class="h-[100px] w-[100px] mb-3">
                         <img src="../../assets/image/staff2.png" alt="">
                     </div>
-                    <button data-open-staff-modal class="bg-lime-300 py-2 px-5 rounded-lg font-medium shadow-md">Add
-                        Staff</button>
+                    <a href="staff.php" class="bg-lime-300 py-2 px-5 rounded-lg font-medium shadow-md">Add
+                        Staff</a>
                 </div>
             </div>
         </div>
@@ -356,7 +297,7 @@ include '../../dbconf/db_config.php';
     setInterval(updateTime, 1000);
     updateTime();
     </script>
-
+    <script src="../../assets/js/time.js"></script>
 </body>
 
 </html>

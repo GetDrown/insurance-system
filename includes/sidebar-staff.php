@@ -32,14 +32,6 @@
                 <span class="ml-3 text-white">Customer</span>
             </a>
         </li>
-        <!-- staff -->
-        <li class="mb-[25px]">
-            <a href="staff.php"
-                class="flex w-[230px] hover:bg-lime-500 p-3 rounded-lg <?php echo ($current_page == 'staff.php') ? 'bg-lime-500' : ''; ?>">
-                <i class="fa-solid fa-clipboard-user text-white"></i>
-                <span class="ml-3 text-white">Staff</span>
-            </a>
-        </li>
         <!-- insurance -->
         <li class="mb-[25px]">
             <a href="insurance.php"
