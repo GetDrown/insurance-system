@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 05, 2024 at 10:57 AM
+-- Generation Time: Jun 06, 2024 at 04:08 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -38,16 +38,6 @@ CREATE TABLE `customers` (
   `email_add` varchar(255) NOT NULL,
   `customer_address` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `customers`
---
-
-INSERT INTO `customers` (`customer_id`, `user_id`, `last_name`, `first_name`, `middle_ini`, `name_ext`, `phone_num`, `email_add`, `customer_address`) VALUES
-(1, 2, 'Pacatang', 'Kyle', 'M', 'N/A', '123123123', 'email@email.com', 'test'),
-(2, 3, 'Isidoro', 'Elnes Jan', '', '', '123123123', 'email@email.com', 'test'),
-(3, 4, 'Duragos', 'Jenny Rose', '', '', '21312312312', 'email@email.com', 'test'),
-(4, 5, 'Aldemita', 'Albert', 'C.', 'N/A', '1231231231', 'email@email.com', 'test');
 
 -- --------------------------------------------------------
 
@@ -123,15 +113,6 @@ CREATE TABLE `transactions` (
   `form_endorsement` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `transactions`
---
-
-INSERT INTO `transactions` (`transaction_id`, `customer_id`, `non_life_id`, `name_and_address`, `date_of_issuance`, `from_issuance`, `to_issuance`, `vehicle_model`, `vehicle_plate`, `vehicle_make`, `vehicle_serialchassis`, `vehicle_typeofbody`, `vehicle_motornum`, `vehicle_color`, `vehicle_bltnum`, `vehicle_paid`, `form_endorsement`) VALUES
-(1, 1, 1, 'test', '2024-06-03', '2024-06-05', '2025-06-05', '123', '123', '123', '123', '123', '123', '12123', '123', 0, 'tpl'),
-(2, 1, 2, 'tester', '2024-06-04', '2024-06-06', '2025-06-06', '123', '123', '123', '123', '123', '123', '12123', '123', 0, 'tpl'),
-(3, 2, 2, 'testest', '2024-06-04', '2024-06-05', '2025-06-05', '123', '123', '123', '123', '123', '123', '12123', '123', 0, 'tpl');
-
 -- --------------------------------------------------------
 
 --
@@ -142,20 +123,16 @@ CREATE TABLE `users` (
   `user_id` int(11) NOT NULL,
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `role_id` int(11) NOT NULL
+  `role_id` int(11) NOT NULL,
+  `name` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`user_id`, `username`, `password`, `role_id`) VALUES
-(1, 'owner', '123', 1),
-(2, 'customer1', '123', 3),
-(3, 'customer2', '123', 3),
-(4, 'customer3', '123', 3),
-(5, 'customer4', '123', 3),
-(6, '', '', 2);
+INSERT INTO `users` (`user_id`, `username`, `password`, `role_id`, `name`) VALUES
+(1, 'owner', 'test', 1, 'Frans Lloyd');
 
 -- --------------------------------------------------------
 
@@ -229,7 +206,7 @@ ALTER TABLE `user_role`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `life_policy`
@@ -247,13 +224,13 @@ ALTER TABLE `non_life_policy`
 -- AUTO_INCREMENT for table `transactions`
 --
 ALTER TABLE `transactions`
-  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `user_role`
