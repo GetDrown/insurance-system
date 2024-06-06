@@ -1,4 +1,5 @@
-<?php include '../../includes/header.php';
+<?php 
+include '../../includes/header.php';
 include '../../dbconf/db_config.php';
 
 // Sums all the policy quantity
@@ -27,11 +28,13 @@ if ($result->num_rows > 0) {
 }
 ?>
 
+
+
 <body>
 
     <!-- sidebar -->
     <div class="basis-2/12 bg-neutral-800 h-dvh flex flex-col justify-start items-center p-3">
-        <div class="h-[150px] mb-[30px]">
+        <div class="h-[100px] mb-[30px]">
             <img class="h-full" src="../../assets/image/logo.png" alt="">
         </div>
         <ul>
@@ -59,7 +62,9 @@ if ($result->num_rows > 0) {
                     <div class="img-container">
                         <img src="../../assets/image/Customer.png" alt="">
                     </div>
+
                     <span class="ml-3 text-white">Customers</span>
+main
                 </a>
             </li>
             <!-- staff -->
@@ -85,8 +90,16 @@ if ($result->num_rows > 0) {
                     <span class="ml-3 text-white">SMS</span>
                 </a>
             </li>
+            <!-- claims -->
+            <li class="mb-[25px]">
+                <a href="claims.php"
+                    class="flex w-[230px] hover:bg-lime-500 p-3 rounded-lg <?php echo ($current_page == 'claims.php') ? 'bg-lime-500' : ''; ?>">
+                    <i class="fa-solid fa-person-circle-exclamation text-white"></i>
+                    <span class="ml-3 text-white">Claims</span>
+                </a>
+            </li>
             <li class="logout">
-                <a href="../../login.php" class="flex w-[230px] hover:bg-red-500 p-3 rounded-lg">
+                <a href="../../phpscript/logout.php" class="flex w-[230px] hover:bg-red-500 p-3 rounded-lg">
                     <div class="img-container">
                         <img src="../../assets/image/logout.png" alt="">
                     </div>
