@@ -1,4 +1,5 @@
-<?php include '../../includes/header.php';
+<?php
+include '../../includes/header.php';
 include '../../dbconf/db_config.php';
 
 session_start();
@@ -7,7 +8,7 @@ $customer_id = isset($_GET['customer_id']) ? $_GET['customer_id'] : null;
 
 // check customer if valid
 if ($customer_id) {
-    $sql = 'select * from customers where customer_id = ?';
+    $sql = "select * from customers where customer_id = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param('i', $customer_id);
     $stmt->execute();
@@ -16,11 +17,68 @@ if ($customer_id) {
     if ($result->num_rows > 0) {
         $customer = $result->fetch_assoc();
     }
-   
 }
+// get prices of each premiums
+// if (isset($_GET['id'])) {
+//     $non_life_id = intval($_GET['id']);
+//     $sql_nonlife = "SELECT non_life_premium, non_life_docstamp, non_life_govtax, non_life_others WHERE non_life_id = ?";
+//     $stmt_nonlife = $conn->prepare($sql_nonlife);
+//     $stmt_nonlife->bind_param("i", $non_life_id);
+//     $stmt_nonlife->execute();
+//     $result = $stmt_nonlife->get_result();
+
+//     if ($result->num_rows > 0) {
+//         $row = $result->fetch_assoc();
+//         echo json_encode($row);
+//     } else {
+//         echo json_encode([]);
+//     }
+//     $stmt->close();
+//     $conn->close();
+// }
 
 ?>
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+<script>
+    $(document).ready(function() {
+        $('#non_life_selection').change(function() {
+            var nonLifeId = $(this).val();
 
+            $.ajax({
+                type: "POST",
+                url: "../../phpscript/fetch_data/fetch_nonlifepolicy.php",
+                data: {
+                    non_life_id: nonLifeId
+                },
+                dataType: "json",
+                success: function(response) {
+                    $('#vehicle_premium').val(response.non_life_premium);
+                    $('#vehicle_docstamp').val(response.non_life_docstamp);
+                    $('#vehicle_govtax').val(response.non_life_govtax);
+                    $('#vehicle_others').val(response.non_life_others);
+
+                    realculateTotal();
+                    // var total = parseFloat(response.non_life_premium) + parseFloat(response.non_life_docstamp) + parseFloat(response.non_life_govtax) + parseFloat(response.non_life_others);
+                    // $('#vehicle_totalpaid').val(total);
+                }
+            });
+        });
+
+        $('#vehicle_premium, #vehicle_docstamp, #vehicle_govtax, #vehicle_others').on('input', function() {
+            recalculateTotal();
+        });
+
+        function recalculateTotal() {
+            var premium = parseFloat($('#vehicle_premium').val()) || 0;
+            var docStamp = parseFloat($('#vehicle_docstamp').val()) || 0;
+            var govTax = parseFloat($('#vehicle_govtax').val()) || 0;
+            var others = parseFloat($('#vehicle_others').val()) || 0;
+
+            var total = premium + docStamp + govTax + others;
+            $('#vehicle_totalpaid').val(total.toFixed(2));
+        }
+    });
+</script>
 
 <body class="bg-gray-300">
     <!-- sidebar -->
@@ -37,7 +95,7 @@ if ($customer_id) {
 
                 <div class="mt-4 flex mb-[25px] space-x-4">
                     <label class="text-3xl ml-2 font-poppins text-lime-700">Non-Life Insurance Policy Application</label>
-                    <select name="non_life_selection" id="" class="rounded-md px-[6px] py-[7px] bg-white border-[3px]">
+                    <select name="non_life_selection" id="non_life_selection" class="rounded-md px-[6px] py-[7px] bg-white border-[3px]">
                         <option hidden disabled selected value>-- Select Policy --</option>
 
                         <?php
@@ -159,27 +217,27 @@ if ($customer_id) {
                         <div class="flex flex-row space-x-4">
                             <label for="" class="font-poppins mt-[3px] mr-[8px]">Premium Paid</label>
                             <img src="../../assets/image/peso.png" alt="" class="w-[20px] h-[20px] mt-[5px]">
-                            <input type="text" placeholder="" class=" rounded-md w-[250px] py-[2px] px-[4px] placeholder:pl-[2px] placeholder:text-black placeholder:text-sm bg-white border-2 border-slate-300 focus:ring-1 focus:outline-none focus:border-lime-500 focus:ring-lime-500">
+                            <input name="vehicle_premium" id="vehicle_premium" type="text" placeholder="" class=" rounded-md w-[250px] py-[2px] px-[4px] placeholder:pl-[2px] placeholder:text-black placeholder:text-sm bg-white border-2 border-slate-300 focus:ring-1 focus:outline-none focus:border-lime-500 focus:ring-lime-500">
                         </div>
                         <div class="flex flex-row space-x-4">
                             <label for="" class="font-poppins mt-[3px] mr-[8px]">Doc. Stamps</label>
                             <img src="../../assets/image/peso.png" alt="" class="w-[20px] h-[20px] mt-[5px]">
-                            <input type="text" placeholder="" class=" rounded-md w-[250px] py-[2px] px-[4px] placeholder:pl-[2px] placeholder:text-black placeholder:text-sm bg-white border-2 border-slate-300 focus:ring-1 focus:outline-none focus:border-lime-500 focus:ring-lime-500">
+                            <input name="vehicle_docstamp" id="vehicle_docstamp" type="text" placeholder="" class=" rounded-md w-[250px] py-[2px] px-[4px] placeholder:pl-[2px] placeholder:text-black placeholder:text-sm bg-white border-2 border-slate-300 focus:ring-1 focus:outline-none focus:border-lime-500 focus:ring-lime-500" readonly>
                         </div>
                         <div class="flex flex-row space-x-4">
                             <label for="" class="font-poppins mt-[3px] mr-[8px]">Local Gov't Tax</label>
                             <img src="../../assets/image/peso.png" alt="" class="w-[20px] h-[20px] mt-[5px]">
-                            <input type="text" placeholder="" class=" rounded-md w-[250px] py-[2px] px-[4px] placeholder:pl-[2px] placeholder:text-black placeholder:text-sm bg-white border-2 border-slate-300 focus:ring-1 focus:outline-none focus:border-lime-500 focus:ring-lime-500">
+                            <input name="vehicle_govtax" id="vehicle_govtax" type="text" placeholder="" class=" rounded-md w-[250px] py-[2px] px-[4px] placeholder:pl-[2px] placeholder:text-black placeholder:text-sm bg-white border-2 border-slate-300 focus:ring-1 focus:outline-none focus:border-lime-500 focus:ring-lime-500" readonly>
                         </div>
                         <div class="flex flex-row  mb-[20px]">
                             <label for="" class="font-poppins mt-[3px] mr-[70px]">Others</label>
                             <img src="../../assets/image/peso.png" alt="" class="w-[20px] h-[20px] mt-[5px]">
-                            <input type="text" placeholder="" class=" rounded-md w-[250px] py-[2px] px-[4px] placeholder:pl-[2px] placeholder:text-black placeholder:text-sm bg-white border-2 border-slate-300 focus:ring-1 focus:outline-none focus:border-lime-500 focus:ring-lime-500">
+                            <input name="vehicle_others" id="vehicle_others" type="text" placeholder="" class=" rounded-md w-[250px] py-[2px] px-[4px] placeholder:pl-[2px] placeholder:text-black placeholder:text-sm bg-white border-2 border-slate-300 focus:ring-1 focus:outline-none focus:border-lime-500 focus:ring-lime-500" readonly>
                         </div>
                         <div class="flex flex-row ">
                             <label for="" class="font-poppins mt-[3px] mr-[70px] font-semibold">Total</label>
                             <img src="../../assets/image/peso.png" alt="" class="w-[20px] h-[20px] mt-[5px]">
-                            <input name="vehicle_totalpaid" type="text" placeholder="" class=" rounded-md w-[250px] py-[2px] px-[4px] placeholder:pl-[2px] placeholder:text-black placeholder:text-sm bg-white border-2 border-slate-300 focus:ring-1 focus:outline-none focus:border-lime-500 focus:ring-lime-500" >
+                            <input name="vehicle_totalpaid" id="vehicle_totalpaid" type="text" placeholder="" class=" rounded-md w-[250px] py-[2px] px-[4px] placeholder:pl-[2px] placeholder:text-black placeholder:text-sm bg-white border-2 border-slate-300 focus:ring-1 focus:outline-none focus:border-lime-500 focus:ring-lime-500" readonly>
                         </div>
                     </div>
                 </div>
@@ -190,7 +248,7 @@ if ($customer_id) {
                     <input name="form_endorsement" type="text" placeholder="" class=" rounded-md w-[250px] py-[2px] px-[4px] placeholder:pl-[2px] placeholder:text-black placeholder:text-sm bg-white border-2 border-slate-300 focus:ring-1 focus:outline-none focus:border-lime-500 focus:ring-lime-500">
                 </div>
                 <div class="flex flex-row justify-end space-x-4 mr-7 mt-4">
-                    <button type="submit" class="rounded-md px-[6px] py-[9px] bg-lime-500 hover:bg-lime-600  transition ease-in-out duration-300">Submit
+                    <button type="submit" class="rounded-md px-[6px] py-[9px] bg-lime-500 hover:bg-lime-600  transition ease-in-out duration-300">Approve
                         Application</button>
                     <button class="rounded-md px-[14px] py-[9px] bg-red-300 ">Cancel</button>
                 </div>
@@ -201,7 +259,29 @@ if ($customer_id) {
 
 
     </div>
-
+    <!-- <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('non_life_selection').addEventListener('change', function() {
+                const nonLifeId = this.value;
+                if (nonLifeId) {
+                    fetch('nonlifepolicy.php?id=' + nonLifeId)
+                        .then(response => response.json())
+                        .then(data => {
+                            document.getElementById('vehicle_premium').value = data.non_life_premium || '';
+                            document.getElementById('vehicle_docstamp').value = data.non_life_docstamp || '';
+                            document.getElementById('vehicle_govtax').value = data.non_life_govtax || '';
+                            document.getElementById('vehicle_others').value = data.non_life_others || '';
+                            document.getElementById('vehicle_totalpaid').value = (parseFloat(data.non_life_premium) || 0) +
+                                (parseFloat(data.non_life_docstamp) || 0) +
+                                (parseFloat(data.non_life_govtax) || 0) +
+                                (parseFloat(data.non_life_others) || 0)
+                                .toFixed(2);
+                        })
+                        .catch(error => console.error('Error fecthing data: ', error));
+                }
+            });
+        });
+    </script> -->
 
 </body>
 
