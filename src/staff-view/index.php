@@ -12,8 +12,7 @@ include '../../dbconf/db_config.php';
         <ul>
             <!-- dashboard link -->
             <li class="mb-[25px] ">
-                <a href="index.php"
-                    class="flex w-[230px] hover:bg-lime-500 p-3 rounded-lg <?php echo ($current_page == 'index.php') ? 'bg-lime-500' : ''; ?>">
+                <a href="index.php" class="flex w-[230px] hover:bg-lime-500 p-3 rounded-lg <?php echo ($current_page == 'index.php') ? 'bg-lime-500' : ''; ?>">
                     <div class="img-container">
                         <img src="../../assets/image/dashboard.png" alt="">
                     </div>
@@ -35,7 +34,7 @@ include '../../dbconf/db_config.php';
                     <div class="img-container">
                         <img src="../../assets/image/Customer.png" alt="">
                     </div>
-                    <span class="ml-3 text-white">Clients</span>
+                    <span class="ml-3 text-white">Customer</span>
                 </a>
             </li>
             <!-- staff -->
@@ -53,6 +52,13 @@ include '../../dbconf/db_config.php';
                         <img src="../../assets/image/sms.png" alt="">
                     </div>
                     <span class="ml-3 text-white">SMS</span>
+                </a>
+            </li>
+            <!-- claims -->
+            <li class="mb-[25px]">
+                <a href="claims.php" class="flex w-[230px] hover:bg-lime-500 p-3 rounded-lg <?php echo ($current_page == 'claims.php') ? 'bg-lime-500' : ''; ?>">
+                    <i class="fa-solid fa-person-circle-exclamation text-white"></i>
+                    <span class="ml-3 text-white">Claims</span>
                 </a>
             </li>
             <li class="logout">
@@ -84,8 +90,7 @@ include '../../dbconf/db_config.php';
             <p class="text-lime-700 font-medium text-[18px] basis-1/12 mb-2">Today's Data</p>
             <div class="w-full grid grid-cols-4 gap-3 basis-11/12">
                 <!-- total income -->
-                <div
-                    class="bg-lime-200 hover:bg-amber-500  hover:text-white rounded-md flex flex-col justify-between p-2 shadow-md">
+                <div class="bg-lime-200 hover:bg-amber-500  hover:text-white rounded-md flex flex-col justify-between p-2 shadow-md">
                     <div class="flex justify-around items-center w-full mt-7 px-2">
                         <div>
                             <p class="font-normal text-[18px] tracking-wide">Income</p>
@@ -103,8 +108,7 @@ include '../../dbconf/db_config.php';
                     </div>
                 </div>
                 <!-- policy holder -->
-                <div
-                    class="bg-lime-200 hover:bg-amber-500  hover:text-white rounded-md flex flex-col justify-between p-2 shadow-md">
+                <div class="bg-lime-200 hover:bg-amber-500  hover:text-white rounded-md flex flex-col justify-between p-2 shadow-md">
                     <div class="flex justify-around items-center w-full mt-7 px-2">
                         <div>
                             <p class="font-normal text-[18px] tracking-wide">Policy Holder</p>
@@ -123,8 +127,7 @@ include '../../dbconf/db_config.php';
                     </div>
                 </div>
                 <!-- remaining policies -->
-                <div
-                    class="bg-lime-200 hover:bg-amber-500  hover:text-white rounded-md flex flex-col justify-between p-2 shadow-md">
+                <div class="bg-lime-200 hover:bg-amber-500  hover:text-white rounded-md flex flex-col justify-between p-2 shadow-md">
                     <div class="flex justify-around items-center w-full mt-7 px-2">
                         <div>
                             <p class="font-normal text-[18px] tracking-wide">Remaining Policies</p>
@@ -144,8 +147,7 @@ include '../../dbconf/db_config.php';
                     </div>
                 </div>
                 <!-- expiring -->
-                <div
-                    class="bg-lime-200 hover:bg-amber-500  hover:text-white rounded-md flex flex-col justify-between p-2 shadow-md">
+                <div class="bg-lime-200 hover:bg-amber-500  hover:text-white rounded-md flex flex-col justify-between p-2 shadow-md">
                     <div class="flex justify-around items-center w-full mt-7 px-2">
                         <div>
                             <p class="font-normal text-[18px] tracking-wide">Expiring Policies</p>
@@ -158,7 +160,7 @@ include '../../dbconf/db_config.php';
                     <div class="flex justify-around items-center w-full ">
 
                         <?php for ($i = 0; $i < 20; $i++) { ?>
-                        <p class="text-gray-500 ">*</p>
+                            <p class="text-gray-500 ">*</p>
                         <?php } ?>
 
                     </div>
@@ -175,38 +177,38 @@ include '../../dbconf/db_config.php';
                 <!-- history content -->
                 <div class="w-full h-[268px] overflow-y-auto py-[5px] px-2">
                     <?php for ($i = 0; $i < 10; $i++) {  ?>
-                    <div class="w-full h-[50px] shadow-md mb-3 flex justify-around items-center px-3 rounded-md">
-                        <!-- type of transaction and date -->
-                        <div>
-                            <p class="text-sm font-medium">Application for Insurance Policy</p>
-                            <p class="text-xs text-gray-400">May 19, 2024</p>
+                        <div class="w-full h-[50px] shadow-md mb-3 flex justify-around items-center px-3 rounded-md">
+                            <!-- type of transaction and date -->
+                            <div>
+                                <p class="text-sm font-medium">Application for Insurance Policy</p>
+                                <p class="text-xs text-gray-400">May 19, 2024</p>
+                            </div>
+                            <!-- cliente name -->
+                            <div>
+                                <h1 class="text-sm font-medium">Client <?php echo $i + 1; ?></h1>
+                            </div>
+                            <!-- payment and status -->
+                            <div>
+                                <p class="text-sm font-medium">₱ 1,200.59</p>
+                                <p class="text-xs text-red-500">Pending</p>
+                            </div>
                         </div>
-                        <!-- cliente name -->
-                        <div>
-                            <h1 class="text-sm font-medium">Client <?php echo $i + 1; ?></h1>
+                        <div class="w-full h-[50px] shadow-md mb-3 flex justify-around items-center px-3 rounded-md">
+                            <!-- type of transaction and date -->
+                            <div>
+                                <p class="text-sm font-medium">Application for Insurance Policy</p>
+                                <p class="text-xs text-gray-400">May 17, 2024</p>
+                            </div>
+                            <!-- cliente name -->
+                            <div>
+                                <h1 class="text-sm font-medium">Client <?php echo $i + 2; ?></h1>
+                            </div>
+                            <!-- payment and status -->
+                            <div>
+                                <p class="text-sm font-medium">₱ 1,340.79</p>
+                                <p class="text-xs text-lime-500">Approved</p>
+                            </div>
                         </div>
-                        <!-- payment and status -->
-                        <div>
-                            <p class="text-sm font-medium">₱ 1,200.59</p>
-                            <p class="text-xs text-red-500">Pending</p>
-                        </div>
-                    </div>
-                    <div class="w-full h-[50px] shadow-md mb-3 flex justify-around items-center px-3 rounded-md">
-                        <!-- type of transaction and date -->
-                        <div>
-                            <p class="text-sm font-medium">Application for Insurance Policy</p>
-                            <p class="text-xs text-gray-400">May 17, 2024</p>
-                        </div>
-                        <!-- cliente name -->
-                        <div>
-                            <h1 class="text-sm font-medium">Client <?php echo $i + 2; ?></h1>
-                        </div>
-                        <!-- payment and status -->
-                        <div>
-                            <p class="text-sm font-medium">₱ 1,340.79</p>
-                            <p class="text-xs text-lime-500">Approved</p>
-                        </div>
-                    </div>
                     <?php $i += 1;
                     } ?>
                 </div>
@@ -221,8 +223,7 @@ include '../../dbconf/db_config.php';
                     <div class="h-[100px] w-[100px] mb-3">
                         <img src="../../assets/image/pol.png" alt="">
                     </div>
-                    <a href="insurance.php"
-                        class="bg-neutral-800 text-white py-2 px-5 rounded-lg font-medium shadow-md">Add
+                    <a href="insurance.php" class="bg-neutral-800 text-white py-2 px-5 rounded-lg font-medium shadow-md">Add
                         Policy</a>
                 </div>
 
@@ -231,51 +232,51 @@ include '../../dbconf/db_config.php';
     </div>
 
     <script>
-    const openStaffBtn = document.querySelector("[data-open-staff-modal]");
-    const closeStaffBtn = document.querySelector("[data-close-staff-modal]");
-    const modalStaff = document.querySelector("[data-staff-modal]");
+        const openStaffBtn = document.querySelector("[data-open-staff-modal]");
+        const closeStaffBtn = document.querySelector("[data-close-staff-modal]");
+        const modalStaff = document.querySelector("[data-staff-modal]");
 
-    const openPolicyBtn = document.querySelector("[data-open-policy-modal]");
-    const closePolicyBtn = document.querySelector("[data-close-policy-modal]");
-    const modalPolicy = document.querySelector("[data-policy-modal]");
+        const openPolicyBtn = document.querySelector("[data-open-policy-modal]");
+        const closePolicyBtn = document.querySelector("[data-close-policy-modal]");
+        const modalPolicy = document.querySelector("[data-policy-modal]");
 
-    openStaffBtn.addEventListener("click", () => {
-        modalStaff.showModal();
-    });
+        openStaffBtn.addEventListener("click", () => {
+            modalStaff.showModal();
+        });
 
-    closeStaffBtn.addEventListener("click", () => {
-        modalStaff.close();
-    });
+        closeStaffBtn.addEventListener("click", () => {
+            modalStaff.close();
+        });
 
-    openPolicyBtn.addEventListener("click", () => {
-        modalPolicy.showModal();
-    });
+        openPolicyBtn.addEventListener("click", () => {
+            modalPolicy.showModal();
+        });
 
-    closePolicyBtn.addEventListener("click", () => {
-        modalPolicy.close();
-    });
+        closePolicyBtn.addEventListener("click", () => {
+            modalPolicy.close();
+        });
 
 
-    function updateTime() {
-        var currentDate = new Date();
-        var options = {
-            weekday: 'long',
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric'
-        };
-        document.getElementById("currentDate").innerHTML = currentDate.toLocaleDateString('en-US', options);
-        var hours = currentDate.getHours();
-        var minutes = currentDate.getMinutes();
-        var ampm = hours >= 12 ? 'PM' : 'AM';
-        hours = hours % 12;
-        hours = hours ? hours : 12; // the hour '0' should be '12'
-        minutes = minutes < 10 ? '0' + minutes : minutes;
-        var currentTime = hours + ':' + minutes + ' ' + ampm;
-        document.getElementById("currentTime").innerHTML = currentTime;
-    }
-    setInterval(updateTime, 1000);
-    updateTime();
+        function updateTime() {
+            var currentDate = new Date();
+            var options = {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            };
+            document.getElementById("currentDate").innerHTML = currentDate.toLocaleDateString('en-US', options);
+            var hours = currentDate.getHours();
+            var minutes = currentDate.getMinutes();
+            var ampm = hours >= 12 ? 'PM' : 'AM';
+            hours = hours % 12;
+            hours = hours ? hours : 12; // the hour '0' should be '12'
+            minutes = minutes < 10 ? '0' + minutes : minutes;
+            var currentTime = hours + ':' + minutes + ' ' + ampm;
+            document.getElementById("currentTime").innerHTML = currentTime;
+        }
+        setInterval(updateTime, 1000);
+        updateTime();
     </script>
     <script src="../../assets/js/time.js"></script>
 </body>

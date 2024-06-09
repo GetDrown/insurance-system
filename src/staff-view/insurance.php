@@ -29,7 +29,7 @@
                 <!-- buttns -->
                 <div class="flex justify-around items-center ">
                     <button class="bg-lime-300 py-2 px-2 rounded-lg font-medium w-[100px] shadow-md">Save</button>
-                    <button data-close-policy-modal
+                    <button type="button" data-close-policy-modal
                         class="bg-red-300 py-2 px-2 rounded-lg font-medium w-[100px] shadow-md">Cancel</button>
                 </div>
             </form>

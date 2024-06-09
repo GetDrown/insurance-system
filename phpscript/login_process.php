@@ -16,18 +16,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if ($password == $user["password"]) {
             session_start();
             $_SESSION["username"]  = $username;
-            $_SESSION['user_role'] = $role_id;
+            $_SESSION["user_role"] = $role_id;
+            $_SESSION["user_id"] = $userId['user_id'];
+
 
             // redirect base on role
             switch ($role_id) {
                 case 1:
                     header('Location: ../src/admin-view/index.php');
+
                     break;
                 case 2:
                     header('Location: ../src/staff-view/index.php');
+
                     break;
                 case 3:
-                    header('Location: ./src/customer-view/index.php');
+                    header('Location: ../src/customer-view/index.php');
+
                     break;
                 default:
                     echo "Invalid selection";
