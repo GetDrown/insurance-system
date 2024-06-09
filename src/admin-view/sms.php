@@ -16,7 +16,8 @@
                 <h1 class="text-[28px] font-semibold text-end" id="currentTime"></h1>
             </div>
         </div>
-        <div class="h-[280px] grid grid-cols-2 gap-2 overflow-hidden">
+        <!-- messaging -->
+        <!-- <div class="h-[280px] grid grid-cols-2 gap-2 overflow-hidden">
             <div class="bg-white shadow-md my-2 rounded-md p-2">
                 <div class="w-full p-1 border-b h-[42px] bg-white flex justify-between items-center pb-3">
                     <p class="text-lime-700 font-medium">Clients</p>
@@ -69,9 +70,9 @@
                     </div>
                 </form>
             </div>
-        </div>
+        </div> -->
 
-        <div class="bg-white shadow-md h-[310px] rounded-md overflow-hidden p-2 mt-2">
+        <div class="bg-white shadow-md h-[610px] rounded-md overflow-hidden p-2 mt-2">
             <div class="w-full p-1 border-b h-[42px] bg-white">
                 <p class="text-lime-700 font-medium">History</p>
             </div>
@@ -82,7 +83,7 @@
                 <p class="text-gray-500 text-sm font-bold">Date</p>
                 <p class="text-gray-500 text-sm font-bold">Action</p>
             </div>
-            <div class="h-[225px] overflow-y-auto p-1">
+            <div class="h-[500px] overflow-y-auto p-1">
                 <?php for ($i=0; $i < 10; $i++) { ?>
                 <div class="flex items-center justify-around mb-4 shadow-md py-3 border h-[125px]">
                     <p class="text-gray-500 text-sm">0986 797 2981</p>
@@ -97,8 +98,7 @@
                     </div>
                     <p class="text-gray-500 text-sm">May 31, 1:17am</p>
                     <div>
-                        <button class="text-sm text-lime-500 mr-3">view</button>
-                        <button class="text-sm text-red-500">delete</button>
+                        <button class="text-sm font-medium text-red-500">delete</button>
                     </div>
                 </div>
                 <?php } ?>
@@ -123,7 +123,6 @@
             }
         });
 
-        // document.getElementById('noClientsMessage').classList.toggle('hidden', hasVisibleClients);
         var element = document.getElementById('noClientsMessage');
 
         if (!hasVisibleClients) {

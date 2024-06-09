@@ -11,7 +11,7 @@ include '../../includes/header.php';
     <!-- Main content -->
     <div class=" basis-5/6 h-dvh flex flex-col justify-start items-center py-3 px-5 overflow-auto">
         <div class="h-[1150px] w-full justify-center items-center bg-white px-4 rounded-md">
-            <form action="" class=" mt-4">
+            <form action="../../phpscript/" class=" mt-4">
                 <p class="text-lime-700 font-medium text-[24px] basis-1/12">Life Insurance Policy</p>
                 <div class="w-full grid grid-cols-2 mt-[8px] gap-4 basis-11/12">
                     <!-- Protection Package -->

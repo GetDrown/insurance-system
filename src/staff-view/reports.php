@@ -32,7 +32,7 @@ $current_page = getCurrentPage();
         <div class="h-[100px] w-full bg-white rounded-lg p-4 flex items-center justify-between mb-2  shadow-md">
             <div>
                 <h1 class="font-medium text-[28px] text-lime-700">Report</h1>
-                <p class="text-gray-500">Admin</p>
+                <p class="text-gray-500">Customer</p>
             </div>
             <div>
                 <h1 id="currentDate"></h1>
@@ -68,7 +68,7 @@ $current_page = getCurrentPage();
                     <div class="w-full h-[50px] shadow-md mb-3 flex justify-around items-center px-3 rounded-md">
                         <!-- type of transaction and date -->
                         <div>
-                            <p class="text-sm font-medium">Client <?php echo $i+1; ?></p>
+                            <p class="text-sm font-medium">Customer <?php echo $i+1; ?></p>
                             <p class="text-xs text-gray-400">May 17, 2024</p>
                         </div>
                         <!-- cliente name -->

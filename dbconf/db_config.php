@@ -4,6 +4,7 @@ $servername = "localhost"; //optional to add port number of the mysql server
 $username = "root";
 $password = "";
 $dbname = "insurancesystem";
+// $port = 3307; //optional when default port is already being used.
 
 
 $conn = new mysqli($servername, $username, $password, $dbname);

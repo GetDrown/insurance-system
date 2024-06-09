@@ -14,6 +14,7 @@ if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
     $userNum = $row['total_customers'];
 }
+
 ?>
 
 <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
@@ -61,8 +62,10 @@ if ($result->num_rows > 0) {
                     <span><i class="fa-solid fa-magnifying-glass text-lime-600"></i></span>
                 </div>
 
+
                 <button data-open-clients-modal class="bg-lime-600 px-3 py-2 rounded-md drop-shadow-md font-semibold text-white"><i class="fa-regular fa-square-plus"></i> Add
                     Customers</button>
+                main
             </div>
         </div>
         <!-- body -->
@@ -76,14 +79,16 @@ if ($result->num_rows > 0) {
             $users = [1];
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
-                    $users[] = $row['last_name'] . ", " . $row['first_name']; ?>
+                    // $users[] = $row['last_name'] . ", " . $row['first_name']; 
+            ?>
                     <div class="client bg-gray-600 h-[220px] rounded-md drop-shadow-md p-5 text-white">
                         <div class="flex items-center justify-start border-b-2 border-gray-500 ">
                             <span class="border-2 border-gray-500 rounded-md p-3 mr-5 mb-3 ">
                                 <i class="fa-solid fa-user text-[46px]"></i>
                             </span>
                             <div>
-                                <p class="username font-semibold"><?php echo $row['last_name'] . ", " . $row['first_name']; ?></p>
+                                <p class="username font-semibold"><?php echo $row['last_name'] . ", " . $row['first_name']; ?>
+                                </p>
                                 <button data-open-status-modal data-index="<?php echo $row['customer_id']; ?>" class="view-status-btn text-amber-600 font-medium text-[14px] data-open-status-modal">View
                                     Policy
                                     Status</button>
@@ -152,7 +157,7 @@ if ($result->num_rows > 0) {
     <dialog data-status-modal class=" w-11/12 h-5/6 p-5">
 
         <div class="flex justify-between items-start">
-            <h1 id="modalUsername" class="mb-5 font-medium text-[24px] text-lime-600"></h1>
+            <h1 id="modalUsername" class="mb-5 font-medium text-[24px] text-lime-600">test</h1>
             <button data-close-status-modal class=" text-red-500 text-[24px] rounded-lg"><i class="fa-solid fa-circle-xmark"></i></button>
             <!-- username -->
         </div>
@@ -169,22 +174,23 @@ if ($result->num_rows > 0) {
                         <th class="border border-lime-500 bg-lime-600 text-white">Action</th>
                     </tr>
                 </thead>
+
                 <tbody id="transactionTableBody">
-                    <!-- <?php for ($i = 0; $i < 3; $i++) { ?>
-                        <tr>
-                            <td class="py-3 border border-lime-500 text-center">001</td>
-                            <td class="py-3 border border-lime-500 text-center">2024</td>
-                            <td class="py-3 border border-lime-500 text-center">Motorcycle Policy</td>
-                            <td class="py-3 border border-lime-500 text-center"> Non-Life Insurance</td>
-                            <td class="py-3 border border-lime-500 text-center flex items-center justify-center">
-                                <div id="status" class="w-[100px] text-green-600 bg-white p-2 font-semibold">Active
-                                </div>
-                            </td>
-                            <td class="py-3 border border-lime-500 text-center">
-                                <button class="  w-[100px] text-white bg-amber-600 p-1 font-semibold rounded-md">Renew</button>
-                            </td>
-                        </tr>
-                    <?php } ?> -->
+                    <!-- <?php for ($i = 0; $i < 3; $i++) { ?> -->
+                    <!-- <tr>
+                        <td class="py-3 border border-lime-500 text-center">001</td>
+                        <td class="py-3 border border-lime-500 text-center">2024</td>
+                        <td class="py-3 border border-lime-500 text-center">Motorcycle Policy</td>
+                        <td class="py-3 border border-lime-500 text-center"> Non-Life Insurance</td>
+                        <td class="py-3 border border-lime-500 text-center flex items-center justify-center">
+                            <div id="status" class="w-[100px] text-green-600 bg-white p-2 font-semibold">Active
+                            </div>
+                        </td>
+                        <td class="py-3 border border-lime-500 text-center">
+                            <button class="  w-[100px] text-white bg-amber-600 p-1 font-semibold rounded-md">Renew</button>
+                        </td>
+                    </tr> -->
+                    <!-- <?php } ?> -->
                 </tbody>
             </table>
         </div>
@@ -197,7 +203,8 @@ if ($result->num_rows > 0) {
                 <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="mainButton">
                     <button id="nonLifeBtn" class="w-full px-4 py-2 text-left text-gray-700 hover:bg-gray-100">Non-Life
                         Policy</button>
-                    <button id="lifePolicyBtn" class="w-full px-4 py-2 text-left text-gray-700 hover:bg-gray-100">Life Policy</button>
+                    <button id="lifePolicyBtn" class="w-full px-4 py-2 text-left text-gray-700 hover:bg-gray-100">Life
+                        Policy</button>
                 </div>
             </div>
         </div>
@@ -208,9 +215,12 @@ if ($result->num_rows > 0) {
             dropdownButtons.classList.toggle('hidden');
         });
 
+        main
+
         const openClientsBtn = document.querySelector("[data-open-clients-modal]");
         const closeClientsBtn = document.querySelector("[data-close-clients-modal]");
         const modalClients = document.querySelector("[data-clients-modal]");
+
 
         openClientsBtn.addEventListener("click", () => {
             modalClients.showModal();
@@ -276,6 +286,7 @@ if ($result->num_rows > 0) {
                 }
             });
 
+            main
             // document.getElementById('noClientsMessage').classList.toggle('hidden', hasVisibleClients);
             var element = document.getElementById('noClientsMessage');
 
@@ -287,9 +298,8 @@ if ($result->num_rows > 0) {
                 element.classList.add('hidden');
             }
 
+            document.getElementById('noClientsMessage').classList.toggle('hidden', hasVisibleClients);
         });
-
-        // ajax
     </script>
 </body>
 
