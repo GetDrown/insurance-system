@@ -20,7 +20,7 @@
             <form action="./phpscript/addcustomer.php" method="POST" class="flex flex-col px-3">
                 <!-- account info -->
                 <div>
-                    <h1 class="mb-5 font-medium text-lime-600 pla">Account Info</h1>
+                    <h1 class="mb-5 font-medium text-lime-600 pla">Customer Registration Form</h1>
                     <!-- username -->
                     <input type="text" name="username" class="h-[35px] w-full border-2 px-3 py-2 mb-5 rounded-md  active:outline-none focus:outline-none" placeholder="Username...">
 
