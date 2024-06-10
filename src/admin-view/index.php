@@ -274,7 +274,6 @@ if ($result->num_rows > 0) {
                     </div>
 
                     <span class="ml-3 text-white">Customers</span>
-                    main
                 </a>
             </li>
             <!-- staff -->
