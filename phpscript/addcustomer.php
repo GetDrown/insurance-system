@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt_customer->bind_param('isssssss', $user_id, $lastname, $firstname, $middle_ini, $name_ext, $phone_num, $email_add, $customer_add);
 
         if ($stmt_customer->execute()) {
-            header('Location: ../src/admin-view/clients.php');
+            header('Location: ../index.php');
         } else {
             echo "Error: " . $stmt_customer->error;
         }
