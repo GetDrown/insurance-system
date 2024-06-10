@@ -65,7 +65,7 @@ if ($result->num_rows > 0) {
 
                 <button data-open-clients-modal class="bg-lime-600 px-3 py-2 rounded-md drop-shadow-md font-semibold text-white"><i class="fa-regular fa-square-plus"></i> Add
                     Customers</button>
-                main
+              
             </div>
         </div>
         <!-- body -->
