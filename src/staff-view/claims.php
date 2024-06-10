@@ -11,9 +11,9 @@
             </div>
             <div class="overflow-hidden w-full">
                 <div class="border-dashed border-4 w-full h-[430px] grid grid-cols-4 gap-4 p-3 overflow-y-auto">
-                    <?php for ($i=0; $i < 3 ; $i++) { ?>
+                    <?php for ($i=0; $i < 1 ; $i++) { ?>
                     <div class="border h-[170px]  rounded-md p-3">
-                        <i class="fa-solid fa-cloud-arrow-up text-[70px] text-gray-500"></i>
+                        <i class="fa-solid fa-file-lines text-[70px] text-gray-500"></i>
                         <p class="font-medium">Police Report</p>
                         <button class="text-sky-500 font-medium mt-4 rounded-md">view File</button>
                     </div>
