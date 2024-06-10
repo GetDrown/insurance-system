@@ -7,7 +7,7 @@ include '../../includes/header.php';
 
 <body class="bg-gray-300">
     <!-- Sidebar -->
-    <?php include '../../includes/sidebar.php'; ?>
+    <?php include '../../includes/sidebar-life.php'; ?>
     <!-- Main content -->
     <div class=" basis-5/6 h-dvh flex flex-col justify-start items-center py-3 px-5 overflow-auto">
         <div class="h-[1150px] w-full justify-center items-center bg-white px-4 rounded-md">
