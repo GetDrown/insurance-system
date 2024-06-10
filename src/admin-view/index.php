@@ -1,6 +1,31 @@
 <?php 
 include '../../includes/header.php';
 include '../../dbconf/db_config.php';
+
+// Sums all the policy quantity
+$sql = "SELECT SUM(non_life_qty) AS total_remaining_policies FROM non_life_policy";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    // Fectch the sum
+    $row = $result->fetch_assoc();
+    $total_remaining_policies = $row['total_remaining_policies'];
+} else {
+    $total_remaining_policies = 0;
+}
+
+
+// counts the policy holder
+$sql = "SELECT COUNT(DISTINCT transaction_id) AS total_customers FROM transactions";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    // fetch the number of policy holder
+    $row = $result->fetch_assoc();
+    $total_customers = $row['total_customers'];
+} else {
+    $total_customers = 0;
+}
 ?>
 
 <body>
@@ -247,7 +272,9 @@ include '../../dbconf/db_config.php';
                     <div class="img-container">
                         <img src="../../assets/image/Customer.png" alt="">
                     </div>
-                    <span class="ml-3 text-white">Customer</span>
+
+                    <span class="ml-3 text-white">Customers</span>
+                    main
                 </a>
             </li>
             <!-- staff -->
@@ -334,7 +361,7 @@ include '../../dbconf/db_config.php';
                     <div class="flex justify-around items-center w-full mt-7 px-2">
                         <div>
                             <p class="font-normal text-[18px] tracking-wide">Policy Holder</p>
-                            <p class="font-medium text-[28px] tracking-wider">0</p>
+                            <p class="font-medium text-[28px] tracking-wider"><?php echo $total_customers; ?></p>
                         </div>
                         <div class="h-[30px] w-[30px]">
                             <span> <i class="fa-solid fa-user-tie text-[50px]"></i></span>
@@ -354,7 +381,8 @@ include '../../dbconf/db_config.php';
                     <div class="flex justify-around items-center w-full mt-7 px-2">
                         <div>
                             <p class="font-normal text-[18px] tracking-wide">Remaining Policies</p>
-                            <p class="font-medium text-[28px] tracking-wider">0</p>
+                            <p class="font-medium text-[28px] tracking-wider"><?php echo $total_remaining_policies; ?>
+                            </p>
                         </div>
                         <div class="h-[30px] w-[30px]">
                             <span><i class="fa-solid fa-file-invoice  fa-peso-sign text-[50px]"></i></span>
@@ -439,8 +467,7 @@ include '../../dbconf/db_config.php';
                         <button data-status-btn
                             class=" text-blue-400 text-sm font-medium border py-1 px-3 rounded-md hover:text-white hover:bg-blue-400">View</button>
                     </div>
-                    <?php 
-                    } ?>
+                    <?php } ?>
                 </div>
             </div>
             <!-- add policies and staff -->
@@ -464,7 +491,7 @@ include '../../dbconf/db_config.php';
         </div>
     </div>
 
-    <script src="../../assets/js/admin-index.js"></script>
+    <script src="../../assets/js/admin-index.js"> </script>
     <script src="../../assets/js/time.js"></script>
 </body>
 

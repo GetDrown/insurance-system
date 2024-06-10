@@ -2,10 +2,43 @@
 include '../../dbconf/db_config.php'
 ?>
 <?php
-$userNum = 5;
+
 $users = array();
 $currentIndex = 0;
+
+$userNum = 0;
+$sql = "SELECT COUNT(customer_id) AS total_customers FROM customers";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+    $userNum = $row['total_customers'];
+}
+main
 ?>
+
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+<script>
+    $(document).ready(function() {
+        $('.view-status-btn').on("click", function(e) {
+            e.preventDefault();
+            var customerId = $(this).data('index');
+            var customerName = $(this).siblings('.username').text();
+            $('#modalUsername').text(customerName);
+
+            $.get('../../phpscript/fetch_data/fetch_transactions.php', {
+                customer_id: customerId
+            }, function(data) {
+                $('#transactionTableBody').html(data);
+                $('[data-status-modal]')[0].showModal();
+            });
+        });
+
+        $(['data-close-status-modal']).on('click', function() {
+            $(['data-status-modal'])[0].close();
+        })
+    });
+</script>
 
 <body>
     <!-- sidebar -->
@@ -16,23 +49,24 @@ $currentIndex = 0;
         <div class="h-[100px] w-full bg-white rounded-lg p-4 flex items-center justify-between mb-4 drop-shadow-md">
             <div>
                 <h1 class="font-medium text-[28px] text-lime-700">Customers</h1>
-                <p class="text-gray-500">Total Clients: <?php echo $userNum ?></p>
+                <p class="text-gray-500">Total Customers: <?php echo $userNum;
+                                                            ?></p>
 
             </div>
             <div class="flex gap-4">
                 <div class="border-2 border-lime-600 rounded-md flex justify-between items-center pr-2">
                     <div class="bg-lime-600 h-full p-2 text-white">
-                        Search Client
+                        Search Customers
                     </div>
                     <input id="searchBar" type="text" placeholder="type here.."
                         class="px-2 py-2 rounded-md focus:outline-none">
                     <span><i class="fa-solid fa-magnifying-glass text-lime-600"></i></span>
                 </div>
 
-                <button data-open-clients-modal
-                    class="bg-lime-600 px-3 py-2 rounded-md drop-shadow-md font-semibold text-white"><i
-                        class="fa-regular fa-square-plus"></i> Add
-                    Client</button>
+
+                <button data-open-clients-modal class="bg-lime-600 px-3 py-2 rounded-md drop-shadow-md font-semibold text-white"><i class="fa-regular fa-square-plus"></i> Add
+                    Customers</button>
+main
             </div>
         </div>
         <!-- body -->
@@ -99,7 +133,7 @@ $currentIndex = 0;
                 </div>
                 <!-- clients info -->
                 <div>
-                    <h1 class="mb-5 font-medium text-lime-600">Client Info</h1>
+                    <h1 class="mb-5 font-medium text-lime-600">Customer Info</h1>
                     <!-- username -->
                     <div>
                         <!-- name -->
@@ -165,23 +199,23 @@ $currentIndex = 0;
                         <th class="border border-lime-500 bg-lime-600 text-white">Action</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <?php for ($i = 0; $i < 3; $i++) { ?>
-                    <tr>
-                        <td class="py-3 border border-lime-500 text-center">001</td>
-                        <td class="py-3 border border-lime-500 text-center">2024</td>
-                        <td class="py-3 border border-lime-500 text-center">Motorcycle Policy</td>
-                        <td class="py-3 border border-lime-500 text-center"> Non-Life Insurance</td>
-                        <td class="py-3 border border-lime-500 text-center flex items-center justify-center">
-                            <div id="status" class="w-[100px] text-green-600 bg-white p-2 font-semibold">Active
-                            </div>
-                        </td>
-                        <td class="py-3 border border-lime-500 text-center">
-                            <button
-                                class="  w-[100px] text-white bg-amber-600 p-1 font-semibold rounded-md">Renew</button>
-                        </td>
-                    </tr>
-                    <?php } ?>
+
+                <tbody id="transactionTableBody">
+                    <!-- <?php for ($i = 0; $i < 3; $i++) { ?>
+                        <tr>
+                            <td class="py-3 border border-lime-500 text-center">001</td>
+                            <td class="py-3 border border-lime-500 text-center">2024</td>
+                            <td class="py-3 border border-lime-500 text-center">Motorcycle Policy</td>
+                            <td class="py-3 border border-lime-500 text-center"> Non-Life Insurance</td>
+                            <td class="py-3 border border-lime-500 text-center flex items-center justify-center">
+                                <div id="status" class="w-[100px] text-green-600 bg-white p-2 font-semibold">Active
+                                </div>
+                            </td>
+                            <td class="py-3 border border-lime-500 text-center">
+                                <button class="  w-[100px] text-white bg-amber-600 p-1 font-semibold rounded-md">Renew</button>
+                            </td>
+                        </tr>
+ main
                 </tbody>
             </table>
         </div>
@@ -207,10 +241,12 @@ $currentIndex = 0;
         dropdownButtons.classList.toggle('hidden');
     });
 
+main
 
     const openClientsBtn = document.querySelector("[data-open-clients-modal]");
     const closeClientsBtn = document.querySelector("[data-close-clients-modal]");
     const modalClients = document.querySelector("[data-clients-modal]");
+
 
     openClientsBtn.addEventListener("click", () => {
         modalClients.showModal();
@@ -276,6 +312,7 @@ $currentIndex = 0;
             }
         });
 
+ main
         // document.getElementById('noClientsMessage').classList.toggle('hidden', hasVisibleClients);
         var element = document.getElementById('noClientsMessage');
 
@@ -289,6 +326,7 @@ $currentIndex = 0;
 
         document.getElementById('noClientsMessage').classList.toggle('hidden', hasVisibleClients);
     });
+
     </script>
 </body>
 

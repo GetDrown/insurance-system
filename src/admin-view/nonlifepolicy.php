@@ -1,4 +1,5 @@
-<?php include '../../includes/header.php';
+<?php
+include '../../includes/header.php';
 include '../../dbconf/db_config.php';
 
 session_start();
@@ -20,7 +21,7 @@ $customer_id = isset($_GET['customer_id']) ? $_GET['customer_id'] : null;
 
 // check customer if valid
 if ($customer_id) {
-    $sql = 'select * from customers where customer_id = ?';
+    $sql = "select * from customers where customer_id = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param('i', $customer_id);
     $stmt->execute();
@@ -44,6 +45,24 @@ if ($customer_id) {
     $color = "Blue";
     $bltFileNo = "BLT123456789";
 }
+// get prices of each premiums
+// if (isset($_GET['id'])) {
+//     $non_life_id = intval($_GET['id']);
+//     $sql_nonlife = "SELECT non_life_premium, non_life_docstamp, non_life_govtax, non_life_others WHERE non_life_id = ?";
+//     $stmt_nonlife = $conn->prepare($sql_nonlife);
+//     $stmt_nonlife->bind_param("i", $non_life_id);
+//     $stmt_nonlife->execute();
+//     $result = $stmt_nonlife->get_result();
+
+//     if ($result->num_rows > 0) {
+//         $row = $result->fetch_assoc();
+//         echo json_encode($row);
+//     } else {
+//         echo json_encode([]);
+//     }
+//     $stmt->close();
+//     $conn->close();
+// }
 
 // if from dashboard
 $previousPage = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '';
@@ -63,7 +82,48 @@ if ($previousPage == 'http://localhost/insurance-system/src/admin-view/index.php
     $bltFileNo = $_POST['bltFileNo'];
 }
 ?>
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+    crossorigin="anonymous"></script>
+<script>
+$(document).ready(function() {
+    $('#non_life_selection').change(function() {
+        var nonLifeId = $(this).val();
 
+        $.ajax({
+            type: "POST",
+            url: "../../phpscript/fetch_data/fetch_nonlifepolicy.php",
+            data: {
+                non_life_id: nonLifeId
+            },
+            dataType: "json",
+            success: function(response) {
+                $('#vehicle_premium').val(response.non_life_premium);
+                $('#vehicle_docstamp').val(response.non_life_docstamp);
+                $('#vehicle_govtax').val(response.non_life_govtax);
+                $('#vehicle_others').val(response.non_life_others);
+
+                realculateTotal();
+                // var total = parseFloat(response.non_life_premium) + parseFloat(response.non_life_docstamp) + parseFloat(response.non_life_govtax) + parseFloat(response.non_life_others);
+                // $('#vehicle_totalpaid').val(total);
+            }
+        });
+    });
+
+    $('#vehicle_premium, #vehicle_docstamp, #vehicle_govtax, #vehicle_others').on('input', function() {
+        recalculateTotal();
+    });
+
+    function recalculateTotal() {
+        var premium = parseFloat($('#vehicle_premium').val()) || 0;
+        var docStamp = parseFloat($('#vehicle_docstamp').val()) || 0;
+        var govTax = parseFloat($('#vehicle_govtax').val()) || 0;
+        var others = parseFloat($('#vehicle_others').val()) || 0;
+
+        var total = premium + docStamp + govTax + others;
+        $('#vehicle_totalpaid').val(total.toFixed(2));
+    }
+});
+</script>
 
 <body class="bg-gray-300">
     <!-- sidebar -->
@@ -267,7 +327,29 @@ if ($previousPage == 'http://localhost/insurance-system/src/admin-view/index.php
 
 
     </div>
-
+    <!-- <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('non_life_selection').addEventListener('change', function() {
+                const nonLifeId = this.value;
+                if (nonLifeId) {
+                    fetch('nonlifepolicy.php?id=' + nonLifeId)
+                        .then(response => response.json())
+                        .then(data => {
+                            document.getElementById('vehicle_premium').value = data.non_life_premium || '';
+                            document.getElementById('vehicle_docstamp').value = data.non_life_docstamp || '';
+                            document.getElementById('vehicle_govtax').value = data.non_life_govtax || '';
+                            document.getElementById('vehicle_others').value = data.non_life_others || '';
+                            document.getElementById('vehicle_totalpaid').value = (parseFloat(data.non_life_premium) || 0) +
+                                (parseFloat(data.non_life_docstamp) || 0) +
+                                (parseFloat(data.non_life_govtax) || 0) +
+                                (parseFloat(data.non_life_others) || 0)
+                                .toFixed(2);
+                        })
+                        .catch(error => console.error('Error fecthing data: ', error));
+                }
+            });
+        });
+    </script> -->
 
 </body>
 
