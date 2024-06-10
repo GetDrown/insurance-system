@@ -65,8 +65,9 @@ document.querySelectorAll("[data-status-btn]").forEach((btn) => {
                 expiringModal.showModal();
                 break;
             case "pending":
-                var uname = (document.getElementById("pendingUsername").value =
-                    username);
+                var uname = (document.getElementById(
+                    "pendingUsername"
+                ).textContent = username);
                 var polic = (document.getElementById("pendingPolicy").value =
                     policy);
                 pendingModal.showModal();
