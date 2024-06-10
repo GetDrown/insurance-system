@@ -107,6 +107,8 @@ if ($customer_id) {
         </ul>
     </div>
     <!-- main-content -->
+
+
     <div class=" basis-5/6 h-dvh flex flex-col justify-start items-center py-3 px-5 overflow-y-auto">
 
         <div class="h-[1150px] w-full md:w-full bg-white rounded-lg border p-3 drop-shadow-md flex flex-col ">
@@ -115,7 +117,30 @@ if ($customer_id) {
 
             <form action="../../phpscript/addnonlife.php" method="POST" class="flex flex-col ">
                 <input type="hidden" name="customer_id" value="<?php echo htmlspecialchars($customer_id); ?>">
-
+                <dialog data-upload-file-modal class="h-[500px] w-[500px] p-5 text-center ">
+                    <div class="h-full flex flex-col items-center justify-between">
+                        <div>
+                            <p class="text-[28px] text-gray-500">Provide Picture of OR/CR</p>
+                            <!-- <p class="italic text-sm text-gray-500">(example: Police Report)</p> -->
+                        </div>
+                        <div class="border-dashed border-4 w-full h-[330px] flex flex-col justify-evenly items-center">
+                            <i class="fa-solid fa-cloud-arrow-up text-[100px] text-gray-500"></i>
+                            <div>
+                                <p class="font-medium">Drop Files Here</p>
+                                <p class="font-medium">or</p>
+                                <button class="border bg-sky-500 text-white px-3 py-1 mt-4 rounded-md">Browse</button>
+                            </div>
+                            <div>
+                                <p class="text-gray-400 text-sm">Current Size Size: 0 MB</p>
+                                <p class="text-gray-400 text-sm">Maximum Total Size: 4.5 MB</p>
+                            </div>
+                        </div>
+                        <div class="w-full flex justify-end items-end gap-3">
+                            <button class="px-3 py-1 mt-2 rounded-md bg-lime-500 text-white border">Submit</button>
+                            <button data-upload-file-modal-close class="px-3 py-1 mt-2 rounded-md bg-red-500 text-white border">Cancel</button>
+                        </div>
+                    </div>
+                </dialog>
                 <div class="mt-4 flex mb-[25px] space-x-4">
                     <label class="text-3xl ml-2 font-poppins text-lime-700">Non-Life Insurance Policy Application</label>
                     <select name="non_life_selection" id="non_life_selection" class="rounded-md px-[6px] py-[7px] bg-white border-[3px]">
@@ -132,7 +157,7 @@ if ($customer_id) {
                         ?>
                     </select>
                 </div>
-                <div class="flex flex-row space-x-6 ml-[10px] md:ml-[7px] mb-[25px]">
+                <!-- <div class="flex flex-row space-x-6 ml-[10px] md:ml-[7px] mb-[25px]">
                     <div class="flex flex-col space-y-2">
                         <label for="" class="font-poppins">Name and Address of Insured:</label>
                         <textarea name="name_and_address" id="" placeholder="Name and Address of Insured" class="text-md pt-[2px] placeholder:pt-[2px] placeholder:text-sm placeholder:pl-[2px] resize-y rounded-md w-[300px] h-[100px] border-2 border-slate-300 focus:ring-1 focus:outline-none focus:border-lime-500 focus:ring-lime-500 px-[4px]" required></textarea>
@@ -155,7 +180,7 @@ if ($customer_id) {
                         <label for="" class="font-poppins">To</label>
                         <input name="to_issuance" type="date" class="mt-2 rounded-md w-[150px] py-[2px] px-[4px] placeholder:pl-[2px] placeholder:text-sm bg-white border-2 border-slate-300 focus:ring-1 focus:outline-none focus:border-lime-500 focus:ring-lime-500">
                     </div>
-                </div>
+                </div> -->
 
                 <div class="mb-[25px]">
                     <label class="text-3xl ml-2 font-poppins">Scheduled Vehicle</label>
@@ -194,82 +219,71 @@ if ($customer_id) {
                     </div>
                 </div>
 
-                <div class="mb-[2px]">
-                    <label class="text-3xl ml-2 font-poppins tracking-wide">Section I/II</label>
+                <div class="mb-[9px] grid grid-cols-2">
+                    <label class="text-3xl ml-2 font-poppins tracking-wide">Section I & II</label>
+                    <label class="text-3xl ml-2 font-poppins tracking-wide">Section III Premiums</label>
                 </div>
 
-                <div class="flex flex-row ml-[10px] md:ml-[7px] space-x-6 mb-[25px]">
-                    <div class="flex flex-col space-y-4 mr-[50px] mt-[20px]">
-                        <div class="flex flex-row justify-between space-x-4 ">
+                <div class="grid grid-cols-2 gap-1">
+                    <div class="flex flex-col space-y-4 mt-[9px] ml-[10px]">
+                        <div class="flex flex-row justify-start ">
                             <label for="" class="font-poppins mt-[5px] mr-[10px]">Limit of Liability</label>
                             <img src="../../assets/image/peso.png" alt="" class="w-[20px] h-[20px] mt-[4px]">
                             <input type="text" placeholder="100,000.00" class=" rounded-md w-[250px] py-[2px] px-[4px] placeholder:pl-[2px] placeholder:text-black placeholder:text-sm bg-white border-2 border-slate-300 focus:ring-1 focus:outline-none focus:border-lime-500 focus:ring-lime-500" disabled>
 
                         </div>
-                        <div class="flex flex-row justify-between space-x-4 ">
+                        <div class="flex flex-row justify-start">
                             <label for="" class="font-poppins mt-[5px] mr-[15px]">Premium Paid</label>
                             <img src="../../assets/image/peso.png" alt="" class="w-[20px] h-[20px] mt-[4px]">
                             <input name="vehicle_paid" type="text" placeholder="100,000.00" class=" rounded-md w-[250px] py-[2px] px-[4px] placeholder:pl-[2px] placeholder:text-sm bg-white border-2 border-slate-300 focus:ring-1 focus:outline-none focus:border-lime-500 focus:ring-lime-500">
 
                         </div>
                     </div>
-
-
-                    <div class=" flex flex-col items-center">
-                        <p class="font-poppins font-semibold text-[14px] text-center">THIRD PARTY LIABILITY</p>
-                        <p class="font-poppins italic text-[12px] text-center">(SUBJECT TO THE SCHEDULE OF INDEMNITIES
-                            AT THE BACK HEREOF
-                        </p>
-                        <p class="font-poppins italic text-[12px] text-center">This Confirmation of Cover is evidence of
-                            policy of Insurance required under<br>Chapter VI Compulsory Motor Vehicle Liability
-                            Insurance of the Insurance code,<br>as amended by Presidential decree No. 1814)
-                        </p>
-                        <!-- <p class="font-poppins italic">Chapter VI Compulsory Motor Vehicle Liability Insurance of the Insurance code,<br>as amended by Presidential decree No. 1814)
-                        </p>
-                        <p class="font-poppins italic">as amended by Presidential decree No. 1814)
-                        </p> -->
-                    </div>
-                </div>
-
-                <div class="mb-[20px]">
-                    <label class="text-3xl ml-2 font-poppins tracking-wide">Section III</label>
-                </div>
-                <label class="text-2xl font-poppins tracking-wide ml-[10px] md:ml-[7px] mb-[10px]">Premiums</label>
-                <div class="flex flex-row ml-[15px] md:ml-[18px] mb-[30px]">
-                    <div class="flex flex-col space-y-4 mr-[60px]">
-                        <div class="flex flex-row space-x-4">
-                            <label for="" class="font-poppins mt-[3px] mr-[8px]">Premium Paid</label>
-                            <img src="../../assets/image/peso.png" alt="" class="w-[20px] h-[20px] mt-[5px]">
-                            <input name="vehicle_premium" id="vehicle_premium" type="text" placeholder="" class=" rounded-md w-[250px] py-[2px] px-[4px] placeholder:pl-[2px] placeholder:text-black placeholder:text-sm bg-white border-2 border-slate-300 focus:ring-1 focus:outline-none focus:border-lime-500 focus:ring-lime-500">
-                        </div>
-                        <div class="flex flex-row space-x-4">
-                            <label for="" class="font-poppins mt-[3px] mr-[8px]">Doc. Stamps</label>
-                            <img src="../../assets/image/peso.png" alt="" class="w-[20px] h-[20px] mt-[5px]">
-                            <input name="vehicle_docstamp" id="vehicle_docstamp" type="text" placeholder="" class=" rounded-md w-[250px] py-[2px] px-[4px] placeholder:pl-[2px] placeholder:text-black placeholder:text-sm bg-white border-2 border-slate-300 focus:ring-1 focus:outline-none focus:border-lime-500 focus:ring-lime-500" readonly>
-                        </div>
-                        <div class="flex flex-row space-x-4">
-                            <label for="" class="font-poppins mt-[3px] mr-[8px]">Local Gov't Tax</label>
-                            <img src="../../assets/image/peso.png" alt="" class="w-[20px] h-[20px] mt-[5px]">
-                            <input name="vehicle_govtax" id="vehicle_govtax" type="text" placeholder="" class=" rounded-md w-[250px] py-[2px] px-[4px] placeholder:pl-[2px] placeholder:text-black placeholder:text-sm bg-white border-2 border-slate-300 focus:ring-1 focus:outline-none focus:border-lime-500 focus:ring-lime-500" readonly>
-                        </div>
-                        <div class="flex flex-row  mb-[20px]">
-                            <label for="" class="font-poppins mt-[3px] mr-[70px]">Others</label>
-                            <img src="../../assets/image/peso.png" alt="" class="w-[20px] h-[20px] mt-[5px]">
-                            <input name="vehicle_others" id="vehicle_others" type="text" placeholder="" class=" rounded-md w-[250px] py-[2px] px-[4px] placeholder:pl-[2px] placeholder:text-black placeholder:text-sm bg-white border-2 border-slate-300 focus:ring-1 focus:outline-none focus:border-lime-500 focus:ring-lime-500" readonly>
-                        </div>
-                        <div class="flex flex-row ">
-                            <label for="" class="font-poppins mt-[3px] mr-[70px] font-semibold">Total</label>
-                            <img src="../../assets/image/peso.png" alt="" class="w-[20px] h-[20px] mt-[5px]">
-                            <input name="vehicle_totalpaid" id="vehicle_totalpaid" type="text" placeholder="" class=" rounded-md w-[250px] py-[2px] px-[4px] placeholder:pl-[2px] placeholder:text-black placeholder:text-sm bg-white border-2 border-slate-300 focus:ring-1 focus:outline-none focus:border-lime-500 focus:ring-lime-500" readonly>
+                    <!-- <label class="text-2xl font-poppins tracking-wide ml-[10px] md:ml-[7px] mb-[10px]">Premiums</label> -->
+                    <div class="flex flex-row ml-[15px] md:ml-[18px] mb-[30px] ">
+                        <div class="flex flex-col space-y-4 mr-[60px] mt-[10px]">
+                            <div class="flex flex-row gap-[15px] justify-between">
+                                <label for="" class="font-poppins mt-[3px] mr-[25px]">Premium Paid</label>
+                                <img src="../../assets/image/peso.png" alt="" class="w-[20px] h-[20px] mt-[5px]">
+                                <input name="vehicle_premium" id="vehicle_premium" type="text" placeholder="" class=" rounded-md w-[250px] py-[2px] px-[4px] placeholder:pl-[2px] placeholder:text-black placeholder:text-sm bg-white border-2 border-slate-300 focus:ring-1 focus:outline-none focus:border-lime-500 focus:ring-lime-500">
+                            </div>
+                            <div class="flex flex-row justify-between ">
+                                <label for="" class="font-poppins mt-[3px] mr-[35px]">Doc. Stamps</label>
+                                <img src="../../assets/image/peso.png" alt="" class="w-[20px] h-[20px] mt-[5px]">
+                                <input name="vehicle_docstamp" id="vehicle_docstamp" type="text" placeholder="" class=" rounded-md w-[250px] py-[2px] px-[4px] placeholder:pl-[2px] placeholder:text-black placeholder:text-sm bg-white border-2 border-slate-300 focus:ring-1 focus:outline-none focus:border-lime-500 focus:ring-lime-500" readonly>
+                            </div>
+                            <div class="flex flex-row justify-between">
+                                <label for="" class="font-poppins mt-[3px] mr-[20px]">Local Gov't Tax</label>
+                                <img src="../../assets/image/peso.png" alt="" class="w-[20px] h-[20px] mt-[5px]">
+                                <input name="vehicle_govtax" id="vehicle_govtax" type="text" placeholder="" class=" rounded-md w-[250px] py-[2px] px-[4px] placeholder:pl-[2px] placeholder:text-black placeholder:text-sm bg-white border-2 border-slate-300 focus:ring-1 focus:outline-none focus:border-lime-500 focus:ring-lime-500" readonly>
+                            </div>
+                            <div class="flex flex-row  mb-[20px] justify-between">
+                                <label for="" class="font-poppins mt-[3px] mr-[80px]">Others</label>
+                                <img src="../../assets/image/peso.png" alt="" class="w-[20px] h-[20px] mt-[5px]">
+                                <input name="vehicle_others" id="vehicle_others" type="text" placeholder="" class=" rounded-md w-[250px] py-[2px] px-[4px] placeholder:pl-[2px] placeholder:text-black placeholder:text-sm bg-white border-2 border-slate-300 focus:ring-1 focus:outline-none focus:border-lime-500 focus:ring-lime-500" readonly>
+                            </div>
+                            <div class="flex flex-row justify-between ">
+                                <label for="" class="font-poppins mt-[3px] mr-[90px] font-semibold">Total</label>
+                                <img src="../../assets/image/peso.png" alt="" class="w-[20px] h-[20px] mt-[5px]">
+                                <input name="vehicle_totalpaid" id="vehicle_totalpaid" type="text" placeholder="" class=" rounded-md w-[250px] py-[2px] px-[4px] placeholder:pl-[2px] placeholder:text-black placeholder:text-sm bg-white border-2 border-slate-300 focus:ring-1 focus:outline-none focus:border-lime-500 focus:ring-lime-500" readonly>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="flex flex-row ml-[7px]">
-                    <label for="" class="font-poppins mt-[3px] mr-[8px]">Forms and Endorsements Made Part of this Policy
-                        at time of Issue</label>
-                    <input name="form_endorsement" type="text" placeholder="" class=" rounded-md w-[250px] py-[2px] px-[4px] placeholder:pl-[2px] placeholder:text-black placeholder:text-sm bg-white border-2 border-slate-300 focus:ring-1 focus:outline-none focus:border-lime-500 focus:ring-lime-500">
+                <div class="flex flex-col ml-[7px]">
+                    <div class="flex flex-row mb-[20px]">
+                        <label for="" class="font-poppins mt-[3px] mr-[8px]">Forms and Endorsements Made Part of this Policy
+                            at time of Issue</label>
+                        <input name="form_endorsement" type="text" placeholder="" class=" rounded-md w-[250px] py-[2px] px-[4px] placeholder:pl-[2px] placeholder:text-black placeholder:text-sm bg-white border-2 border-slate-300 focus:ring-1 focus:outline-none focus:border-lime-500 focus:ring-lime-500">
+                    </div>
+                    <div class="flex flex-row">
+                        <label for="" class="font-poppins mt-[20px] mr-[8px]">Upload hard copy of OR/CR</label>
+                        <button data-upload-file-modal-open class="px-5 py-2 border rounded-md shadow-md mt-3 bg-lime-500 text-white">Upload Here</button>
+                    </div>
                 </div>
+
+
                 <div class="flex flex-row justify-end space-x-4 mr-7 mt-4">
                     <button type="submit" class="rounded-md px-[6px] py-[9px] bg-lime-500 hover:bg-lime-600  transition ease-in-out duration-300">Approve
                         Application</button>
@@ -282,29 +296,21 @@ if ($customer_id) {
 
 
     </div>
-    <!-- <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            document.getElementById('non_life_selection').addEventListener('change', function() {
-                const nonLifeId = this.value;
-                if (nonLifeId) {
-                    fetch('nonlifepolicy.php?id=' + nonLifeId)
-                        .then(response => response.json())
-                        .then(data => {
-                            document.getElementById('vehicle_premium').value = data.non_life_premium || '';
-                            document.getElementById('vehicle_docstamp').value = data.non_life_docstamp || '';
-                            document.getElementById('vehicle_govtax').value = data.non_life_govtax || '';
-                            document.getElementById('vehicle_others').value = data.non_life_others || '';
-                            document.getElementById('vehicle_totalpaid').value = (parseFloat(data.non_life_premium) || 0) +
-                                (parseFloat(data.non_life_docstamp) || 0) +
-                                (parseFloat(data.non_life_govtax) || 0) +
-                                (parseFloat(data.non_life_others) || 0)
-                                .toFixed(2);
-                        })
-                        .catch(error => console.error('Error fecthing data: ', error));
-                }
+    <script>
+        const filesModal = document.querySelector('[data-upload-file-modal]');
+        const closeModal = document.querySelector('[data-upload-file-modal-close]');
+        document.querySelectorAll('[data-upload-file-modal-open]').forEach(btn => {
+            btn.addEventListener('click', function() {
+                filesModal.showModal();
+                event.preventDefault();
             });
         });
-    </script> -->
+
+        closeModal.addEventListener('click', function() {
+            filesModal.close();
+            event.preventDefault();
+        });
+    </script>
 
 </body>
 
