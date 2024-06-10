@@ -325,7 +325,7 @@ if ($result->num_rows > 0) {
         <div class="h-[100px] w-full bg-white rounded-lg p-4 flex items-center justify-between  shadow-md">
             <div>
                 <h1 class="font-medium text-[28px] text-lime-700">Dashboard </h1>
-                <p class="text-gray-500">Admin</p>
+                <p class="text-gray-500">Staff</p>
             </div>
             <div>
                 <h1 id="currentDate"></h1>
